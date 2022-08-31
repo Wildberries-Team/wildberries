@@ -1,0 +1,26 @@
+{
+  "name": "wildberries-team",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wildberries-Team/wildberries.git"
+  },
+  "keywords": [
+    "wild"
+  ],
+  "author": "Dima Zaycev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wildberries-Team/wildberries/issues"
+  },
+  "homepage": "https://github.com/Wildberries-Team/wildberries#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
