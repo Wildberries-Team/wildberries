@@ -2,7 +2,7 @@ const buttonBurger = document.querySelector('.nav-elem');
 const burgerMenu = document.querySelector('.burger');
 const body = document.querySelector('body');
 
-buttonBurger.addEventListener('click', function (evt) {
+buttonBurger.addEventListener('click', function () {
     burgerMenu.classList.remove('burger_trans')
     body.classList.add('body-overflow')
 
