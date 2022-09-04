@@ -1,0 +1,21 @@
+/* 1st intro */
+.intro {
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+}
+
+.intro__right {
+		cursor: pointer;
+}
+
+.intro__left {
+		cursor: pointer;
+}
+
+.intro__img {
+		margin: 45px 20px 0 0;
+		border-radius: 36px;
+		max-width: 704px;
+		max-height: 252px;
+}

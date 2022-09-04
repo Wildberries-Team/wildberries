@@ -1,0 +1,246 @@
+header {
+		width: 100%;
+		margin: 0 auto;
+		padding-bottom: 50px;
+		background: linear-gradient(to right,#cb11ab 0,#481173 100%) no-repeat;
+}
+
+.header__top {
+		padding: 0 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+}
+
+.menu {
+		display: flex;
+		align-items: center;
+}
+
+.menu__item {
+		margin: 20px;
+		font-family: 'Roboto', sans-serif;
+		color: rgba(255, 255, 255, 0.589);
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 300;
+		cursor: pointer;
+}
+
+.j-geocity__icon {
+		font-size: 15px;
+		padding-right: 3px;
+}
+
+.j-country {
+		display: flex;
+		flex-direction: row-reverse;
+}
+
+.j-country__img {
+	padding-left: 4px;
+	max-width: 60px;
+	max-height: 60px;
+}
+
+.for-sellers {
+		padding: 7px 9px 9px;
+		color: white;
+		border-radius: 30px;
+		background:  #cb11ab linear-gradient(90deg,#bf5ae0 0,#a811da 100%);
+}
+
+.btn-chat {
+		display: block;
+		margin: 0;
+		padding: 5px 7px 7px;
+		max-height: 30px;
+		min-width: 200px;
+		color: white;
+		border-radius: 20px;
+		font-family: 'Roboto', sans-serif;
+		background: #e936b9ce;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 300;
+}
+
+.btn-chat__icon {
+		padding-left: 4px;
+}
+
+												/* header 2nd row */
+.nav {
+		display: flex;
+		align-items: center;
+		padding-bottom: 20px;
+}
+
+.nav-elem {
+		padding: 5px;
+		margin-left: 2%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		max-width: 60px;
+		min-height: 60px;
+		border: 0.3px solid rgba(255, 255, 255, 0.621);
+		border-radius: 10px;
+		cursor: pointer;
+}
+
+.burger-btn {
+		display: block;
+		width: 34px;
+		height: 6px;
+		margin: 2px 5px 5px;
+		position: relative;
+		background: white;
+		border-radius: 3px;
+}
+
+.burger-btn::before {
+		display: block;
+		content: '';
+		width: 34px;
+		height: 6px;
+		top: 12px;
+		position: absolute;
+		background: white;
+		border-radius: 3px;
+}
+
+.burger-btn::after {
+		display: block;
+		content: '';
+		width: 34px;
+		height: 6px;
+		position: absolute;
+		bottom: 12px;
+		background: white;
+		border-radius: 3px;
+}
+
+.logo__img {
+		max-height: 85px;
+		max-width: 230px;
+		margin: 0 5%;
+		cursor: pointer;
+}
+												/* main search input */
+.search {
+		margin: 0 auto;
+		position: relative;
+		display: flex;
+		align-items: center;
+}
+
+.search__input {
+		margin: 0 auto;
+		padding-left: 8%;
+		min-height: 70px;
+		min-width: 810px;
+		border-radius: 50px;
+		font-family: 'Roboto', sans-serif;
+		background: #d269d66c;
+		cursor: pointer;
+}
+
+.search__input::placeholder {
+		color: rgba(255, 255, 255, 0.589);
+		font-size: 20px;
+		line-height: 20px;
+		font-weight: 400;
+}
+
+.search__icon_magnifier {
+		display: block;
+		position: absolute;
+		left: 4%;
+		font-size: 20px;
+		color: rgba(255, 255, 255, 0.589);
+}
+
+.search__icon_camera {
+		display: block;
+		position: absolute;
+		right: 4%;
+		font-size: 20px;
+		color: rgba(255, 255, 255, 0.589);
+}
+				/* navbar to the right */
+.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+}
+
+.navbar__item {
+		margin: 15px;
+}
+
+.navbar__text {
+		display: block;
+		color: white;
+		padding-top: 30px;
+		font-family: 'Roboto', sans-serif;
+		color: rgba(255, 255, 255, 0.589);
+		font-size: 1.5em;
+		line-height: 20px;
+		font-weight: 300;
+		cursor: pointer;
+		position: relative;
+}
+
+.navbar__text::before {
+	padding: 5px;
+	z-index: 2;
+	display: block;
+	position: absolute;
+	bottom: 30px;
+	left: 20px;
+	font-size: 50px;
+	color: white;
+}
+
+.navbar__text--address::before {
+		left: 23px;
+		font: var(--fa-font-solid);
+		content: '\f3c5';
+}
+
+.navbar__text--user::before {
+		left: 15px;
+		font: var(--fa-font-solid);
+		content: '\f007';
+}
+
+.navbar__text--basket::before {
+		font: var(--fa-font-solid);
+		content: '\f07a';
+}
+
+.navbar__link {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+}
+
+/* количество товаров в корзине */
+.basket-count {
+		margin: 0 auto;
+		padding: 2px 5px;
+		min-width: 16px;
+		position: absolute;
+		top: -15px;
+		right: 20px;
+		color: white;
+		border-radius: 16px;
+		background: #f55123;
+		font-size: 10px;
+		line-height: 13px;
+		text-align: center;
+		z-index: 3;
+}

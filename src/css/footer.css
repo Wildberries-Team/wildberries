@@ -1,0 +1,85 @@
+.footer {
+		padding: 50px 0 30px 0;
+		margin: 0 auto;
+		width: 100%;
+		background-color:  #481173;
+		position: relative;
+}
+
+.footer::before {
+		content: "";
+		display: block;
+		background: #fff;
+		border-radius: 0 0 24px 24px;
+		width: 100%;
+		height: 24px;
+		position: absolute;
+		top: -4px;
+		left: 0;
+}
+
+.footer__container {
+		display: flex;
+		justify-content: space-around;
+}
+
+.footer__list {
+		display: flex;
+		flex-direction: column;
+}
+
+.footer__title {
+		padding: 12px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 22px;
+		color: white;
+}
+
+.footer__item {
+		padding: 15px 12px;
+}
+
+.footer__item_link {
+		font-family: 'Roboto', sans-serif;
+		font-size: 18px;
+		color: rgba(255, 255, 255, 0.589);
+}
+
+.project__link {
+		display: block;
+		padding: 15px;
+}
+
+.footer__item_link:hover {
+		color: white;
+}
+
+.item-link__logo {
+		max-width: 200px;
+		max-height: 80px;
+}
+
+/* footer license */
+.footer__license {
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+}
+
+.footer__license_text {
+		color: rgba(255, 255, 255, 0.589);
+		margin: 5px;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+}
+
+.check {
+		display: block;
+		text-decoration: underline;
+}
+
+.check:hover { 
+		color: white;
+}
