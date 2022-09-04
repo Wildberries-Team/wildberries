@@ -1,13 +1,751 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Wildberries</title>
+	<script src="https://kit.fontawesome.com/b2e8fbb2d7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-<header>Удалите этот тэг!</header>
-<h1>aaaaaa</h1>
-<h2>bbbb</h2>
+																	<!--HEADER-->
+	<header class="header">
+		<div class="header__container container">
+			<div class="header__top"> <!--1st row-->
+					<ul class="header__menu menu">
+						<li class="menu__item j-country">
+							<img class="j-country__img" src="img/country icons/by.svg" alt="#">
+							By
+						</li>
+						<li class="menu__item j-geocity">
+							<i class="fa-solid fa-location-dot j-geocity__icon"></i> Минск
+						</li>
+						<li class="menu__item">Бесплатная доставка</li>
+						<li class="menu__item for-sellers">Продавайте на Wildberries</li>
+					</ul>
+					<button class="header__btn-chat btn-chat">Сообщить о проблеме
+						<i class="fa-sharp fa-solid fa-comment btn-chat__icon"></i>
+					</button>
+			</div>								
+			<div class="header__bottom nav"> <!--2nd row-->
+					<div class="nav-elem" id="menuToggle">
+						<button class="nav-elem__burger burger-btn" type="button" aria-label="Навигация по сайту"></button>
+					</div>
+					<div class="nav__logo logo">
+						<img class="logo__img" src="img/main logo/Wildberries.svg" alt="Wildberries logo">
+					</div>
+					<div class="nav__search search">
+							<i class="fa-solid fa-magnifying-glass search__icon_magnifier"></i>
+							<input class="search__input" id="searchInput" type="search" placeholder="Я ищу..." />
+							<i class="fa-solid fa-camera search__icon_camera"></i>
+					</div>
+					<ul class="nav__navbar navbar">
+						<li class="navbar__item">
+							<a href="#" class="navbar__link">
+								<span class="navbar__text navbar__text--address">Адреса</span>
+							</a>
+						</li>
+						<li class="navbar__item">
+							<a href="#" class="navbar__link">
+								<span class="navbar__text navbar__text--user">Войти</span>
+							</a>
+						</li>
+						<li class="navbar__item">
+							<a href="#" class="navbar__link">
+								<!-- <i class="fa-solid fa-cart-shopping navbar__icon"></i> -->
+								<span class="navbar__icon_basket-count basket-count">2</span>
+								<span class="navbar__text navbar__text--basket">Корзина</span>
+							</a>
+						</li>
+					</ul>
+			</div>
+		</div>
+	</header>
+																	<!--MAIN-->
+	<div class="main">
+		<div class="main__container container">
+			<h1 class="main__title visually-hidden">Добро пожаловать на Wildberries</h1>
+				<section class="main__banner banner">
+					<div class="banner__slider slider" id="mainSlider">
+						<div class="slider__item">
+							<img class="slider__img" src="img/banner-slider/banner-2.jpg" alt="school discount banner">
+						</div>
+					</div>
+				</section>
+				<section class="main__upper-card-row upper">
+						<h2 class="main__title">Возможно, Вам понравится</h2>
+						<ul class="goods__list"> <!--1 row of cards-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Xiaomi, Redmi 10s.jpg" alt="Redmi 10s">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>21</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">995 р. 82 к.</span>
+											<del class="goods__price-last price-last">1 229р.41к.</del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--1st card/end-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Xiaomi,Note.jpg" alt="Note">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>21</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">895 р. 47 к.</span>
+											<del class="goods__price-last price-last">1 229р.41к.</del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--2nd card/end-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Realme.jpg" alt="Realme">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>10</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">734 р. 67 к.</span>
+											<del class="goods__price-last price-last"></del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--3d card/end-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Asano,24LH.jpg" alt="Asano">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>25</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">995 р. 82 к.</span>
+											<del class="goods__price-last price-last">1 229р.41к.</del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--4th card/end-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Xiaomi,Redmi.jpg" alt="Redmi">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>19</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">995 р. 82 к.</span>
+											<del class="goods__price-last price-last">1 229р.41к.</del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--5th card/end-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Xiaomi,Redmi.jpg" alt="Redmi">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>22</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">995 р. 82 к.</span>
+											<del class="goods__price-last price-last"></del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--6th card/end-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Xiaomi, 11 Lite.jpg" alt="Lite">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>34</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">995 р. 82 к.</span>
+											<del class="goods__price-last price-last">1 229р.41к.</del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--7th card/end-->
+							<li class="goods__item card">
+								<a href="#" class="card__inner goods">
+									<div class="goods__img-wrap">
+										<img class="goods__img" src="img/cards img/Xiaomi, 11 Lite.jpg" alt="Lite">
+										<!--Окошко Быстрый просмотр посередине-->
+										<!-- <button class="goods__preview-btn view-btn">Быстрый просмотр</button> -->
+										<!--В span поступают данные по скидке у каждого товара-->
+										<p class="goods__discount">-<span>19</span>%</p>
+									</div>
+									<div class="goods__info">
+										<p class="goods__price">
+											<span class="goods__price-now price-now">774 р. 82 к.</span>
+											<del class="goods__price-last price-last"></del>
+										</p>
+										<p class="goods__desc">
+											<span class="goods__desc_brand">Xiaomi</span>
+											<span class="goods__desc_name">/ Смартфон Redmi</span>
+										</p>
+									</div>
+								</a>
+							</li> <!--8th card/end-->
+						</ul>
+				</section>	
+				<section class="intro first-intro"> <!--1st intro (breakpoint 1020px becomes a slider)-->
+					<div class="intro-left">
+						<a href="#" class="intro__data">
+							<img class="intro__img" src="img/intro/skirts.jpg" alt="Юбки">
+						</a>
+					</div>
+					<div class="intro-right">
+						<a href="#" class="intro__data">
+							<img class="intro__img" src="img/intro/man_jeans.jpg" alt="Джинсы">
+						</a>
+					</div>
+				</section>
+<!--2 row of cards-->
+<!--Даллее будет массив из карточек-->
+				<section class="intro second-intro"> <!--2nd intro (breakpoint 1020px becomes a slider)-->
+					<div class="intro-left">
+						<a href="#" class="intro__data">
+							<img class="intro__img" src="img/intro/preservatives.jpg" alt="Всё для ваших заготовок на зиму">
+						</a>
+					</div>
+					<div class="intro-right">
+						<a href="#" class="intro__data">
+							<img class="intro__img" src="img/intro/shoes.jpg" alt="Туфли и босоножки">
+						</a>
+					</div>
+				</section>
+<!--3d row of cards-->
+<!--Даллее будет массив из карточек-->
+<!--6 Рядов из 7 карточек, где снизу кнопка-->
+				<section class="cards-bulk">
+					<div class="cards__bulk_container container">
+							<h2 class="cards-bulk visually-hidden">Возможно, Вам понравится</h2>
+							<ul class="cards-bulk__list">
+							</ul>
+<!--Кнопка показать ещё--подгрузится ещё 7 рядов из 7 карт-->
+						<button class="btn-show-more" type="button">Показать ещё
+							<i class="fa-solid fa-arrow-down show-more__icon"></i>
+						</button>
+					</div>
+				</section>
+<!--Далее будет массив из просмотренны пользователем карточек-->
+				<section class="main__opened">
+						<h2 class="main__title">Вы смотрели</h2>
+						<ul class="goods__list visited">
+<!--сюда подгружаются лишки просмотреных товаров-->
+<!--js (условие) если пользователь открывал карточку товара--показать-->
+						</ul>
+				</section>
+																	<!--BRANDS-->
+				<section class="main__brands brands">
+					<div class="brands__title">
+						<h2 class="brands__title_name main__title">Популярные бренды</h2>
+						<a class="brands__title_link brandslist">Смотреть все</a>
+					</div>
+						<ul class="brand__categories category" id="brandCategory"> <!--колонка категории-->
+							<li class="category__item swiper-slide" data-column-count="1">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Женщинам</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Women/zarina.jpg" alt="Zarina">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+<!--												<img class="brand-logo__img" src="img/popular-brands/Women/mango.jpg" alt="Mango">-->
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Women/befree.jpg" alt="Befree">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Women/tvoe.jpg" alt="Tvoe">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Women/vicci.jpg" alt="Vicci">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-1/end-->
+							<li class="category__item swiper-slide" data-column-count="2">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Мужчинам</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Men/adidas.jpg" alt="Adidas">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Men/tvoe.jpg" alt="Tvoe">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Men/oodji.jpg" alt="Oodji">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Men/tailor.jpg" alt="Tailor">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+<!--												<img class="brand-logo__img" src="img/popular-brands/Men/mango.jpg" alt="Mango">-->
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-2/end-->
+							<li class="category__item swiper-slide" data-column-count="3">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Детям</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Children/gj.jpg" alt="GJ">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Children/playtoday.jpg" alt="PlayToday">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Children/sela.jpg" alt="Sela">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Children/acoola.jpg" alt="Acoola">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Children/lela.jpg" alt="Lela">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-3/end-->
+							<li class="category__item swiper-slide" data-column-count="4">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Обувь</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Shoes/adidas.jpg" alt="Adidas">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Shoes/reebok.jpg" alt="Reebook">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Shoes/taccardi.jpg" alt="Taccardi">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Shoes/tendance.jpg" alt="Tendance">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Shoes/geox.jpg" alt="Geox">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-4/end-->
+							<li class="category__item swiper-slide" data-column-count="5">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Аксессуары</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Accessories/guess.jpg" alt="Guess">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Accessories/nels.jpg" alt="Nels">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Accessories/giorgio.jpg" alt="Giorgio">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Accessories/david.jpg" alt="David">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Accessories/hilfiger.jpg" alt="Hilfiger">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-5/end-->
+							<li class="category__item swiper-slide" data-column-count="6">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Premium</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Premium/guess.jpg" alt="Guess">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Premium/hilfiger.jpg" alt="Hilfiger">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Premium/tommy.jpg" alt="Tommy">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Premium/klein.jpg" alt="Klein">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Premium/perfume.jpg" alt="Perfume">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-6/end-->
+							<li class="category__item swiper-slide" data-column-count="7">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Спорт</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Sport/asics.jpg" alt="Asics">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Sport/adidas.jpg" alt="Adidas">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Sport/premont.jpg" alt="Premont">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Sport/grizzly.jpg" alt="Grizzly">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Sport/reebook.jpg" alt="Reebook">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-7/end-->
+							<li class="category__item swiper-slide" data-column-count="8">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Игрушки</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Toys/lego.jpg" alt="Lego">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Toys/barbie.jpg" alt="Barbie">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Toys/dormeo.jpg" alt="Dormeo">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Toys/enchantmants.jpg" alt="Enchantmants">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Toys/palesse.jpg" alt="Palesse">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-8/end-->
+							<li class="category__item swiper-slide" data-column-count="9">
+									<div class="category__item_title">
+										<a href="#" class="category__item_page">Красота</a>
+									</div>
+									<ul class="category__item_logo brand-logo"> <!--колонка из лого брендов-->
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Beauty/Loreal.jpg" alt="Loreal">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Beauty/maybelline.jpg" alt="Maybelline">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Beauty/estel.jpg" alt="Estel">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Beauty/garnier.jpg" alt="Garnier">
+											</a>
+										</li>
+										<li class="brand-logo__item">
+											<a href="#" class="brand-logo__page">
+												<img class="brand-logo__img" src="img/popular-brands/Beauty/ollin.jpg" alt="Ollin">
+											</a>
+										</li>
+									</ul>
+							</li> <!--col-9/end-->
+						</ul>
+				</section>
+				<div class="main__page-navigation" id="app">
+					<button class="btn-quick-nav" type="button">
+						<i class="fa-solid fa-arrow-up main-pc__-icon"></i>
+					</button>
+					<button class="btn-quick-chat" type="button">
+						<i class="fa-sharp fa-solid fa-comment main-pc__icon"></i>
+					</button>
+				</div>
+		</div> <!--main-container/end-->
+	</div> <!--main/end-->
+																		<!--FOOTER-->
+	<footer class="footer">
+		<div class="footer__container container">
+			<div class="footer__wrapper"> <!--footer-1-col-->
+				<div class="footer__list_dropdown">
+					<h3 class="footer__title">Покупателям</h3>
+					<ul class="footer__list">
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Как сделать заказ
+								</a>
+							</li>
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Способы оплаты
+								</a>
+							</li>
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Доставка
+								</a>
+							</li>
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Возврат товара
+								</a>
+							</li>
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Возврат денежных средств
+								</a>
+							</li>
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Правила продажи
+								</a>
+							</li>
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Публичная оферта
+								</a>
+							</li>
+							<li class="footer__item">
+								<a href="#" class="footer__item_link">Вопросы и ответы
+								</a>
+							</li>
+					</ul>
+			</div>
+		</div>
+		<div class="footer__wrapper"> <!--footer-2-col-->
+			<div class="footer__list_dropdown">
+				<h3 class="footer__title">Партнёрам</h3>
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Продавайте на Wildberries
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Партнёрский пункт выдачи
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Франшизный пункт выдачи
+							</a>
+						</li>
+					</ul>
+			</div>
+			<div class="footer__list--dropdown">
+				<h3 class="footer__title">Наши проекты</h3>
+				<a href="#" class="footer__item_link project__link">WB Guru</a>
+			</div>
+		</div>
+		<div class="footer__wrapper"> <!--footer-3-col-->
+			<div class="footer__list_dropdown">
+				<h3 class="footer__title">Компания</h3>
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">О нас
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Реквизиты
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Пресс-центр
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Контакты
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Bug Bounty
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">WB.Tech
+							</a>
+						</li>
+					</ul>
+			</div>
+		</div>
+		<div class="footer__wrapper"> <!--footer-4-col-->
+			<div class="footer__list_dropdown">
+				<h3 class="footer__title">Мы в соцсетях</h3>
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Вконтакте
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Одноклассники
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link">Youtube
+							</a>
+						</li>
+					</ul>
+			</div>
+		</div>
+		<div class="footer__wrapper"> <!--footer-5-col-->
+			<div class="footer__list_dropdown">
+				<h3 class="footer__title">Мобильные устройства</h3>
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="#" class="footer__item_link item-link">
+								<img class="item-link__logo" src="img/mobile app/11.svg" alt="GooglePlay logo">
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link item-link">
+								<img class="item-link__logo" src="img/mobile app/22.svg" alt="AppStore logo">
+							</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__item_link item-link">
+								<img class="item-link__logo" src="img/mobile app/33.svg" alt="AppGallery logo">
+							</a>
+						</li>
+					</ul>
+			</div>
+		</div>
+		</div>
+														<!--footer license-->
+		<section class="footer__license">
+			<p class="footer__license_text">
+				2004-2022 © Wildberries — модный интернет-магазин одежды, обуви и аксессуаров.
+			</p>
+			<span class="footer__license_text">Все права защищены.</span>
+			<a href="#" class="footer__license_check"><span class="footer__license_text check">Проверка совместимости</span></a>
+		</section>
+	</footer>
+	<script src="script/script.js"></script>
 </body>
 </html>
