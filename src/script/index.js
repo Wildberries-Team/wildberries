@@ -162,7 +162,6 @@ document.getElementById('order-btn').addEventListener("click", () => {
     } else {
         alert("Ознакомьтесь с правилами")
     };
-
     blockbasket();
 });
 
@@ -179,4 +178,4 @@ window.addEventListener('scroll', function() {
 
 document.querySelector('.btn-quick-nav').addEventListener('click', () => {
     window.scrollTo(pageYOffset, 0);
-})
+});
