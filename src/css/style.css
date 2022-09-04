@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Kaushan+Script&family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&display=swap');
+@import url('normalize.css');
+@import url('header.css');
+@import url('main.css');
+@import url('banner.css');
+@import url('intro.css');
+@import url('brands.css');
+@import url('footer.css');
+
+.container {
+		margin: 0 auto;
+		padding: 0 15px;
+		max-width: 1500px;
+		height: auto;
+}
+
+/* у каждого сайта должен быть заголовок,если его нет напишем и скроем */
+.visually-hidden {
+		display: none;
+}
+/* кнопки навигации по сайту */
+.btn-quick-nav {
+		padding: 18px 20px;
+		min-width: 44px;
+		min-height: 44px;
+		position: fixed;
+		background-color: #cb11ab;
+		color: white;
+		display: block;
+		border-radius: 100%;
+		z-index: 99;
+		bottom: 24px;
+		left: 30px;
+}
+
+.main-pc__icon {
+	font-size: 24px;
+	text-align: center;
+}
+
+.btn-quick-chat {
+		padding: 18px 20px;
+		min-width: 44px;
+		min-height: 44px;
+		position: fixed;
+		background-color: #cb11ab;
+		color: white;
+		display: block;
+		border-radius: 100%;
+		z-index: 99;
+		bottom: 24px;
+		right: 30px;
+}
