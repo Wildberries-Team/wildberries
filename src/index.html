@@ -7,6 +7,41 @@
 	<script src="https://kit.fontawesome.com/b2e8fbb2d7.js" crossorigin="anonymous"></script>
 </head>
 <body>
+											<!--Basket block-->
+<div class="background-color-container">
+	<div class="basket_container">
+		<div class="basket_conteiner-left">
+			<div class="container-item">
+				<h2 class="comtainer-item-title">Корзина</h2>
+				<div class="container-item-goods">
+				</div>
+			</div>
+			<button class="close-basket">X</button>
+		</div>
+		<div class="basket_conteiner-right">
+			<div class="container-right-sum">
+				<div class="first-sum">
+					<span class="first-sum-title">Итого</span>
+					<span class="furst-sum-value"><span id="sum-basket">0</span> руб</span>
+				</div>
+				<div class="second-sum">
+					<span class="second-sum-title">Товары, <span id="sum-basket-col">0</span> шт.</span>
+					<span class="second-sum-value"><span id="sum-basket-nodicount">0</span> руб</span>
+				</div>
+				<div class="discount">
+					<span class="discount-title">Скидка</span>
+					<span class="discount-value"><span id="sum-basket-discount">0</span> руб</span>
+				</div>
+				<button id="order-btn">Заказать</button>
+				<div class="checkbox-rules">
+					<input type="checkbox" id="scales-checkbox" name="scales">
+					<label for="scales">Согласен с условиями <a href="">Публичной оферты</a> и <a href="">правилами возврата</a></label>
+				</div>
+			</div>
+			<button id="sendInbasket">добавить в карзину</button>
+		</div>
+	</div>
+</div>
 																	<!--HEADER-->
 	<header class="header">
 		<div class="header__container container">
@@ -49,10 +84,10 @@
 								<span class="navbar__text navbar__text--user">Войти</span>
 							</a>
 						</li>
-						<li class="navbar__item">
+						<li class="navbar__item" id="basket-btn">
 							<a href="#" class="navbar__link">
-								<!-- <i class="fa-solid fa-cart-shopping navbar__icon"></i> -->
-								<span class="navbar__icon_basket-count basket-count">2</span>
+								 <!--<i class="fa-solid fa-cart-shopping navbar__icon"></i>-->
+								<span class="navbar__icon_basket-count basket-count" id="basket-col">0</span>
 								<span class="navbar__text navbar__text--basket">Корзина</span>
 							</a>
 						</li>
