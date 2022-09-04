@@ -7,6 +7,7 @@ module.exports = {
     mode: 'development',
     entry: {
         index: './src/script/index.js',
+        burger: './src/script/burger_menu.js',
 // Можно добавлять js файлы
     },
     devServer: {

@@ -7,6 +7,7 @@
 @import url('intro.css');
 @import url('brands.css');
 @import url('footer.css');
+@import url('burger.css');
 
 .container {
 		margin: 0 auto;
