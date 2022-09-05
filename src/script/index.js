@@ -104,7 +104,7 @@ function lenthBasket() {
 
     }
 
-};
+}
 
 
 //закрытие корзины вне контейнера
@@ -124,7 +124,7 @@ document.querySelector(".close-basket").addEventListener("click", () => {
 function blockbasket() {
     document.querySelector(".container-item-goods").innerHTML = "";
     if (basketGoods.length > 0) {
-        basketGoods.forEach((item, ind) => {
+        basketGoods.forEach((item) => {
             let blockGoods = `
                             <div class="users-goods-basket" id="${item.id}">
                                 <div class="users-goods-basket_foto">
@@ -150,10 +150,9 @@ function blockbasket() {
             document.querySelector(".container-item-goods").innerHTML += blockGoods;
         });
     }
-    ;
     lenthBasket();
     sumPriceInBasket();
-};
+}
 
 //тестовая основная функция -- когда будут карточки брать из основного Массива Объектов
 let goods = [{
@@ -172,7 +171,7 @@ function GoodsInBasket(goods) {
     this.col = 1; //количество едениц
     this.price = Number(goods.price); //цена со скидкой
     this.percent = goods.percent; // цена без скидки
-};
+}
 
 
 //перенос в корзину
@@ -193,10 +192,8 @@ document.querySelector('.container-item-goods').onclick = function (e) {
             if (item.id == parentid) {
                 item.col += 1;
             }
-            ;
         });
     }
-    ;
     if (targetClick.id == "minus-btn") {
         basketGoods.forEach((item, ind) => {
             if (item.id == parentid) {
@@ -207,19 +204,15 @@ document.querySelector('.container-item-goods').onclick = function (e) {
                     item.col -= 1;
                 }
             }
-            ;
         });
     }
-    ;
     if (targetClick.className == "delete-item-basket") {
         basketGoods.forEach((item, ind) => {
             if (item.id == parentid) {
                 basketGoods.splice(ind, 1);
             }
-            ;
         });
     }
-    ;
     blockbasket();
 }
 
@@ -239,7 +232,7 @@ function sumPriceInBasket() {
     document.getElementById('sum-basket-nodicount').innerHTML = sumNoDiscont;
     document.getElementById('sum-basket-discount').innerHTML = sumNoDiscont - sum;
     document.getElementById('sum-basket-col').innerHTML = colSum;
-};
+}
 
 
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
@@ -250,14 +243,13 @@ document.getElementById('order-btn').addEventListener("click", () => {
     } else {
         alert("Ознакомьтесь с правилами")
     }
-    ;
     blockbasket();
 });
 
 
 //btn up page
-window.addEventListener('scroll', function () {
-    if (pageYOffset > 20) {
+window.addEventListener('scroll', function (e) {
+    if (window.pageYOffset > 20) {
         document.querySelector('.btn-quick-nav').style.display = "block";
     }
     if (pageYOffset < 20) {
@@ -268,3 +260,6 @@ window.addEventListener('scroll', function () {
 document.querySelector('.btn-quick-nav').addEventListener('click', () => {
     window.scrollTo(pageYOffset, 0);
 });
+
+
+//slider
