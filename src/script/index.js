@@ -2,9 +2,90 @@ import '../index.html';
 import '../css/style.css';
 
 "use strict";
+let cardsArray = [
+    {
+        id: 1,
+        title: 'Пылесос',
+        categories: 'Бытовая техника',
+        url: './1.jpg',
+        price: 500,
+        percent: 15,
+    },
+    {
+        id: 2,
+        title: 'Шкаф',
+        categories: 'Мебель',
+        url: './1.jpg',
+        price: 1500,
+        percent: 10,
+    },
+    {
+        id: 3,
+        title: 'Кукла',
+        categories: 'Игрушки',
+        url: './1.jpg',
+        price: 100,
+        percent: 12,
+    },
+    {
+        id: 4,
+        title: 'Телефон',
+        categories: 'Электроника',
+        url: './1.jpg',
+        price: 300,
+        percent: 20,
+    },
+    {
+        id: 5,
+        title: 'Перфоратор',
+        categories: 'Для ремонта',
+        url: './1.jpg',
+        price: 1000,
+        percent: 10,
+    },
+    {
+        id: 6,
+        title: 'Футбольный мяч',
+        categories: 'Спорт',
+        url: './1.jpg',
+        price: 200,
+        percent: 15,
+    },
+    {
+        id: 7,
+        title: 'Шины',
+        categories: 'Автотовары',
+        url: './1.jpg',
+        price: 400,
+        percent: 25,
+    },
+    {
+        id: 8,
+        title: 'Чехол',
+        categories: 'Аксессуары',
+        url: './1.jpg',
+        price: 50,
+        percent: 0,
+    },
+    {
+        id: 9,
+        title: 'Помада',
+        categories: 'Красота',
+        url: './1.jpg',
+        price: 70,
+        percent: 5,
+    },
+    {
+        id: 10,
+        title: 'Ручка шариковая',
+        categories: 'Канцтовары',
+        url: './1.jpg',
+        price: 10,
+        percent: 0,
+    },
+];
 
-
-                                        //Basket block
+//Basket block
 //массив товаров в карзине
 let basketGoods = [];
 
@@ -16,8 +97,8 @@ document.getElementById('basket-btn').addEventListener("click", () => {
 
 
 //счетик длинны корзины
-function lenthBasket(){
-    if(basketGoods.length > 0){
+function lenthBasket() {
+    if (basketGoods.length > 0) {
 
         document.getElementById('basket-col').innerHTML = basketGoods.length;
 
@@ -28,7 +109,7 @@ function lenthBasket(){
 
 //закрытие корзины вне контейнера
 document.onclick = (event) => {
-    if(event.target.classList == "background-color-container"){
+    if (event.target.classList == "background-color-container") {
         document.querySelector(".background-color-container").style.display = "none";
     }
 };
@@ -40,9 +121,9 @@ document.querySelector(".close-basket").addEventListener("click", () => {
 
 
 //формирование блока
-function blockbasket(){
+function blockbasket() {
     document.querySelector(".container-item-goods").innerHTML = "";
-    if(basketGoods.length > 0){
+    if (basketGoods.length > 0) {
         basketGoods.forEach((item, ind) => {
             let blockGoods = `
                             <div class="users-goods-basket" id="${item.id}">
@@ -68,7 +149,8 @@ function blockbasket(){
             `;
             document.querySelector(".container-item-goods").innerHTML += blockGoods;
         });
-    };
+    }
+    ;
     lenthBasket();
     sumPriceInBasket();
 };
@@ -83,7 +165,7 @@ let goods = [{
 }];
 
 //функция конструктор
-function GoodsInBasket(goods){
+function GoodsInBasket(goods) {
     this.url = goods.url; //ссылка на фото
     this.id = goods.id + basketGoods.length; //айди
     this.title = goods.title; //название карточки
@@ -103,41 +185,47 @@ document.getElementById('sendInbasket').addEventListener("click", () => {
 
 
 //добаление количества, сокращение кол-ва, удаление позиции
-document.querySelector('.container-item-goods').onclick = function(e){
+document.querySelector('.container-item-goods').onclick = function (e) {
     let targetClick = e.target;
     let parentid = targetClick.closest('.users-goods-basket').id;
-    if(targetClick.id == "plus-btn"){
+    if (targetClick.id == "plus-btn") {
         basketGoods.forEach(item => {
-            if(item.id == parentid){
+            if (item.id == parentid) {
                 item.col += 1;
-            };
+            }
+            ;
         });
-    };
-    if(targetClick.id == "minus-btn"){
-        basketGoods.forEach((item,ind) => {
-            if(item.id == parentid){
+    }
+    ;
+    if (targetClick.id == "minus-btn") {
+        basketGoods.forEach((item, ind) => {
+            if (item.id == parentid) {
                 item.col -= 1;
-                if(item.col <= 0){
+                if (item.col <= 0) {
                     basketGoods.splice(ind, 1);
-                } else{
+                } else {
                     item.col -= 1;
                 }
-            };
+            }
+            ;
         });
-    };
-    if(targetClick.className == "delete-item-basket"){
+    }
+    ;
+    if (targetClick.className == "delete-item-basket") {
         basketGoods.forEach((item, ind) => {
-            if(item.id == parentid){
+            if (item.id == parentid) {
                 basketGoods.splice(ind, 1);
-            };
+            }
+            ;
         });
-    };
+    }
+    ;
     blockbasket();
 }
 
 
 //сумирование итогов со скидкой
-function sumPriceInBasket(){
+function sumPriceInBasket() {
     let sum = 0;
     let sumNoDiscont = 0;
     let colSum = 0;
@@ -157,22 +245,22 @@ function sumPriceInBasket(){
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
 document.getElementById('order-btn').addEventListener("click", () => {
 
-    if(document.querySelector('input[type=checkbox]').checked) {
+    if (document.querySelector('input[type=checkbox]').checked) {
         basketGoods.length = 0;
     } else {
         alert("Ознакомьтесь с правилами")
-    };
-
+    }
+    ;
     blockbasket();
 });
 
 
-                                    //btn up page
-window.addEventListener('scroll', function() {
-    if(pageYOffset > 20) {
-    document.querySelector('.btn-quick-nav').style.display = "block";
+//btn up page
+window.addEventListener('scroll', function () {
+    if (pageYOffset > 20) {
+        document.querySelector('.btn-quick-nav').style.display = "block";
     }
-    if(pageYOffset < 20){
+    if (pageYOffset < 20) {
         document.querySelector('.btn-quick-nav').style.display = "none";
     }
 });
