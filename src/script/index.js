@@ -89,7 +89,6 @@ let cardsArray = [
 //массив товаров в карзине
 let basketGoods = [];
 
-
 //открытие карзины
 document.getElementById('basket-btn').addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "block";
@@ -147,10 +146,9 @@ function blockbasket() {
                                 </div>
                             </div>   
             `;
-            document.querySelector(".container-item-goods").innerHTML += blockGoods;
+            document.querySelector(".goods__list").innerHTML += blockGoods;
         });
-    }
-    ;
+    };
     lenthBasket();
     sumPriceInBasket();
 };
@@ -173,7 +171,6 @@ function GoodsInBasket(goods) {
     this.price = Number(goods.price); //цена со скидкой
     this.percent = goods.percent; // цена без скидки
 };
-
 
 //перенос в корзину
 document.getElementById('sendInbasket').addEventListener("click", () => {
@@ -268,3 +265,96 @@ window.addEventListener('scroll', function () {
 document.querySelector('.btn-quick-nav').addEventListener('click', () => {
     window.scrollTo(pageYOffset, 0);
 });
+
+//открытие большой карточки по нажатию на быстрый просмотр
+document.querySelector(".goods__preview-btn").addEventListener("click", () => {
+    document.querySelector(".goods__big-container").style.display = "block";
+    document.querySelector(".goods__big-card").style.display = "block";
+});
+
+//закрытие большой карточки по нажатию на крестик
+document.querySelector(".good-card__close").addEventListener("click", () => {
+    document.querySelector(".goods__big-container").style.display = "none";
+    document.querySelector(".goods__big-card").style.display = "none";
+});
+
+//добавление в корзину большой карточки (дообновить, когда будет массив товаров)
+document.querySelector('.good-card__add-big').addEventListener("click", () => {
+    basketGoods.push(new GoodsInBasket(goods[0]));
+    lenthBasket();
+    blockbasket();
+    sumPriceInBasket();
+});
+
+//добавление в корзину маленькой карточки (дообновить, когда будет массив товаров)
+document.querySelector('.good-card__add').addEventListener("click", () => {
+    basketGoods.push(new GoodsInBasket(goods[0]));
+    lenthBasket();
+    blockbasket();
+    sumPriceInBasket();
+});
+
+//закрытие большой карточки при клике на пустую область (не на нее)
+document.onclick = (event) => {
+    if (event.target.classList == "goods__big-container") {
+        document.querySelector(".goods__big-container").style.display = "none";
+    }
+};
+
+//функция конструктор
+function GoodsCard (cardsArray) {
+    this.url = cardsArray.url;
+    this.id = cardsArray.id;
+    this.title = cardsArray.title;
+    this.categories = cardsArray.categories;
+    this.price = Number(cardsArray.price);
+    this.percent = cardsArray.percent;
+};
+
+//темплейт Html для карточки???
+function templateCardHTML () {
+return `
+<li class="goods__item card" id="${cardsArray.id}">
+    <div class="goods__small-card" id="${cardsArray.id}>
+        <a href="#" class="card__inner goods">
+            <div class="goods__img-wrap">
+                <img class="goods__img" src="${cardsArray.url}" alt="">
+                <button class="goods__preview-btn view-btn">Быстрый просмотр</button>
+                <button class = "good-card__add">В корзину</button>
+                <p class="goods__discount">-<span>${cardsArray.percent}</span>%</p>
+            </div>
+            <div class="goods__info">
+                <p class="goods__price">
+                    <span class="goods__price-now price-now">${cardsArray.price}</span>
+                    <del class="goods__price-last price-last"></del>
+                </p>
+                <p class="goods__desc">
+                    <span class="goods__desc_brand">${cardsArray.categories}</span>
+                    <span class="goods__desc_name">/ ${cardsArray.title}</span>
+                </p>
+            </div>
+        </a>
+    </div>
+    <div class="goods__big-container" id="${cardsArray.id}>
+        <div class="goods__big-card">
+            <div class="goods__big">
+                <div class="goods__img-wrap-big">
+                    <img class="goods__img-big" src="${cardsArray.url}" alt="">
+                </div>
+                <div class="goods__info-big">
+                    <button class="good-card__close">X</button>
+                    <p class="goods__desc-big">
+                        <span class="goods__desc_brand-big">${cardsArray.categories}</span>
+                        <span class="goods__desc_name-big">/ ${cardsArray.title}</span>
+                    </p>
+                    <p class="goods__price-big">
+                        <span class="goods__price-now-big price-now">${cardsArray.price}</span>
+                        <del class="goods__price-last-big price-last"></del>
+                    </p>
+                    <button class="good-card__add-big">Добавить в корзину</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+   `};
