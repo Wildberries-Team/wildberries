@@ -9,7 +9,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 4;
+    z-index: 100;
 }
 .burger{
     position: absolute;
@@ -18,7 +18,7 @@
     height: 100%;
     width: 30%;
     max-width: 500px;
-    z-index: 5;
+    z-index: 101;
     transition: 1s;
     opacity: 1;
 }
@@ -61,4 +61,24 @@
     background: #cb11ab;
     border-radius: 10px;
     color: white;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 1150px){
+    .burger{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .burger{
+        width: 100%;
+        background: white;
+    }
+    .burger__close{
+        color: black;
+    }
+    .burger__list{
+        margin: 5%;
+    }
 }
