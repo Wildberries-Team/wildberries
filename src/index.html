@@ -7,7 +7,7 @@
 	<script src="https://kit.fontawesome.com/b2e8fbb2d7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+											<!--Burger block-->
 <aside class="burger burger_trans">
 	<div class="burger__menu">
 		<ul class="burger__list">
@@ -62,6 +62,30 @@
 	</div>
 </div>
 
+											<!--Chat block-->
+<div class="chat-block">
+	<div class="chat-header">
+		<h2 class="chat-title color-text">Чат поддержка</h2>
+		<button class="btn-close-chat">Закрыть</button>
+	</div>
+	<div class="chat-content">
+		<div class="chat-first-text">
+			<p class="chat-text">Я <span class="color-text">Лина</span> - виртуальный помощник службы поддержки. Если у Вас возник вопрос  - задайте его в этом чате, и я с удовольствием отвечу на него.</p>
+		</div>
+		<div class="block_text_content">
+
+		</div>
+
+	</div>
+	<div class="chat-footer">
+		<div class="chat-text-footer">
+			<button class="chat-file"><i class="fa-solid fa-paperclip"></i></button>
+			<textarea name="text" maxlength="1000" rows="1" placeholder="Введите текст" id="text_user-chat"></textarea>
+		</div>
+		<button class="btn-chat-send"><i class="fa-solid fa-greater-than"></i></button>
+	</div>
+</div>
+
 																	<!--HEADER-->
 	<header class="header">
 		<div class="header__container container">
@@ -80,7 +104,7 @@
 					<button class="header__btn-chat btn-chat">Сообщить о проблеме
 						<i class="fa-sharp fa-solid fa-comment btn-chat__icon"></i>
 					</button>
-			</div>								
+			</div>
 			<div class="header__bottom nav"> <!--2nd row-->
 					<div class="nav-elem" id="menuToggle">
 						<button class="nav-elem__burger burger-btn" type="button" aria-label="Навигация по сайту"></button>
@@ -329,7 +353,7 @@
 								</a>
 							</li> <!--8th card/end-->
 						</ul>
-				</section>	
+				</section>
 				<section class="intro first-intro"> <!--1st intro (breakpoint 1020px becomes a slider)-->
 					<div class="intro-left">
 						<a href="#" class="intro__data">
@@ -679,7 +703,7 @@
 					<button class="btn-quick-nav" type="button">
 						<i class="fa-solid fa-arrow-up main-pc__-icon"></i>
 					</button>
-					<button class="btn-quick-chat" type="button">
+					<button class="btn-quick-chat" id="btn-open-chat" type="button">
 						<i class="fa-sharp fa-solid fa-comment main-pc__icon"></i>
 					</button>
 				</div>
