@@ -142,7 +142,7 @@
 }
 
 .goods__big-card {
-	display: none;
+	display: block;
 	width: 900px;
 	height: 600px;
 	border-radius: 15px;
@@ -250,5 +250,16 @@
 
 .goods__desc-big {
 	margin-top: 10%;
+}
+
+.goods__item {
+	width: 161px;
+	height: 271px;
+}
+
+.goods__list {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	row-gap: 50px;
 }
 

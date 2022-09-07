@@ -146,7 +146,7 @@ function blockbasket() {
                                 </div>
                             </div>   
             `;
-            document.querySelector(".goods__list").innerHTML += blockGoods;
+            document.querySelector(".container-item-goods").innerHTML += blockGoods;
         });
     };
     lenthBasket();
@@ -266,11 +266,13 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
     window.scrollTo(pageYOffset, 0);
 });
 
+
+
 //открытие большой карточки по нажатию на быстрый просмотр
-document.querySelector(".goods__preview-btn").addEventListener("click", () => {
+document.querySelector('.goods__preview-btn').addEventListener('click', function () {
+    blockCardBig ();
     document.querySelector(".goods__big-container").style.display = "block";
-    document.querySelector(".goods__big-card").style.display = "block";
-});
+    });
 
 //закрытие большой карточки по нажатию на крестик
 document.querySelector(".good-card__close").addEventListener("click", () => {
@@ -278,83 +280,78 @@ document.querySelector(".good-card__close").addEventListener("click", () => {
     document.querySelector(".goods__big-card").style.display = "none";
 });
 
-//добавление в корзину большой карточки (дообновить, когда будет массив товаров)
-document.querySelector('.good-card__add-big').addEventListener("click", () => {
-    basketGoods.push(new GoodsInBasket(goods[0]));
-    lenthBasket();
-    blockbasket();
-    sumPriceInBasket();
-});
-
-//добавление в корзину маленькой карточки (дообновить, когда будет массив товаров)
-document.querySelector('.good-card__add').addEventListener("click", () => {
-    basketGoods.push(new GoodsInBasket(goods[0]));
-    lenthBasket();
-    blockbasket();
-    sumPriceInBasket();
-});
-
 //закрытие большой карточки при клике на пустую область (не на нее)
 document.onclick = (event) => {
     if (event.target.classList == "goods__big-container") {
         document.querySelector(".goods__big-container").style.display = "none";
+        document.querySelector(".goods__big-card").style.display = "none";
     }
 };
 
-//функция конструктор
-function GoodsCard (cardsArray) {
-    this.url = cardsArray.url;
-    this.id = cardsArray.id;
-    this.title = cardsArray.title;
-    this.categories = cardsArray.categories;
-    this.price = Number(cardsArray.price);
-    this.percent = cardsArray.percent;
-};
-
-//темплейт Html для карточки???
-function templateCardHTML () {
-return `
-<li class="goods__item card" id="${cardsArray.id}">
-    <div class="goods__small-card" id="${cardsArray.id}>
+//функция для отображения маленькой карточки на странице
+function blockCard() {
+    document.querySelector(".goods__list").innerHTML = "";
+    if (cardsArray.length > 0) {
+        cardsArray.forEach((item, ind) => {
+            let cardTemplate = `
+<li class="goods__item card" id="${item.id}">
+    <div class="goods__small-card" id="${item.id}>
         <a href="#" class="card__inner goods">
             <div class="goods__img-wrap">
-                <img class="goods__img" src="${cardsArray.url}" alt="">
+                <img class="goods__img" src="${item.url}" alt="">
                 <button class="goods__preview-btn view-btn">Быстрый просмотр</button>
                 <button class = "good-card__add">В корзину</button>
-                <p class="goods__discount">-<span>${cardsArray.percent}</span>%</p>
+                <p class="goods__discount">-<span>${item.percent}</span>%</p>
             </div>
             <div class="goods__info">
                 <p class="goods__price">
-                    <span class="goods__price-now price-now">${cardsArray.price}</span>
+                    <span class="goods__price-now price-now">${item.price}</span>
                     <del class="goods__price-last price-last"></del>
                 </p>
                 <p class="goods__desc">
-                    <span class="goods__desc_brand">${cardsArray.categories}</span>
-                    <span class="goods__desc_name">/ ${cardsArray.title}</span>
+                    <span class="goods__desc_brand">${item.categories}</span>
+                    <span class="goods__desc_name">/ ${item.title}</span>
                 </p>
             </div>
         </a>
     </div>
-    <div class="goods__big-container" id="${cardsArray.id}>
-        <div class="goods__big-card">
-            <div class="goods__big">
-                <div class="goods__img-wrap-big">
-                    <img class="goods__img-big" src="${cardsArray.url}" alt="">
+</li>
+   `;
+            document.querySelector(".goods__list").innerHTML += cardTemplate;
+        })
+    }};
+blockCard();
+
+
+//функция для отображения большой карточки на странице
+function blockCardBig() {
+    if (cardsArray.length > 0) {
+        cardsArray.forEach((item, ind) => {
+            let cardTemplateBig = `
+<li class="goods__item-big card" id="${item.id}">
+    <div class="goods__big-container" id="${item.id}>
+        <div class=" goods__big-card" id="${item.id}>
+            <div class=" goods__big">
+                <div class=" goods__img-wrap-big">
+                    <img class=" goods__img-big" src=" ${item.url}" alt="">
                 </div>
-                <div class="goods__info-big">
-                    <button class="good-card__close">X</button>
-                    <p class="goods__desc-big">
-                        <span class="goods__desc_brand-big">${cardsArray.categories}</span>
-                        <span class="goods__desc_name-big">/ ${cardsArray.title}</span>
+                <div class=" goods__info-big">
+                    <button class=" good-card__close">X</button>
+                    <p class=" goods__desc-big">
+                        <span class=" goods__desc_brand-big">${item.categories}</span>
+                        <span class=" goods__desc_name-big">/ ${item.title}</span>
                     </p>
-                    <p class="goods__price-big">
-                        <span class="goods__price-now-big price-now">${cardsArray.price}</span>
-                        <del class="goods__price-last-big price-last"></del>
+                    <p class=" goods__price-big">
+                        <span class=" goods__price-now-big price-now">${item.price}</span>
+                        <del class=" goods__price-last-big price-last"></del>
                     </p>
-                    <button class="good-card__add-big">Добавить в корзину</button>
+                    <button class=" good-card__add-big">Добавить в корзину</button>
                 </div>
             </div>
         </div>
     </div>
-</li>
-   `};
+    </li>
+`;
+            document.querySelector(".goods__list").innerHTML += cardTemplateBig;
+        })
+    }};
