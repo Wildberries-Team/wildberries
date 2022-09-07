@@ -2,93 +2,53 @@ import '../index.html';
 import '../css/style.css';
 
 "use strict";
-let cardsArray = [
-    {
-        id: 1,
-        title: 'Пылесос',
-        categories: 'Бытовая техника',
-        url: './1.jpg',
-        price: 500,
-        percent: 15,
-    },
-    {
-        id: 2,
-        title: 'Шкаф',
-        categories: 'Мебель',
-        url: './1.jpg',
-        price: 1500,
-        percent: 10,
-    },
-    {
-        id: 3,
-        title: 'Кукла',
-        categories: 'Игрушки',
-        url: './1.jpg',
-        price: 100,
-        percent: 12,
-    },
-    {
-        id: 4,
-        title: 'Телефон',
-        categories: 'Электроника',
-        url: './1.jpg',
-        price: 300,
-        percent: 20,
-    },
-    {
-        id: 5,
-        title: 'Перфоратор',
-        categories: 'Для ремонта',
-        url: './1.jpg',
-        price: 1000,
-        percent: 10,
-    },
-    {
-        id: 6,
-        title: 'Футбольный мяч',
-        categories: 'Спорт',
-        url: './1.jpg',
-        price: 200,
-        percent: 15,
-    },
-    {
-        id: 7,
-        title: 'Шины',
-        categories: 'Автотовары',
-        url: './1.jpg',
-        price: 400,
-        percent: 25,
-    },
-    {
-        id: 8,
-        title: 'Чехол',
-        categories: 'Аксессуары',
-        url: './1.jpg',
-        price: 50,
-        percent: 0,
-    },
-    {
-        id: 9,
-        title: 'Помада',
-        categories: 'Красота',
-        url: './1.jpg',
-        price: 70,
-        percent: 5,
-    },
-    {
-        id: 10,
-        title: 'Ручка шариковая',
-        categories: 'Канцтовары',
-        url: './1.jpg',
-        price: 10,
-        percent: 0,
-    },
-];
+
+let URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB'
+
+const getCards = async () => {
+    const obj = await fetch(URL);
+    const cardsArray = await obj.json();
+
+    function blockCard() {
+
+        document.querySelector(".goods__list").innerHTML = "";
+        if (cardsArray.length > 0) {
+            cardsArray.forEach((item, ind) => {
+                let cardTemplate = `
+<li class="goods__item card" id="${item.id}">
+    <div class="goods__small-card" id="${item.id}>
+        <a href="#" class="card__inner goods">
+            <div class="goods__img-wrap">
+                <img class="goods__img" src="${item.img}" alt="">
+                <button class="goods__preview-btn view-btn">Быстрый просмотр</button>
+                <button class = "good-card__add">В корзину</button>
+                <p class="goods__discount">-<span>${item.percent}</span>%</p>
+            </div>
+            <div class="goods__info">
+                <p class="goods__price">
+                    <span class="goods__price-now price-now">${item.price} р</span>
+                    <del class="goods__price-last price-last"></del>
+                </p>
+                <p class="goods__desc">
+                    <span class="goods__desc_brand">${item.category}</span>
+                    <span class="goods__desc_name">/ ${item.title}</span>
+                </p>
+            </div>
+        </a>
+    </div>
+</li>
+   `;
+                document.querySelector(".goods__list").innerHTML += cardTemplate;
+            })
+        }};
+    blockCard();
+
+}
+getCards()
 
 //Basket block
 //массив товаров в карзине
 let basketGoods = [];
-
 
 //открытие карзины
 document.getElementById('basket-btn').addEventListener("click", () => {
@@ -138,21 +98,22 @@ function blockbasket() {
                                         <button id="minus-btn">-</button>
                                         <span id="col-goods">${item.col}</span>
                                         <button id="plus-btn">+</button>
-                                    </div>    
+                                    </div>
                                     <span class="delete-item-basket">Удалить</span>
                                 </div>
                                 <div class="users-goods-basket_sum">
                                     <span class="sum-withdiscount"><span id="withdiscount-sum-basket">${item.col * (Number(item.price) * (1 - Number(item.percent) / 100))}</span> руб</span>
                                     <span class="sum-nodiscount"><span id="nodiscount-sum-basket">${item.price * item.col}</span> руб</span>
                                 </div>
-                            </div>   
+                            </div>
             `;
             document.querySelector(".container-item-goods").innerHTML += blockGoods;
         });
+
     }
     lenthBasket();
     sumPriceInBasket();
-}
+    }
 
 //тестовая основная функция -- когда будут карточки брать из основного Массива Объектов
 let goods = [{
@@ -172,7 +133,6 @@ function GoodsInBasket(goods) {
     this.price = Number(goods.price); //цена со скидкой
     this.percent = goods.percent; // цена без скидки
 }
-
 
 //перенос в корзину
 document.getElementById('sendInbasket').addEventListener("click", () => {
@@ -262,4 +222,59 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
 });
 
 
-//slider
+//открытие большой карточки по нажатию на быстрый просмотр
+document.querySelector('.goods__preview-btn').addEventListener('click', function () {
+    blockCardBig ();
+    document.querySelector(".goods__big-container").style.display = "block";
+    });
+
+//закрытие большой карточки по нажатию на крестик
+document.querySelector(".good-card__close").addEventListener("click", () => {
+    document.querySelector(".goods__big-container").style.display = "none";
+    document.querySelector(".goods__big-card").style.display = "none";
+});
+
+//закрытие большой карточки при клике на пустую область (не на нее)
+document.onclick = (event) => {
+    if (event.target.classList == "goods__big-container") {
+        document.querySelector(".goods__big-container").style.display = "none";
+        document.querySelector(".goods__big-card").style.display = "none";
+    }
+};
+
+//функция для отображения маленькой карточки на странице
+
+
+//функция для отображения большой карточки на странице
+// function blockCardBig() {
+//
+//     if (cardsArray.length > 0) {
+//         cardsArray.forEach((item, ind) => {
+//             let cardTemplateBig = `
+// <li class="goods__item-big card" id="${item.id}">
+//     <div class="goods__big-container" id="${item.id}>
+//         <div class=" goods__big-card" id="${item.id}>
+//             <div class=" goods__big">
+//                 <div class=" goods__img-wrap-big">
+//                     <img class=" goods__img-big" src=" ${item.url}" alt="">
+//                 </div>
+//                 <div class=" goods__info-big">
+//                     <button class=" good-card__close">X</button>
+//                     <p class=" goods__desc-big">
+//                         <span class=" goods__desc_brand-big">${item.categories}</span>
+//                         <span class=" goods__desc_name-big">/ ${item.title}</span>
+//                     </p>
+//                     <p class=" goods__price-big">
+//                         <span class=" goods__price-now-big price-now">${item.price}</span>
+//                         <del class=" goods__price-last-big price-last"></del>
+//                     </p>
+//                     <button class=" good-card__add-big">Добавить в корзину</button>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+//     </li>
+// `;
+//             document.querySelector(".goods__list").innerHTML += cardTemplateBig;
+//         })
+//     }}
