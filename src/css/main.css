@@ -13,11 +13,14 @@
 }
 
 .goods__list {
-		max-width: 900px;
-		margin: 0 auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		/*max-width: 900px;*/
+	padding: 0 10px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-auto-flow: row;
+	justify-items: center;
+	align-items: center;
 }
 
 .goods__img-wrap {
