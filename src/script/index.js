@@ -249,10 +249,10 @@ document.getElementById('order-btn').addEventListener("click", () => {
 
 //btn up page
 window.addEventListener('scroll', function (e) {
-    if (window.pageYOffset > 20) {
+    if (window.pageYOffset > 600) {
         document.querySelector('.btn-quick-nav').style.display = "block";
     }
-    if (pageYOffset < 20) {
+    if (pageYOffset < 600) {
         document.querySelector('.btn-quick-nav').style.display = "none";
     }
 });
