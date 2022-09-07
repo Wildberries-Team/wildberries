@@ -155,7 +155,7 @@ function blockbasket() {
 
     lenthBasket();
     sumPriceInBasket();
-}
+
 
 //тестовая основная функция -- когда будут карточки брать из основного Массива Объектов
 let goods = [{
