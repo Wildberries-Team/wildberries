@@ -5,49 +5,53 @@ import '../css/style.css';
 
 let URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB'
 
+//получение Данных с сервера
 const getCards = async () => {
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
+    blockCard(cardsArray);
+};
 
-    function blockCard() {
+getCards();
 
-        document.querySelector(".goods__list").innerHTML = "";
-        if (cardsArray.length > 0) {
-            cardsArray.forEach((item, ind) => {
-                let cardTemplate = `
-<li class="goods__item card" id="${item.id}">
-    <div class="goods__small-card" id="${item.id}>
-        <a href="#" class="card__inner goods">
-            <div class="goods__img-wrap">
-                <img class="goods__img" src="${item.img}" alt="">
-                <button class="goods__preview-btn view-btn">Быстрый просмотр</button>
-                <button class = "good-card__add">В корзину</button>
-                <p class="goods__discount">-<span>${item.percent}</span>%</p>
-            </div>
-            <div class="goods__info">
-                <p class="goods__price">
-                    <span class="goods__price-now price-now">${item.price} р</span>
-                    <del class="goods__price-last price-last"></del>
-                </p>
-                <p class="goods__desc">
-                    <span class="goods__desc_brand">${item.category}</span>
-                    <span class="goods__desc_name">/ ${item.title}</span>
-                </p>
-            </div>
-        </a>
-    </div>
-</li>
-   `;
-                document.querySelector(".goods__list").innerHTML += cardTemplate;
-            })
-        }};
-    blockCard();
+//отрисовка маленьких карточек
+function blockCard(cardsArray) {
+    document.querySelector(".goods__list").innerHTML = "";
+    let easyArr = cardsArray.splice(0, 7)
+    if (cardsArray.length > 0) {
+        easyArr.forEach((item, ind) => {
+            let cardTemplate = `
+                    <li class="goods__item card" id="${item.id}">
+                    <div class="goods__small-card" id="${item.id}>
+                        <a href="#" class="card__inner goods">
+                            <div class="goods__img-wrap">
+                                <img class="goods__img" src="${item.img}" alt="">
+                                <button class="goods__preview-btn view-btn">Быстрый просмотр</button>
+                                <button class = "good-card__add">В корзину</button>
+                                <p class="goods__discount">-<span>${item.percent}</span>%</p>
+                            </div>
+                            <div class="goods__info">
+                                <p class="goods__price">
+                                    <span class="goods__price-now price-now">${item.price} р</span>
+                                    <del class="goods__price-last price-last"></del>
+                                </p>
+                                <p class="goods__desc">
+                                    <span class="goods__desc_brand">${item.category}</span>
+                                    <span class="goods__desc_name">/ ${item.title}</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            `;
+        document.querySelector(".goods__list").innerHTML += cardTemplate;
+        })
+    }
+};
 
-}
-getCards()
 
 //Basket block
-//массив товаров в карзине
+//массив товаров в карзине - хранить в Локале
 let basketGoods = [];
 
 //открытие карзины
@@ -55,17 +59,12 @@ document.getElementById('basket-btn').addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "block";
 });
 
-
 //счетик длинны корзины
 function lenthBasket() {
     if (basketGoods.length > 0) {
-
         document.getElementById('basket-col').innerHTML = basketGoods.length;
-
     }
-
 }
-
 
 //закрытие корзины вне контейнера
 document.onclick = (event) => {
@@ -79,8 +78,7 @@ document.querySelector(".close-basket").addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "none";
 });
 
-
-//формирование блока
+//формирование блока в корзине
 function blockbasket() {
     document.querySelector(".container-item-goods").innerHTML = "";
     if (basketGoods.length > 0) {
@@ -187,17 +185,14 @@ function sumPriceInBasket() {
         sumNoDiscont += (item.col * Number(item.price));
         colSum += Number(item.col);
     })
-
     document.getElementById('sum-basket').innerHTML = sum;
     document.getElementById('sum-basket-nodicount').innerHTML = sumNoDiscont;
     document.getElementById('sum-basket-discount').innerHTML = sumNoDiscont - sum;
     document.getElementById('sum-basket-col').innerHTML = colSum;
 }
 
-
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
 document.getElementById('order-btn').addEventListener("click", () => {
-
     if (document.querySelector('input[type=checkbox]').checked) {
         basketGoods.length = 0;
     } else {
@@ -206,21 +201,20 @@ document.getElementById('order-btn').addEventListener("click", () => {
     blockbasket();
 });
 
-
 //btn up page
 window.addEventListener('scroll', function (e) {
-    if (window.pageYOffset > 20) {
+    if (window.pageYOffset > 600) {
         document.querySelector('.btn-quick-nav').style.display = "block";
     }
-    if (pageYOffset < 20) {
+    if (pageYOffset < 600) {
         document.querySelector('.btn-quick-nav').style.display = "none";
     }
 });
 
+//при нажатии поднятие вверх
 document.querySelector('.btn-quick-nav').addEventListener('click', () => {
     window.scrollTo(pageYOffset, 0);
 });
-
 
 //открытие большой карточки по нажатию на быстрый просмотр
 document.querySelector('.goods__preview-btn').addEventListener('click', function () {
