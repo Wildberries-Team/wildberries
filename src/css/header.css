@@ -261,22 +261,6 @@ header {
 		z-index: 3;
 }
 
-@media (max-width: 1400px) {
-
-	.btn-chat {
-		padding: 9px 12px 9px 9px;
-		max-height: 30px;
-		min-width: 20px;
-		border-radius: 28px;
-		width: 28px;
-		height: 28px;
-	}
-
-	.header__btn-chat {
-		display: none;
-	}
-}
-
 @media (max-width: 1450px) {
 
 	.search {
@@ -302,6 +286,19 @@ header {
 
 	.navbar__text{
 		font-size: 16px;
+	}
+
+	.btn-chat {
+		padding: 9px 12px 9px 9px;
+		max-height: 30px;
+		min-width: 20px;
+		border-radius: 28px;
+		width: 28px;
+		height: 28px;
+	}
+
+	.header__btn-chat {
+		display: none;
 	}
 }
 
