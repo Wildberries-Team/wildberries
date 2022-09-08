@@ -49,7 +49,6 @@ function blockCard(cardsArray) {
     }
 };
 
-
 //Basket block
 //массив товаров в карзине - хранить в Локале
 let basketGoods = [];
@@ -140,7 +139,6 @@ document.getElementById('sendInbasket').addEventListener("click", () => {
     sumPriceInBasket();
 });
 
-
 //добаление количества, сокращение кол-ва, удаление позиции
 document.querySelector('.container-item-goods').onclick = function (e) {
     let targetClick = e.target;
@@ -173,7 +171,6 @@ document.querySelector('.container-item-goods').onclick = function (e) {
     }
     blockbasket();
 }
-
 
 //сумирование итогов со скидкой
 function sumPriceInBasket() {
