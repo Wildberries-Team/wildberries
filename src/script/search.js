@@ -1,8 +1,4 @@
-const mainInput = document.getElementById('searchInput');
-
-
-mainInput.addEventListener("click", ()=> {
-	function searchProduct () {
+function searchProduct () {
 	const input = document.getElementById('searchInput').value.toLowerCase();
 	const goodsList = document.getElementById('goodsList');
 	const cards = goodsList.getElementsByClassName('card');
@@ -16,6 +12,9 @@ mainInput.addEventListener("click", ()=> {
 			cards[i].style.display = "none";
 		}
 	}
-	}
-searchProduct()
-})
+
+}
+
+
+export {searchProduct}
+
