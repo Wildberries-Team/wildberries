@@ -2,6 +2,8 @@ import '../index.html';
 import '../css/style.css';
 import {blockCard, blockCardBig, lowblockCard} from './cards.js';
 import {searchProduct} from './search.js';
+import {burgerSort} from './burger_menu.js';
+
 "use strict";
 
 let URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB'
@@ -12,20 +14,16 @@ const getCards = async () => {
     const cardsArray = await obj.json();
     blockCard(cardsArray);
     lowblockCard(cardsArray);
-    const burgerUl = document.querySelector('.burger__list');
 
-    function burgerSort(evt) {
-        const liClick = evt.target.closest('li');
+// функция поиска
 
-        if (liClick) {
-            let filterCards = cardsArray.filter((card) => card.category === liClick.textContent);
-            blockCard(filterCards)
-            lowblockCard(filterCards);
-        }
-    }
     const mainInput = document.getElementById('searchInput');
     mainInput.addEventListener("click", searchProduct)
-    burgerUl.addEventListener('click', burgerSort);
+
+// функция сортировки в бургер меню
+
+    const burgerList = document.querySelector('.burger__list');
+    burgerList.addEventListener('click', (e) => burgerSort(e, cardsArray));
 };
 getCards();
 

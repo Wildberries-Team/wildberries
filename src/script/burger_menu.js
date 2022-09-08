@@ -1,3 +1,5 @@
+import {blockCard, lowblockCard} from "./cards";
+
 const buttonBurger = document.querySelector('.nav-elem');
 const burgerMenu = document.querySelector('.burger');
 const body = document.querySelector('body');
@@ -37,3 +39,16 @@ burgerUl.addEventListener('click', function (evt){
         }
     }
 })
+
+function burgerSort(evt, cardsArray) {
+    const liClick = evt.target.closest('li');
+
+    if (liClick) {
+        debugger
+        let filterCards = cardsArray.filter((card) => card.category === liClick.textContent);
+        blockCard(filterCards)
+        lowblockCard(filterCards);
+    }
+}
+
+export {burgerSort}
