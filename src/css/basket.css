@@ -115,7 +115,7 @@
     white-space: nowrap;
     border-radius: 8px;
     overflow: hidden;
-
+    object-fit: scale-down;
 }
 
 .users-goods-basket_title{
