@@ -224,18 +224,15 @@ header {
 
 .navbar__text--address::before {
 		left: 23px;
-		font: var(--fa-font-solid);
 		content: '\f3c5';
 }
 
 .navbar__text--user::before {
 		left: 15px;
-		font: var(--fa-font-solid);
 		content: '\f007';
 }
 
 .navbar__text--basket::before {
-		font: var(--fa-font-solid);
 		content: '\f07a';
 }
 
@@ -365,7 +362,7 @@ header {
 	.basket-count {
 		top: -13px;
 		right: 5px;
-		padding: px 3px;
+		padding: 3px;
 	}
 
 	.search__input:focus {

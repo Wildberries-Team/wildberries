@@ -1,4 +1,8 @@
-function searchProduct () {
+const mainInput = document.getElementById('searchInput');
+
+
+mainInput.addEventListener("click", ()=> {
+	function searchProduct () {
 	const input = document.getElementById('searchInput').value.toLowerCase();
 	const goodsList = document.getElementById('goodsList');
 	const cards = goodsList.getElementsByClassName('card');
@@ -12,4 +16,6 @@ function searchProduct () {
 			cards[i].style.display = "none";
 		}
 	}
-}
+	}
+searchProduct()
+})
