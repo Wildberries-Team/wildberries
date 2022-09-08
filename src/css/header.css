@@ -51,18 +51,20 @@ header {
 }
 
 .btn-chat {
-		display: block;
-		margin: 0;
-		padding: 5px 7px 7px;
-		max-height: 30px;
-		min-width: 200px;
-		color: white;
-		border-radius: 20px;
-		font-family: 'Roboto', sans-serif;
-		background: #e936b9ce;
-		font-size: 16px;
-		line-height: 20px;
-		font-weight: 300;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 7px;
+	max-height: 30px;
+	min-width: 200px;
+	color: white;
+	border-radius: 20px;
+	font-family: 'Roboto', sans-serif;
+	background: #e936b9ce;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 300;
 }
 
 .btn-chat__icon {
@@ -77,48 +79,48 @@ header {
 }
 
 .nav-elem {
-		padding: 5px;
-		margin-left: 2%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		max-width: 60px;
-		min-height: 60px;
-		border: 0.3px solid rgba(255, 255, 255, 0.621);
-		border-radius: 10px;
-		cursor: pointer;
+	padding: 7px 3px;
+	margin-left: 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 60px;
+	min-height: 60px;
+	border: 0.3px solid rgba(255, 255, 255, 0.621);
+	border-radius: 10px;
+	cursor: pointer;
 }
 
 .burger-btn {
-		display: block;
-		width: 34px;
-		height: 6px;
-		margin: 2px 5px 5px;
-		position: relative;
-		background: white;
-		border-radius: 3px;
+	display: block;
+	width: 36px;
+	height: 4px;
+	margin: 5px;
+	position: relative;
+	background: white;
+	border-radius: 3px;
 }
 
 .burger-btn::before {
-		display: block;
-		content: '';
-		width: 34px;
-		height: 6px;
-		top: 12px;
-		position: absolute;
-		background: white;
-		border-radius: 3px;
+	display: block;
+	content: '';
+	width: 36px;
+	height: 4px;
+	top: 12px;
+	position: absolute;
+	background: white;
+	border-radius: 3px;
 }
 
 .burger-btn::after {
-		display: block;
-		content: '';
-		width: 34px;
-		height: 6px;
-		position: absolute;
-		bottom: 12px;
-		background: white;
-		border-radius: 3px;
+	display: block;
+	content: '';
+	width: 36px;
+	height: 4px;
+	position: absolute;
+	bottom: 12px;
+	background: white;
+	border-radius: 3px;
 }
 
 .logo__img {
@@ -133,24 +135,41 @@ header {
 		position: relative;
 		display: flex;
 		align-items: center;
+		min-width: 55%;
 }
 
 .search__input {
-		margin: 0 auto;
-		padding-left: 8%;
-		min-height: 70px;
-		min-width: 810px;
-		border-radius: 50px;
-		font-family: 'Roboto', sans-serif;
-		background: #d269d66c;
-		cursor: pointer;
+	display: block;
+	margin: 0 auto;
+	padding-left: 8%;
+	height: 70px;
+	min-width: 100%;
+	border-radius: 50px;
+	font-family: 'Roboto', sans-serif;
+	background: #d269d66c;
+	cursor: pointer;
+	color: black;
+}
+
+.search__input:focus {
+	cursor: text;
+	background-color: white;
+	transition: background-color 0.7s ease;
+	font-size: 22px;
+	line-height: 20px;
+	font-weight: 400;
 }
 
 .search__input::placeholder {
 		color: rgba(255, 255, 255, 0.589);
-		font-size: 20px;
+		font-size: 22px;
 		line-height: 20px;
 		font-weight: 400;
+}
+
+.nav-btn {
+	display: flex;
+	align-items: center;
 }
 
 .search__icon_magnifier {
@@ -243,4 +262,282 @@ header {
 		line-height: 13px;
 		text-align: center;
 		z-index: 3;
+}
+
+@media (max-width: 1450px) {
+
+	.search {
+		min-width: 50%;
+	}
+}
+
+@media (max-width: 1400px) {
+
+	.search {
+		margin: 0 3%;
+	}
+
+	.navbar {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.navbar__item {
+		margin: 5px;
+	}
+
+	.navbar__text{
+		font-size: 16px;
+	}
+
+	.btn-chat {
+		padding: 9px 12px 9px 9px;
+		max-height: 30px;
+		min-width: 20px;
+		border-radius: 28px;
+		width: 28px;
+		height: 28px;
+	}
+
+	.header__btn-chat {
+		display: none;
+	}
+}
+
+@media (max-width: 1200px) {
+
+	.nav {
+		display: grid;
+		grid-template-columns: 1fr 1fr 70% 1fr;
+	}
+
+
+	.logo {
+		margin: 0 0 0 30%;
+	}
+
+	.navbar {
+		padding-left: 60%;
+	}
+
+	.search {
+		margin: 2% 2% 0 2%;
+		min-width: 50%;
+		grid-row: 2 / span 4;
+		grid-column: 1 / span 4;
+	}
+
+
+	.search__input {
+		min-width: 100%;
+	}
+
+	.nav-elem {
+		border: 1px solid rgba(255,255,255,.4);
+		border-radius: 8px;
+		padding: 21px 9px;
+		margin-right: 20px;
+	}
+
+	.burger-btn {
+		width: 29px;
+		height: 4px;
+		margin: 2px 5px;
+		border-radius: 4px;
+	}
+
+	.burger-btn::before {
+		width: 28px;
+		height: 4px;
+		border-radius: 4px;
+	}
+
+	.burger-btn::after {
+		width: 28px;
+		height: 4px;
+		border-radius: 4px;
+	}
+
+	.basket-count {
+		top: -13px;
+		right: 5px;
+		padding: 3px;
+	}
+
+	.search__input:focus {
+		font-size: 18px;
+	}
+
+	.search__input::placeholder {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 1025px) {
+
+	.header__top {
+		display: none;
+	}
+	.nav {
+		padding: 3% 0;
+	}
+
+	.logo {
+		margin: 0 0 0 50%;
+	}
+
+	.nav-elem {
+		border: none;
+	}
+
+	.burger-btn::before {
+		width: 22px;
+		height: 3.5px;
+		top: 10px;
+	}
+
+	.burger-btn::after {
+		width: 28px;
+		height: 3.5px;
+		bottom: 10px;
+	}
+
+	.burger-btn {
+		margin: 3px;
+		margin-left: 10%;
+		width: 28px;
+		height: 3.5px;
+	}
+
+	.search__input {
+		height: 60px;
+	}
+}
+
+@media (max-width: 992px) {
+
+	.logo__img {
+		max-height: 65px;
+		max-width: 170px;
+		margin: 0 auto;
+		cursor: pointer;
+	}
+}
+
+@media (min-width: 802px) {
+
+	.adaptive-address__btn {
+		display: none;
+	}
+
+	.adaptive-location__btn {
+		display: none;
+	}
+}
+
+@media (max-width: 800px) {
+
+	.nav {
+		grid: none;
+
+	}
+
+	.logo {
+		margin: 0 0 0 20%;
+	}
+
+	.navbar {
+		display: none;
+	}
+
+	.adaptive-address__btn {
+		margin-left: 80%;
+		display: block;
+		max-width: 22px;
+		background: transparent;
+	}
+	.adaptive-location__btn {
+		margin-left: 20%;
+		display: block;
+		max-width: 22px;
+		background: transparent;
+	}
+
+	.adaptive-location {
+		font-size: 20px;
+		color: white;
+	}
+
+	.adaptive-magnifier {
+		font-size: 20px;
+		color: white;
+	}
+
+	.search {
+		margin: 2% 0 0 0;
+		min-width: 70%;
+
+	}
+	.search__input {
+		min-width: 70%;
+		padding-left: 20%;
+	}
+
+	.search__icon_magnifier {
+		left: 20%;
+	}
+
+	.search__icon_camera {
+		right: 20%;
+	}
+}
+
+@media (max-width: 700px) {
+
+	.navbar__text--user,
+	.navbar__text--basket,
+	.basket-count {
+		display:none;
+	}
+
+	.navbar {
+		padding-left: 35%;
+	}
+	.logo {
+		margin: 0 0 0 10%;
+	}
+}
+
+@media (max-width: 576px) {
+
+	.logo {
+		margin: 0;
+	}
+
+	.search__icon_magnifier {
+		left: 22%;
+		font-size: 16px;
+	}
+
+	.search__icon_camera {
+		right: 22%;
+		font-size: 16px;
+		padding: 6px;
+	}
+
+	.adaptive-location__btn {
+		margin-left: 35%;
+		display: block;
+		padding: 6px;
+	}
+}
+
+
+@media (max-width: 360px) {
+
+	.adaptive-location__btn {
+		margin-left: 35%;
+		display: block;
+	}
 }

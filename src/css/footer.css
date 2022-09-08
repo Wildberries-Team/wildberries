@@ -83,3 +83,27 @@
 .check:hover { 
 		color: white;
 }
+@media (max-width: 1120px) {
+
+	.footer__title {
+		padding: 12px;
+		font-size: 18px;
+	}
+
+	.footer__item {
+		padding: 10px 12px;
+	}
+
+	.footer__item_link {
+
+	}
+}
+
+@media (max-width: 800px) {
+
+	.footer__container {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+}
