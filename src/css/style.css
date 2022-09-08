@@ -17,6 +17,7 @@
 		padding: 0 15px;
 		max-width: 1500px;
 		height: auto;
+		width: 100%;
 }
 
 /* у каждого сайта должен быть заголовок,если его нет напишем и скроем */
@@ -57,8 +58,3 @@
 		right: 30px;
 }
 
-.burger-icon {
-	margin-right: 20px;
-	font-size: 24px;
-	color: rgba(139, 139, 139, 0.71);
-}
