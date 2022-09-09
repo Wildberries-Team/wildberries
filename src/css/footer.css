@@ -73,6 +73,7 @@
 		margin: 5px;
 		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
+		text-align: center;
 }
 
 .check {
@@ -83,6 +84,14 @@
 .check:hover { 
 		color: white;
 }
+
+@media (max-width: 1200px) {
+
+	.footer::before {
+		border-radius: 0;
+	}
+}
+
 @media (max-width: 1120px) {
 
 	.footer__title {

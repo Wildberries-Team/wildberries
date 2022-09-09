@@ -104,7 +104,7 @@
 						<li class="menu__item">Бесплатная доставка</li>
 						<li class="menu__item for-sellers">Продавайте на Wildberries</li>
 					</ul>
-					<button class="header__btn-chat btn-chat">Сообщить о проблеме
+					<button class="header__btn-chat btn-chat"> <span class="btn-chat__text">Сообщить о проблеме</span>
 						<i class="fa-sharp fa-solid fa-comment btn-chat__icon"></i>
 					</button>
 			</div>
@@ -236,7 +236,7 @@
 <!--							</li>-->
 						</ul>
 				</section>
-				<section class="intro first-intro"> <!--1st intro (breakpoint 1020px becomes a slider)-->
+				<section class="intro first-intro container"> <!--1st intro (breakpoint 1020px becomes a slider)-->
 					<div class="intro-left">
 						<a href="#" class="intro__data">
 							<img class="intro__img" src="img/intro/skirts.jpg" alt="Юбки">
@@ -251,7 +251,7 @@
 <!--2 row of cards-->
 <!--Даллее будет массив из карточек-->
 
-				<section class="intro second-intro"> <!--2nd intro (breakpoint 1020px becomes a slider)-->
+				<section class="intro second-intro container"> <!--2nd intro (breakpoint 1020px becomes a slider)-->
 					<div class="intro-left">
 						<a href="#" class="intro__data">
 							<img class="intro__img" src="img/intro/preservatives.jpg" alt="Всё для ваших заготовок на зиму">
@@ -279,7 +279,7 @@
 				</section>
 <!--Далее будет массив из просмотренны пользователем карточек-->
 				<section class="main__opened">
-						<h2 class="main__title">Вы смотрели</h2>
+<!--						<h2 class="main__title">Вы смотрели</h2>-->
 						<ul class="goods__list visited">
 <!--сюда подгружаются лишки просмотреных товаров-->
 <!--js (условие) если пользователь открывал карточку товара--показать-->
@@ -289,7 +289,10 @@
 				<section class="main__brands brands">
 					<div class="brands__title">
 						<h2 class="brands__title_name main__title">Популярные бренды</h2>
-						<a class="brands__title_link brandslist">Смотреть все</a>
+						<a class="brands__title_link">
+							<span class="brandslist hide-mobile">Смотреть все</span>
+							<span class="brandslist hide-desktop">См. все</span>
+						</a>
 					</div>
 						<ul class="brand__categories category" id="brandCategory"> <!--колонка категории-->
 							<li class="category__item swiper-slide" data-column-count="1">
@@ -584,17 +587,15 @@
 				</section>
 				<div class="main__page-navigation" id="app">
 					<button class="btn-quick-nav" type="button">
-						<i class="fa-solid fa-arrow-up main-pc__-icon"></i>
+						<i class="fa-solid fa-arrow-up main-pc__icon"></i>
 					</button>
 					<button class="btn-quick-chat" id="btn-open-chat" type="button">
 						<i class="fa-sharp fa-solid fa-comment main-pc__icon"></i>
 					</button>
-
 				</div>
 				</section>
 		</div>
 	</div> <!--main/end-->
-
 																		<!--FOOTER-->
 	<footer class="footer">
 		<div class="footer__container container">
