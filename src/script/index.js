@@ -15,6 +15,10 @@ const getCards = async () => {
     blockCard(cardsArray);
     lowblockCard(cardsArray);
 
+// обновление страницы по клику на лого
+    const companyLogo = document.querySelector('.logo__img')
+    companyLogo.addEventListener('click', () => window.location.reload());
+
 // функция поиска
 
     const mainInput = document.getElementById('searchInput');
