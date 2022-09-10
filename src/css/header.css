@@ -124,6 +124,8 @@ header {
 }
 
 .logo__img {
+		display: block;
+		z-index: 2;
 		max-height: 85px;
 		max-width: 230px;
 		margin: 0 5%;
@@ -327,7 +329,6 @@ header {
 		grid-row: 2 / span 4;
 		grid-column: 1 / span 4;
 	}
-
 
 	.search__input {
 		min-width: 100%;
