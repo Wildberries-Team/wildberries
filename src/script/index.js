@@ -18,7 +18,8 @@ const getCards = async () => {
 // функция поиска
 
     const mainInput = document.getElementById('searchInput');
-    mainInput.addEventListener("click", searchProduct)
+    // mainInput.addEventListener("click", searchProduct)
+    mainInput.addEventListener("keyup", (evt) => searchProduct(evt, cardsArray));
 
 // функция сортировки в бургер меню
 
