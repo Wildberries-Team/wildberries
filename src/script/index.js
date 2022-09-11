@@ -109,28 +109,30 @@ document.querySelector(".close-basket").addEventListener("click", () => {
 //перенос в корзину и открытие карточки нижний блок
 document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
     let targetClick = e.target;
+
     let parentId = targetClick.closest('.goods__item').id;
     if (targetClick.id === "sendInBasket") {
         dataFromArray(parentId)
+
     }
     if (targetClick.id === "open-card") {
             bigCard(parentId);
     }
 })
 
-
 //перенос в корзину и открытие карточки нижний блок
 document.querySelector('.goods__list').onclick = function (e) {
     let targetClick = e.target;
+
     let parentId = targetClick.closest('.goods__item').id;
     if(targetClick.id === "sendInBasket"){
         dataFromArray(parentId)
+
     }
     if(targetClick.id === "open-card"){
         bigCard(parentId);
     }
 }
-
 
 //добаление количества, сокращение кол-ва, удаление позиции
 document.querySelector('.container-item-goods').onclick = function (e) {
