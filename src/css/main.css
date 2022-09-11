@@ -17,9 +17,9 @@
 	padding: 0 10px;
 	margin: 2% auto;
 	display: grid;
-	grid-template-columns: repeat(7, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	grid-auto-flow: row;
-	row-gap: 5px;
+	gap:20px;
 	justify-items: center;
 	align-items: center;
 }
@@ -266,7 +266,7 @@
 .goods__item {
 	width: 209px;
 	height: 279px;
-	box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.24);
 	transform: translate(-5px, -5px);
 	transition: 0.5s;
 }
@@ -280,7 +280,7 @@
 	padding: 0 10px;
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
-	row-gap: 30px;
+	row: 20px;
 	justify-items: center;
 	align-items: center;
 }
