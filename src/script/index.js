@@ -1,23 +1,54 @@
 import '../index.html';
 import '../css/style.css';
-import {blockCard, blockCardBig, lowblockCard} from './cards.js';
+import {blockCard, lowblockCard, bigCard} from './cards.js';
 import {searchProduct} from './search.js';
 import {burgerSort} from './burger_menu.js';
-
+import {dataFromArray, blockbasket} from "./basket.js"
 "use strict";
 
 let URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB'
+
+// обновление страницы по клику на лого
+const companyLogo = document.querySelector('.logo__img')
+companyLogo.addEventListener('click', () => window.location.reload());
+
+//Fetch cards from server
+const fetchData = async () => {
+    const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB'
+    return fetch(URL)
+        .then(response => response.json());
+};
+
+//функция для запуска действий при загрузке страницы
+const initializationPage = () => {
+    startAnimationLoader()
+    fetchData()
+        .then(data => {
+            removeAnimationLoader()
+            blockCard(data.slice(0, 14))
+            lowblockCard(data.slice(14, 42))
+        })
+
+}
+
+
+document.addEventListener('DOMContentLoaded', initializationPage)
+
+
+function startAnimationLoader() {
+    document.querySelector('.loader').style.display = "block"
+}
+function removeAnimationLoader() {
+    document.querySelector('.loader').style.display = "none";
+    document.querySelector('.next-loader').style.display = "none";
+}
+
+
 
 //получение Данных с сервера
 const getCards = async () => {
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
-    blockCard(cardsArray);
-    lowblockCard(cardsArray);
-
-// обновление страницы по клику на лого
-    const companyLogo = document.querySelector('.logo__img')
-    companyLogo.addEventListener('click', () => window.location.reload());
 
 // функция поиска
 
@@ -32,6 +63,8 @@ const getCards = async () => {
 };
 getCards();
 
+
+
 //Basket block
 //массив товаров в карзине - хранить в Локале
 let basketGoods = [];
@@ -42,173 +75,64 @@ document.getElementById('basket-btn').addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "block";
 });
 
-//счетик длинны корзины
-function lenthBasket() {
-    if (basketGoods.length > 0) {
-        document.getElementById('basket-col').innerHTML = basketGoods.length;
-    }
-}
+
 
 //закрытие корзины вне контейнера
-document.onclick = (event) => {
-    if (event.target.classList == "background-color-container") {
+document.addEventListener('click', (e) => {
+    if(e.target.classList == "background-color-container") {
         document.querySelector(".background-color-container").style.display = "none";
     }
-};
+});
 
 //закрытие контенера на X
 document.querySelector(".close-basket").addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "none";
 });
 
-//формирование блока в корзине
-function blockbasket() {
-    document.querySelector(".container-item-goods").innerHTML = "";
-    if (basketGoods.length > 0) {
-        basketGoods.forEach((item) => {
-            let blockGoods = `
-                            <div class="users-goods-basket" id="${item.id}">
-                                <div class="users-goods-basket_foto">
-                                    <img src=${item.img} alt="" class="users-goods-basket_img">
-                                </div>
-                                <div class="users-goods-basket_title">
-                                    <span>${item.title}</span>
-                                </div>
-                                <div class="users-goods-basket_col">
-                                    <div class="components-col">
-                                        <button id="minus-btn">-</button>
-                                        <span id="col-goods">${item.col}</span>
-                                        <button id="plus-btn">+</button>
-                                    </div>
-                                    <span class="delete-item-basket">Удалить</span>
-                                </div>
-                                <div class="users-goods-basket_sum">
-                                    <span class="sum-withdiscount"><span id="withdiscount-sum-basket">${(item.col * (Number(item.price) * (1 - Number(item.percent) / 100))).toFixed(0)}</span> руб</span>
-                                    <span class="sum-nodiscount"><span id="nodiscount-sum-basket">${(item.price * item.col).toFixed(0)}</span> руб</span>
-                                </div>
-                            </div>
-            `;
-            document.querySelector(".container-item-goods").innerHTML += blockGoods;
-        });
-    }
-    lenthBasket();
-    sumPriceInBasket();
-    }
 
 
-//функция конструктор
-function GoodsInBasket(goods) {
-    this.img = goods.img; //ссылка на фото
-    this.id = goods.id + basketGoods.length; //айди
-    this.title = goods.title; //название карточки
-    this.col = 1; //количество едениц
-    this.price = Number(goods.price); //цена со скидкой
-    this.percent = goods.percent; // цена без скидки
-}
-
-
-//перенос в корзину и открытие карточки верхний блок
-document.querySelector('.cards-bulk__list').onclick = function (e) {
+//перенос в корзину и открытие карточки нижний блок
+document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
     let targetClick = e.target;
-    let parentid = targetClick.closest('.goods__item').id;
-    if(targetClick.id === "sendInbasket"){
-        data(URL);
-        async function data (url){
-            let response = await fetch(url);
-            let data = await response.json()
-            dataFromArry(data);
-        }
-        function dataFromArry(data){
-            data.forEach(item => {
-                    if (item.id === parentid) {
-                        basketGoods.push(new GoodsInBasket(item));
-                        lenthBasket();
-                        blockbasket();
-                        sumPriceInBasket();
-                    }
-                }
-            )
-        }
-    }
-    if(targetClick.id === "open-card"){
-        moreData(URL)
-        async function moreData(url){
-            let response = await fetch(url);
-            let data = await response.json()
-            bigCard(data);
-        }
-        function bigCard(data){
-            data.forEach(item => {
-                    if (item.id === parentid) {
-                        blockCardBig(item);
-                    }
-                }
-            )
-        }
+
+    let parentId = targetClick.closest('.goods__item').id;
+    if (targetClick.id === "sendInBasket") {
+        dataFromArray(parentId)
 
     }
-}
-
-
-
+    if (targetClick.id === "open-card") {
+            bigCard(parentId);
+    }
+})
 
 //перенос в корзину и открытие карточки нижний блок
 document.querySelector('.goods__list').onclick = function (e) {
     let targetClick = e.target;
-    let parentid = targetClick.closest('.goods__item').id;
-    if(targetClick.id === "sendInbasket"){
-        data(URL);
-        async function data (url){
-            let response = await fetch(url);
-            let data = await response.json()
-            dataFromArry(data);
-        }
-        function dataFromArry(data){
-            data.forEach(item => {
-                    if (item.id === parentid) {
-                        basketGoods.push(new GoodsInBasket(item));
-                        lenthBasket();
-                        blockbasket();
-                        sumPriceInBasket();
-                    }
-                }
-            )
-        }
+
+    let parentId = targetClick.closest('.goods__item').id;
+    if(targetClick.id === "sendInBasket"){
+        dataFromArray(parentId)
+
     }
     if(targetClick.id === "open-card"){
-        moreData(URL)
-        async function moreData(url){
-            let response = await fetch(url);
-            let data = await response.json()
-            bigCard(data);
-        }
-        function bigCard(data){
-            data.forEach(item => {
-                    if (item.id === parentid) {
-                        blockCardBig(item);
-                    }
-                }
-            )
-        }
-
+        bigCard(parentId);
     }
 }
-
 
 //добаление количества, сокращение кол-ва, удаление позиции
 document.querySelector('.container-item-goods').onclick = function (e) {
     let targetClick = e.target;
-    let parentid = targetClick.closest('.users-goods-basket').id;
-    if (targetClick.id == "plus-btn") {
+    let parentId = targetClick.closest('.users-goods-basket').id;
+    if (targetClick.id === "plus-btn") {
         basketGoods.forEach(item => {
-            if (item.id == parentid) {
+            if (item.id === parentId) {
                 item.col += 1;
             }
         });
     }
-    if (targetClick.id == "minus-btn") {
+    if (targetClick.id === "minus-btn") {
         basketGoods.forEach((item, ind) => {
-            if (item.id == parentid) {
+            if (item.id === parentId) {
                 item.col -= 1;
                 if (item.col <= 0) {
                     basketGoods.splice(ind, 1);
@@ -220,7 +144,7 @@ document.querySelector('.container-item-goods').onclick = function (e) {
     }
     if (targetClick.className == "delete-item-basket") {
         basketGoods.forEach((item, ind) => {
-            if (item.id == parentid) {
+            if (item.id === parentId) {
                 basketGoods.splice(ind, 1);
             }
         });
@@ -228,21 +152,7 @@ document.querySelector('.container-item-goods').onclick = function (e) {
     blockbasket();
 }
 
-//сумирование итогов со скидкой
-function sumPriceInBasket() {
-    let sum = Number(0);
-    let sumNoDiscont = Number(0);
-    let colSum = Number(0);
-    basketGoods.forEach(item => {
-        sum += (item.col * (Number(item.price) * (1 - Number(item.percent) / 100)));
-        sumNoDiscont += (item.col * Number(item.price));
-        colSum += Number(item.col);
-    })
-    document.getElementById('sum-basket').innerHTML = sum.toFixed(0);
-    document.getElementById('sum-basket-nodicount').innerHTML = sumNoDiscont.toFixed(0);
-    document.getElementById('sum-basket-discount').innerHTML = (sumNoDiscont - sum).toFixed(0);
-    document.getElementById('sum-basket-col').innerHTML = colSum;
-}
+
 
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
 document.getElementById('order-btn').addEventListener("click", () => {
@@ -272,31 +182,16 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
 //закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
  document.onclick = (event) => {
      if (event.target.id === "close-big-block") {
-
          document.querySelector(".big-card-block").innerHTML = ""
      }
      if (event.target.classList == "goods__big-container") {
          document.querySelector(".big-card-block").innerHTML = ""
      }
      if (event.target.classList == " good-card__add-big") {
-         let parentid = event.target.closest('.goods__big-card').id;
-         dataMore(URL);
-          async function dataMore(url){
-              let response = await fetch(url);
-              let data = await response.json()
-              dataBasketFromBig(data);
+         let parentId = event.target.closest('.goods__big-card').id;
+         dataFromArray(parentId)
           }
-          function dataBasketFromBig(data){
-              data.forEach(item => {
-                      if (item.id === parentid) {
-                          basketGoods.push(new GoodsInBasket(item));
-                          lenthBasket();
-                          blockbasket();
-                          sumPriceInBasket();
-                      }
-                  }
-              )
-          }
-
-     }
  };
+
+
+ export {basketGoods, fetchData}

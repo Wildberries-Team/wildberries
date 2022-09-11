@@ -1,50 +1,31 @@
-//функция для отображения маленькой карточки на странице
+import {fetchData} from './index.js'
+
+//функция для отображения маленькой карточки на странице вверхней части блока и нижней
 function blockCard(cardsArray) {
     document.querySelector(".goods__list").innerHTML = "";
-    let easyArr = cardsArray.splice(14, 42)
-    if (cardsArray.length > 0) {
-        easyArr.forEach((item, ind) => {
-            let cardTemplate = `
-                    <li class="goods__item card" id="${item.id}">
-                    <div class="goods__small-card" id="${item.id}>
-                        <a href="#" class="card__inner goods">
-                            <div class="goods__img-wrap">
-                                <img class="goods__img" src="${item.img}" alt="">
-                                <button class="goods__preview-btn view-btn" id="open-card">Быстрый просмотр</button>
-                                <button class = "good-card__add" id="sendInbasket">В корзину</button>
-                                <p class="goods__discount">-<span>${item.percent}</span>%</p>
-                            </div>
-                            <div class="goods__info">
-                                <p class="goods__price">
-                                    <span class="goods__price-now price-now">${item.price} р.</span>
-                                    <del class="goods__price-last price-last">${Number((item.price * 100) / (100-item.percent)).toFixed(0)} р.</del>
-                                </p>
-                                <p class="goods__desc">
-                                    <span class="goods__desc_brand">${item.category}</span>
-                                    <span class="goods__desc_name">/ ${item.title}</span>
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>
-            `;
+        cardsArray.forEach((item, ind) => {
+            let cardTemplate = miniCardHTML(item);
             document.querySelector(".goods__list").innerHTML += cardTemplate;
         })
-    }
 }
 function lowblockCard(cardsArray) {
     document.querySelector(".cards-bulk__list").innerHTML = "";
-    let easyArr = cardsArray.splice(0, 12)
-    if (cardsArray.length > 0) {
-        easyArr.forEach((item, ind) => {
-            let cardTemplate = `
+        cardsArray.forEach((item, ind) => {
+            let cardTemplate = miniCardHTML(item);
+            document.querySelector(".cards-bulk__list").innerHTML += cardTemplate;
+        })
+}
+
+//верстка маленькой карточки
+function miniCardHTML(item) {
+    return `
                     <li class="goods__item card" id="${item.id}">
                     <div class="goods__small-card" id="${item.id}>
                         <a href="#" class="card__inner goods">
                             <div class="goods__img-wrap">
                                 <img class="goods__img" src="${item.img}" alt="">
                                 <button class="goods__preview-btn view-btn" id="open-card">Быстрый просмотр</button>
-                                <button class = "good-card__add" id="sendInbasket">В корзину</button>
+                                <button class = "good-card__add" id="sendInBasket">В корзину</button>
                                 <p class="goods__discount">-<span>${item.percent}</span>%</p>
                             </div>
                             <div class="goods__info">
@@ -60,10 +41,7 @@ function lowblockCard(cardsArray) {
                         </a>
                     </div>
                 </li>
-            `;
-            document.querySelector(".cards-bulk__list").innerHTML += cardTemplate;
-        })
-    }
+            `
 }
 
 //функция для отображения большой карточки на странице
@@ -94,6 +72,17 @@ function blockCardBig(item) {
     `;
     document.querySelector('.big-card-block').innerHTML += cardTemplateBig;
 
+};
+
+//функция открытия большой картчоки
+function bigCard(idCard) {
+    fetchData().then(data => {
+        data.forEach(item => {
+            if (item.id === idCard) {
+                blockCardBig(item);
+            }
+        })
+    })
 }
 
-export {blockCard, blockCardBig, lowblockCard}
+export {blockCard, lowblockCard, bigCard}

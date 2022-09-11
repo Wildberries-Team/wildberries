@@ -3,16 +3,22 @@
 let slideIndex = 1;
 showSlides(slideIndex);
 
+let sliderInterval = setInterval(() => {
+    slideIndex += 1
+    showSlides(slideIndex)
+}, 3000);
 
 /* Функция увеличивает индекс на 1, показывает следующй слайд*/
 document.querySelector('.next').addEventListener('click', () => {
     showSlides(slideIndex += 1);
+    clearInterval(sliderInterval)
 })
 
 
 /* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
 document.querySelector('.prev').addEventListener('click', () => {
     showSlides(slideIndex -= 1);
+    clearInterval(sliderInterval)
 
 })
 
