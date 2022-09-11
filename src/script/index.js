@@ -16,8 +16,8 @@ const getCards = async () => {
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
     removeAnimationLoader();
-    blockCard(cardsArray.slice(0, 28));
-    lowblockCard(cardsArray.slice(50, 64));
+    blockCard(cardsArray.slice(0, 30));
+    lowblockCard(cardsArray.slice(50, 65));
 
 // функция поиска
     document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray));
