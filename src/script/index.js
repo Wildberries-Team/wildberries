@@ -27,10 +27,25 @@ const initializationPage = () => {
             removeAnimationLoader()
             blockCard(data.slice(0, 14))
             lowblockCard(data.slice(14, 42))
+            data.forEach(item => goodsArray.push(new FromFetchToArray(item)))
         })
+
+    console.log(goodsArray)
 
 }
 
+const goodsArray = []
+
+function FromFetchToArray(goods){
+    this.img = goods.img;
+    this.id = goods.id;
+    this.title = goods.title;
+    this.price = Number(goods.price);
+    this.percent = goods.percent;
+    this.description = goods.description
+    this.title = goods.title
+    this.category = goods.category
+}
 
 document.addEventListener('DOMContentLoaded', initializationPage)
 
@@ -192,4 +207,4 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
  };
 
 
- export {basketGoods, fetchData}
+ export {basketGoods, fetchData, goodsArray}
