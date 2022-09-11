@@ -1,6 +1,6 @@
 
 
-import {basketGoods, fetchData} from "./index.js";
+import {basketGoods, fetchData, goodsArray} from "./index.js";
 
 //сумирование итогов со скидкой
 function sumPriceInBasket() {
@@ -21,8 +21,7 @@ function sumPriceInBasket() {
 
 //функция переноса в корзину
 function dataFromArray(idCard) {
-    fetchData().then(data => {
-        data.forEach(item => {
+        goodsArray.forEach(item => {
             if (item.id === idCard) {
                 basketGoods.push(new GoodsInBasket(item));
                 lenthBasket();
@@ -30,13 +29,13 @@ function dataFromArray(idCard) {
                 sumPriceInBasket();
             }
         })
-    })
-}
+    }
+
 
 //функция конструктор
 function GoodsInBasket(goods) {
     this.img = goods.img; //ссылка на фото
-    this.id = goods.id + basketGoods.length; //айди
+    this.id = goods.id; //айди
     this.title = goods.title; //название карточки
     this.col = 1; //количество едениц
     this.price = Number(goods.price); //цена со скидкой

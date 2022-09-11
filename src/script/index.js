@@ -20,6 +20,7 @@ const fetchData = async () => {
 };
 
 //функция для запуска действий при загрузке страницы
+
 const getCards = async () => {
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
@@ -27,7 +28,7 @@ const getCards = async () => {
     removeAnimationLoader()
     blockCard(cardsArray.slice(0, 28))
     lowblockCard(cardsArray.slice(50, 64))
-
+    data.forEach(item => goodsArray.push(item))
 // функция поиска
 
     const mainInput = document.getElementById('searchInput');
@@ -38,7 +39,11 @@ const getCards = async () => {
 
     const burgerList = document.querySelector('.burger__list');
     burgerList.addEventListener('click', (e) => burgerSort(e, cardsArray));
+    
+    console.log(goodsArray)
 };
+
+const goodsArray = []
 
 document.addEventListener('DOMContentLoaded', getCards);
 
@@ -175,4 +180,4 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
           }
  };
 
- export {basketGoods, fetchData}
+ export {basketGoods, fetchData, goodsArray}
