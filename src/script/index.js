@@ -28,7 +28,7 @@ const getCards = async () => {
     removeAnimationLoader()
     blockCard(cardsArray.slice(0, 28))
     lowblockCard(cardsArray.slice(50, 64))
-    data.forEach(item => goodsArray.push(item))
+    cardsArray.forEach(item => goodsArray.push(item))
 // функция поиска
 
     const mainInput = document.getElementById('searchInput');
