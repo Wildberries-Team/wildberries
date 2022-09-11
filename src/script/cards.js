@@ -1,20 +1,20 @@
-import {goodsArray} from './index.js'
-
-//функция для отображения маленькой карточки на странице вверхней части блока и нижней
+//функция для отображения маленькой карточки на странице вверхней части блока
 function blockCard(cardsArray) {
     document.querySelector(".goods__list").innerHTML = "";
         cardsArray.forEach((item, ind) => {
             let cardTemplate = miniCardHTML(item);
             document.querySelector(".goods__list").innerHTML += cardTemplate;
-        })
-}
+        });
+};
+
+//функция для отображения маленькой карточки на странице нижней части блока
 function lowblockCard(cardsArray) {
     document.querySelector(".cards-bulk__list").innerHTML = "";
         cardsArray.forEach((item, ind) => {
             let cardTemplate = miniCardHTML(item);
             document.querySelector(".cards-bulk__list").innerHTML += cardTemplate;
-        })
-}
+        });
+};
 
 //верстка маленькой карточки
 function miniCardHTML(item) {
@@ -42,7 +42,7 @@ function miniCardHTML(item) {
                     </div>
                 </li>
             `
-}
+};
 
 //функция для отображения большой карточки на странице
 function blockCardBig(item) {
@@ -71,16 +71,15 @@ function blockCardBig(item) {
                     </div>
     `;
     document.querySelector('.big-card-block').innerHTML += cardTemplateBig;
-
 };
 
 //функция открытия большой картчоки
-function bigCard(idCard) {
-    goodsArray.forEach(item => {
+function bigCard(idCard, array) {
+    array.forEach(item => {
             if (item.id === idCard) {
                 blockCardBig(item);
-            }
-        })
-}
+            };
+        });
+};
 
 export {blockCard, lowblockCard, bigCard}

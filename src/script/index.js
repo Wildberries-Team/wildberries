@@ -3,51 +3,57 @@ import '../css/style.css';
 import {blockCard, lowblockCard, bigCard} from './cards.js';
 import {searchProduct} from './search.js';
 import {burgerSort} from './burger_menu.js';
-import {dataFromArray, blockbasket} from "./basket.js"
+import {dataFromArray, blockBasket, openBasketAndCard} from "./basket.js"
+
 "use strict";
 
-let URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB'
-
 // обновление страницы по клику на лого
-const companyLogo = document.querySelector('.logo__img')
+const companyLogo = document.querySelector('.logo__img');
 companyLogo.addEventListener('click', () => window.location.reload());
 
 //функция для запуска действий при загрузке страницы
-
 const getCards = async () => {
+    const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB';
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
+    removeAnimationLoader();
+    blockCard(cardsArray.slice(0, 28));
+    lowblockCard(cardsArray.slice(50, 64));
 
-    removeAnimationLoader()
-    blockCard(cardsArray.slice(0, 28))
-    lowblockCard(cardsArray.slice(50, 64))
-    cardsArray.forEach(item => goodsArray.push(item))
 // функция поиска
-
     const mainInput = document.getElementById('searchInput');
     // mainInput.addEventListener("click", searchProduct)
     mainInput.addEventListener("keyup", (evt) => searchProduct(evt, cardsArray));
 
 // функция сортировки в бургер меню
-
     const burgerList = document.querySelector('.burger__list');
     burgerList.addEventListener('click', (e) => burgerSort(e, cardsArray));
 
+//перенос в корзину и открытие карточки нижний блок
+    document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
+        openBasketAndCard(e, cardsArray);
+    });
+
+//перенос в корзину и открытие карточки верхни блок
+    document.querySelector('.goods__list').addEventListener('click', (e) => {
+        openBasketAndCard(e, cardsArray);
+    });
+
+//закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
+    document.addEventListener('click', (e) => {
+        clickOnField(e, cardsArray);
+    });
 };
 
-const goodsArray = []
-
+//порядок загрузки при загрузки страницы
 document.addEventListener('DOMContentLoaded', getCards);
 
-// function startAnimationLoader() {
-//     document.querySelector('.loader').style.display = "block"
-// }
+//удаление анимации загрузки
 function removeAnimationLoader() {
     document.querySelector('.loader').style.display = "none";
     document.querySelector('.next-loader').style.display = "none";
 }
 
-//Basket block
 //массив товаров в карзине - хранить в Локале
 let basketGoods = [];
 
@@ -60,41 +66,13 @@ document.getElementById('basket-btn').addEventListener("click", () => {
 document.addEventListener('click', (e) => {
     if(e.target.classList == "background-color-container") {
         document.querySelector(".background-color-container").style.display = "none";
-    }
+    };
 });
 
 //закрытие контенера на X
 document.querySelector(".close-basket").addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "none";
 });
-
-//перенос в корзину и открытие карточки нижний блок
-document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
-    let targetClick = e.target;
-
-    let parentId = targetClick.closest('.goods__item').id;
-    if (targetClick.id === "sendInBasket") {
-        dataFromArray(parentId)
-
-    }
-    if (targetClick.id === "open-card") {
-            bigCard(parentId);
-    }
-})
-
-//перенос в корзину и открытие карточки нижний блок
-document.querySelector('.goods__list').onclick = function (e) {
-    let targetClick = e.target;
-
-    let parentId = targetClick.closest('.goods__item').id;
-    if(targetClick.id === "sendInBasket"){
-        dataFromArray(parentId)
-
-    }
-    if(targetClick.id === "open-card"){
-        bigCard(parentId);
-    }
-}
 
 //добаление количества, сокращение кол-ва, удаление позиции
 document.querySelector('.container-item-goods').onclick = function (e) {
@@ -126,7 +104,7 @@ document.querySelector('.container-item-goods').onclick = function (e) {
             }
         });
     }
-    blockbasket();
+    blockBasket();
 }
 
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
@@ -136,7 +114,7 @@ document.getElementById('order-btn').addEventListener("click", () => {
     } else {
         alert("Ознакомьтесь с правилами")
     }
-    blockbasket();
+    blockBasket();
 });
 
 //btn up page
@@ -154,18 +132,19 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
     window.scrollTo(pageYOffset, 0);
 });
 
-//закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
- document.onclick = (event) => {
-     if (event.target.id === "close-big-block") {
-         document.querySelector(".big-card-block").innerHTML = ""
-     }
-     if (event.target.classList == "goods__big-container") {
-         document.querySelector(".big-card-block").innerHTML = ""
-     }
-     if (event.target.classList == " good-card__add-big") {
-         let parentId = event.target.closest('.goods__big-card').id;
-         dataFromArray(parentId)
-          }
- };
+//проверки при кликах на области
+function clickOnField(e, array){
+    if (e.target.id === "close-big-block") {
+        document.querySelector(".big-card-block").innerHTML = "";
+    }
+    if (e.target.classList == "goods__big-container") {
+        document.querySelector(".big-card-block").innerHTML = "";
+    }
+    if (e.target.classList == " good-card__add-big") {
+        let parentId = event.target.closest('.goods__big-card').id;
+        dataFromArray(parentId, array);
+    }
+};
 
- export {basketGoods, goodsArray}
+
+ export {basketGoods}
