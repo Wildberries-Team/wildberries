@@ -111,7 +111,6 @@ function GoodsInBasket(goods) {
 document.querySelector('.cards-bulk__list').onclick = function (e) {
     let targetClick = e.target;
     let parentid = targetClick.closest('.goods__item').id;
-    console.log(parentid);
     if(targetClick.id === "sendInbasket"){
         data(URL);
         async function data (url){
@@ -157,7 +156,6 @@ document.querySelector('.cards-bulk__list').onclick = function (e) {
 document.querySelector('.goods__list').onclick = function (e) {
     let targetClick = e.target;
     let parentid = targetClick.closest('.goods__item').id;
-    console.log(parentid);
     if(targetClick.id === "sendInbasket"){
         data(URL);
         async function data (url){
