@@ -266,21 +266,20 @@
 .goods__item {
 	width: 209px;
 	height: 279px;
-	box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.24);
-	transform: translate(-5px, -5px);
 	transition: 0.5s;
+	border-radius: 5px;
 }
 .goods__item:hover{
-	transform: none;
+
 	transition: 0.5s;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.36);
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
 }
 .cards-bulk__list {
 	margin: 5% auto;
 	padding: 0 10px;
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
-	row: 20px;
+	gap: 20px;
 	justify-items: center;
 	align-items: center;
 }
