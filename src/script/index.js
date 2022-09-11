@@ -8,8 +8,7 @@ import {dataFromArray, blockBasket, openBasketAndCard} from "./basket.js"
 "use strict";
 
 // обновление страницы по клику на лого
-const companyLogo = document.querySelector('.logo__img');
-companyLogo.addEventListener('click', () => window.location.reload());
+document.querySelector('.logo__img').addEventListener('click', () => window.location.reload());
 
 //функция для запуска действий при загрузке страницы
 const getCards = async () => {
@@ -21,13 +20,10 @@ const getCards = async () => {
     lowblockCard(cardsArray.slice(50, 64));
 
 // функция поиска
-    const mainInput = document.getElementById('searchInput');
-    // mainInput.addEventListener("click", searchProduct)
-    mainInput.addEventListener("keyup", (evt) => searchProduct(evt, cardsArray));
+    document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray));
 
 // функция сортировки в бургер меню
-    const burgerList = document.querySelector('.burger__list');
-    burgerList.addEventListener('click', (e) => burgerSort(e, cardsArray));
+    document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray));
 
 //перенос в корзину и открытие карточки нижний блок
     document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
