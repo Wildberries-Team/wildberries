@@ -11,6 +11,7 @@ module.exports = {
         index: './src/script/index.js',
         burger: './src/script/burger_menu.js',
         input: './src/script/search.js',
+        intro: './src/script/adaptive_intro.js',
 // Можно добавлять js файлы
     },
     devServer: {
