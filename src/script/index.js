@@ -13,48 +13,22 @@ const companyLogo = document.querySelector('.logo__img')
 companyLogo.addEventListener('click', () => window.location.reload());
 
 //Fetch cards from server
+
 const fetchData = async () => {
-    const URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qbop0LDT4llMXLCk9Tq5k9BNwhjV7HqV2J0LFe6NOkTVHRHc5nsTi9GX5sCkMkDy_4QluvOPNqyOUkWMuV_Yrs5iFEMemSgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBUthoLTvLyooO4Gr0kkK0OicYlMkfxhYcoRufbODgSqvRlzi-BrffY3G2tauRDTcJtNrQ_GbamaPHlYt5S2ShejoWkwaDsuYNz9Jw9Md8uu&lib=MpocQWBEmsKNBALSiNCwBGji98K7VbvaB'
     return fetch(URL)
         .then(response => response.json());
 };
 
 //функция для запуска действий при загрузке страницы
-const initializationPage = () => {
-    startAnimationLoader()
-    fetchData()
-        .then(data => {
-            removeAnimationLoader()
-            blockCard(data.slice(0, 14))
-            lowblockCard(data.slice(14, 42))
-            data.forEach(item => goodsArray.push(item))
-        })
 
-    console.log(goodsArray)
-
-}
-
-const goodsArray = []ж
-
-
-document.addEventListener('DOMContentLoaded', initializationPage)
-
-
-function startAnimationLoader() {
-    document.querySelector('.loader').style.display = "block"
-}
-function removeAnimationLoader() {
-    document.querySelector('.loader').style.display = "none";
-    document.querySelector('.next-loader').style.display = "none";
-}
-
-
-
-//получение Данных с сервера
 const getCards = async () => {
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
 
+    removeAnimationLoader()
+    blockCard(cardsArray.slice(0, 28))
+    lowblockCard(cardsArray.slice(50, 64))
+    data.forEach(item => goodsArray.push(item))
 // функция поиска
 
     const mainInput = document.getElementById('searchInput');
@@ -65,10 +39,22 @@ const getCards = async () => {
 
     const burgerList = document.querySelector('.burger__list');
     burgerList.addEventListener('click', (e) => burgerSort(e, cardsArray));
+    
+    console.log(goodsArray)
 };
-getCards();
+
+const goodsArray = []
+
+document.addEventListener('DOMContentLoaded', getCards);
 
 
+function startAnimationLoader() {
+    document.querySelector('.loader').style.display = "block"
+}
+function removeAnimationLoader() {
+    document.querySelector('.loader').style.display = "none";
+    document.querySelector('.next-loader').style.display = "none";
+}
 
 //Basket block
 //массив товаров в карзине - хранить в Локале
@@ -79,8 +65,6 @@ let basketGoods = [];
 document.getElementById('basket-btn').addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "block";
 });
-
-
 
 //закрытие корзины вне контейнера
 document.addEventListener('click', (e) => {
@@ -93,8 +77,6 @@ document.addEventListener('click', (e) => {
 document.querySelector(".close-basket").addEventListener("click", () => {
     document.querySelector(".background-color-container").style.display = "none";
 });
-
-
 
 //перенос в корзину и открытие карточки нижний блок
 document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
@@ -197,6 +179,5 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
          dataFromArray(parentId)
           }
  };
-
 
  export {basketGoods, fetchData, goodsArray}
