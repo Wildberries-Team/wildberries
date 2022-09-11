@@ -12,13 +12,6 @@ let URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=-qb
 const companyLogo = document.querySelector('.logo__img')
 companyLogo.addEventListener('click', () => window.location.reload());
 
-//Fetch cards from server
-
-const fetchData = async () => {
-    return fetch(URL)
-        .then(response => response.json());
-};
-
 //функция для запуска действий при загрузке страницы
 
 const getCards = async () => {
@@ -39,18 +32,16 @@ const getCards = async () => {
 
     const burgerList = document.querySelector('.burger__list');
     burgerList.addEventListener('click', (e) => burgerSort(e, cardsArray));
-    
-    console.log(goodsArray)
+
 };
 
 const goodsArray = []
 
 document.addEventListener('DOMContentLoaded', getCards);
 
-
-function startAnimationLoader() {
-    document.querySelector('.loader').style.display = "block"
-}
+// function startAnimationLoader() {
+//     document.querySelector('.loader').style.display = "block"
+// }
 function removeAnimationLoader() {
     document.querySelector('.loader').style.display = "none";
     document.querySelector('.next-loader').style.display = "none";
@@ -59,7 +50,6 @@ function removeAnimationLoader() {
 //Basket block
 //массив товаров в карзине - хранить в Локале
 let basketGoods = [];
-
 
 //открытие карзины
 document.getElementById('basket-btn').addEventListener("click", () => {
@@ -139,8 +129,6 @@ document.querySelector('.container-item-goods').onclick = function (e) {
     blockbasket();
 }
 
-
-
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
 document.getElementById('order-btn').addEventListener("click", () => {
     if (document.querySelector('input[type=checkbox]').checked) {
@@ -180,4 +168,4 @@ document.querySelector('.btn-quick-nav').addEventListener('click', () => {
           }
  };
 
- export {basketGoods, fetchData, goodsArray}
+ export {basketGoods, goodsArray}

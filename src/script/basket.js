@@ -1,6 +1,4 @@
-
-
-import {basketGoods, fetchData, goodsArray} from "./index.js";
+import {basketGoods, goodsArray} from "./index.js";
 
 //сумирование итогов со скидкой
 function sumPriceInBasket() {

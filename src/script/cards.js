@@ -1,4 +1,4 @@
-import {fetchData, goodsArray} from './index.js'
+import {goodsArray} from './index.js'
 
 //функция для отображения маленькой карточки на странице вверхней части блока и нижней
 function blockCard(cardsArray) {
