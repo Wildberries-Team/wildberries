@@ -83,5 +83,4 @@ function bigCard(idCard) {
         })
 }
 
-
 export {blockCard, lowblockCard, bigCard}

@@ -27,7 +27,7 @@ const initializationPage = () => {
             removeAnimationLoader()
             blockCard(data.slice(0, 14))
             lowblockCard(data.slice(14, 42))
-            data.forEach(item => goodsArray.push(new FromFetchToArray(item)))
+            data.forEach(item => goodsArray.push(item))
         })
 
     console.log(goodsArray)
@@ -36,16 +36,6 @@ const initializationPage = () => {
 
 const goodsArray = []
 
-function FromFetchToArray(goods){
-    this.img = goods.img;
-    this.id = goods.id;
-    this.title = goods.title;
-    this.price = Number(goods.price);
-    this.percent = goods.percent;
-    this.description = goods.description
-    this.title = goods.title
-    this.category = goods.category
-}
 
 document.addEventListener('DOMContentLoaded', initializationPage)
 
@@ -109,28 +99,30 @@ document.querySelector(".close-basket").addEventListener("click", () => {
 //перенос в корзину и открытие карточки нижний блок
 document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
     let targetClick = e.target;
+
     let parentId = targetClick.closest('.goods__item').id;
     if (targetClick.id === "sendInBasket") {
         dataFromArray(parentId)
+
     }
     if (targetClick.id === "open-card") {
             bigCard(parentId);
     }
 })
 
-
 //перенос в корзину и открытие карточки нижний блок
 document.querySelector('.goods__list').onclick = function (e) {
     let targetClick = e.target;
+
     let parentId = targetClick.closest('.goods__item').id;
     if(targetClick.id === "sendInBasket"){
         dataFromArray(parentId)
+
     }
     if(targetClick.id === "open-card"){
         bigCard(parentId);
     }
 }
-
 
 //добаление количества, сокращение кол-ва, удаление позиции
 document.querySelector('.container-item-goods').onclick = function (e) {
