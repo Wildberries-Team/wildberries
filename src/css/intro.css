@@ -29,7 +29,7 @@
 
 	.intro__slider, .intro__slider .intro__slider_inner {
 		margin: 0 auto 10px;
-		width: 730px;
+		width: 100%;
 		height: 100%;
 		height: 260px;
 		position: relative;
@@ -58,7 +58,7 @@
 	}
 
 	.intro__img {
-		width: auto;
+		width: 100%;
 	}
 
 	.dots {
