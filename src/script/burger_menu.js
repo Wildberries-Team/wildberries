@@ -35,7 +35,7 @@ function burgerSort(evt, cardsArray) {
     const liClick = evt.target.closest('li');
 
     if (liClick) {
-        let filterCards = cardsArray.filter((card) => card.category === liClick.textContent);
+        let filterCards = cardsArray.filter((card) => card.category === liClick.textContent).slice(0, 28);
         blockCard(filterCards);
     }
 }

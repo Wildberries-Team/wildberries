@@ -7,7 +7,7 @@ function searchProduct (e, cardsArray) {
 			card.title.toLowerCase().includes(searchString) ||
 			card.category.toLowerCase().includes(searchString)
 		)
-	});
+	}).slice(0, 28);
 		blockCard(filteredCards);
 }
 export {searchProduct}
