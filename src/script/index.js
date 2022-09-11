@@ -34,7 +34,7 @@ const initializationPage = () => {
 
 }
 
-const goodsArray = []
+const goodsArray = []ж
 
 
 document.addEventListener('DOMContentLoaded', initializationPage)
