@@ -1,4 +1,5 @@
-import {basketGoods, goodsArray} from "./index.js";
+import {basketGoods} from "./index.js";
+import {bigCard} from "./cards";
 
 //сумирование итогов со скидкой
 function sumPriceInBasket() {
@@ -9,26 +10,36 @@ function sumPriceInBasket() {
         sum += (item.col * (Number(item.price) * (1 - Number(item.percent) / 100)));
         sumNoDiscont += (item.col * Number(item.price));
         colSum += Number(item.col);
-    })
+    });
     document.getElementById('sum-basket').innerHTML = sum.toFixed(0);
     document.getElementById('sum-basket-nodicount').innerHTML = sumNoDiscont.toFixed(0);
     document.getElementById('sum-basket-discount').innerHTML = (sumNoDiscont - sum).toFixed(0);
     document.getElementById('sum-basket-col').innerHTML = colSum;
-}
+};
 
+//функция проверки для добавления в корзину и отрисовки большой карточки
+function openBasketAndCard(e, array) {
+    let targetClick = e.target;
+    let parentId = targetClick.closest('.goods__item').id;
+    if (targetClick.id === "sendInBasket") {
+        dataFromArray(parentId, array);
+    }
+    if (targetClick.id === "open-card") {
+        bigCard(parentId, array);
+    }
+};
 
 //функция переноса в корзину
-function dataFromArray(idCard) {
-        goodsArray.forEach(item => {
+function dataFromArray(idCard, array) {
+        array.forEach(item => {
             if (item.id === idCard) {
                 basketGoods.push(new GoodsInBasket(item));
-                lenthBasket();
-                blockbasket();
+                lengthBasket();
+                blockBasket();
                 sumPriceInBasket();
             }
-        })
-    }
-
+        });
+    };
 
 //функция конструктор
 function GoodsInBasket(goods) {
@@ -38,10 +49,10 @@ function GoodsInBasket(goods) {
     this.col = 1; //количество едениц
     this.price = Number(goods.price); //цена со скидкой
     this.percent = goods.percent; // цена без скидки
-}
+};
 
 //формирование блока в корзине
-function blockbasket() {
+function blockBasket() {
     document.querySelector(".container-item-goods").innerHTML = "";
     if (basketGoods.length > 0) {
         basketGoods.forEach((item) => {
@@ -69,15 +80,16 @@ function blockbasket() {
             `;
             document.querySelector(".container-item-goods").innerHTML += blockGoods;
         });
-    }
+    };
     sumPriceInBasket();
-}
+    lengthBasket();
+};
 
 //счетик длинны корзины
-function lenthBasket() {
+function lengthBasket() {
     if (basketGoods.length > 0) {
         document.getElementById('basket-col').innerHTML = basketGoods.length;
-    }
-}
+    };
+};
 
-export {dataFromArray, blockbasket}
+export {dataFromArray, blockBasket, openBasketAndCard}
