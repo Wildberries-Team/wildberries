@@ -199,6 +199,9 @@
 	padding: 1%;
 }
 
+.goods__info-big ul{
+	display: none;
+}
 .goods__desc_brand-big, goods__desc_name-big {
 	color: #242424;
 	font-size: 24px;
