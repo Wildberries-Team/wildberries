@@ -1,19 +1,19 @@
 .main {
-		height: auto;
-		margin-top: -80px;
-		border-radius: 24px 24px 0 0;
-		background: white;
+	height: auto;
+	margin-top: -80px;
+	border-radius: 24px 24px 0 0;
+	background: white;
 }
 
 .main__title {
-		font-family: 'Roboto', sans-serif;
-		font-size: 24px;
-		font-weight: 500;
-		margin: 30px 0 10px 60px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	margin: 30px 0 10px 60px;
 }
 
 .goods__list {
-		/*max-width: 900px;*/
+	/*max-width: 900px;*/
 	padding: 0 10px;
 	margin: 2% auto;
 	display: grid;
@@ -25,14 +25,14 @@
 }
 
 .goods__img-wrap {
-		position: relative;
+	position: relative;
 }
 
 .goods__img {
-		width: 100%;
-		height: auto;
-		padding: 10px;
-		margin: 0 0 20px;
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	margin: 0 0 20px;
 }
 
 .goods__info {
@@ -41,49 +41,49 @@
 }
 
 .goods__discount {
-		padding: 2px;
-		position: absolute;
-		display: block;
-		bottom: 10%;
-		left: 5%;
-		background-color: #fff;
-		border: 1px solid white;
-		border-radius: 14px;
-		color: rgb(214, 50, 229);
-		font-family: 'Roboto', sans-serif;
-		font-size: 14px;
-		font-weight: 600;
-		cursor: pointer;
+	padding: 2px;
+	position: absolute;
+	display: block;
+	bottom: 10%;
+	left: 5%;
+	background-color: #fff;
+	border: 1px solid white;
+	border-radius: 14px;
+	color: rgb(214, 50, 229);
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
 }
 
 .goods__price {
-		display: flex;
-		flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .price-now {
-		font-family: 'Roboto', sans-serif;
-		color: black;
-		font-size: 18px;
-		font-weight: 700;
+	font-family: 'Roboto', sans-serif;
+	color: black;
+	font-size: 18px;
+	font-weight: 700;
 }
 
 .price-last {
-		padding-top: 3px;
-		font-family: 'Roboto', sans-serif;
-		color: rgba(128, 128, 128, 0.585);
-		font-size: 14px;
-		margin-left: 10px;
+	padding-top: 3px;
+	font-family: 'Roboto', sans-serif;
+	color: rgba(128, 128, 128, 0.585);
+	font-size: 14px;
+	margin-left: 10px;
 }
 
 .goods__desc {
-		font-family: 'Roboto', sans-serif;
-		color: rgba(128, 128, 128, 0.585);
-		font-size: 14px;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		margin-top: 4%;
+	font-family: 'Roboto', sans-serif;
+	color: rgba(128, 128, 128, 0.585);
+	font-size: 14px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	margin-top: 4%;
 }
 
 .cards-bulk {
@@ -107,8 +107,8 @@
 }
 
 .btn-show-more:active {
-		color: white;
-		background: rgb(214, 50, 229);
+	color: white;
+	background: rgb(214, 50, 229);
 }
 
 .show-more__icon {
@@ -202,18 +202,13 @@
 .goods__info-big ul{
 	display: none;
 }
-.goods__desc_brand-big, goods__desc_name-big {
-	color: #242424;
-	font-size: 24px;
-	line-height: 32px;
-	font-weight: 700;
-}
 
 .goods__price-big, .goods__desc_brand-big, .goods__desc_name-big {
 	font-size: 24px;
 	line-height: 32px;
 	font-weight: 700;
 	text-decoration: none;
+	color: #242424;
 	margin-top: 2%;
 }
 
@@ -281,11 +276,6 @@
 	row-gap: 30px;
 	justify-items: center;
 	align-items: center;
-}
-
-.goods__small-card {
-	width: 209px;
-	height: 279px;
 }
 
 .goods__small-card:hover .goods__preview-btn {
@@ -399,11 +389,6 @@
 
 	.goods__desc-big {
 		margin-top: 1%;
-	}
-
-	.goods__desc_brand-big, goods__desc_name-big {
-		font-size: 16px;
-		line-height: 18px;
 	}
 
 	.goods__price-big, .goods__desc_brand-big, .goods__desc_name-big {
