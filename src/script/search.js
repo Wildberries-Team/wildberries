@@ -9,6 +9,5 @@ function searchProduct (e, cardsArray) {
 		)
 	});
 		blockCard(filteredCards);
-		lowblockCard(filteredCards);
 }
 export {searchProduct}

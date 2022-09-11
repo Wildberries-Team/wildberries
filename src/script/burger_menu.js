@@ -37,7 +37,6 @@ function burgerSort(evt, cardsArray) {
     if (liClick) {
         let filterCards = cardsArray.filter((card) => card.category === liClick.textContent);
         blockCard(filterCards);
-        lowblockCard(filterCards);
     }
 }
 
