@@ -295,9 +295,9 @@
 }
 
 .description-big {
-	overflow-y: scroll;
+	overflow-y: auto;
 	scroll-behavior: smooth;
-	height: 200px;
+	height: 50%;
 	font-family: "Raleway", sans-serif;
 }
 

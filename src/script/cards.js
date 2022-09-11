@@ -68,7 +68,6 @@ function lowblockCard(cardsArray) {
 
 //функция для отображения большой карточки на странице
 function blockCardBig(item) {
-    debugger
     let cardTemplateBig = `
                     <div class="goods__big-container" id="${item.id}">
                         <div class="goods__big-card" id="${item.id}">
@@ -95,8 +94,6 @@ function blockCardBig(item) {
     `;
     document.querySelector('.big-card-block').innerHTML += cardTemplateBig;
 
-};
-
-
+}
 
 export {blockCard, blockCardBig, lowblockCard}
