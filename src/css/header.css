@@ -418,6 +418,10 @@ header {
 }
 
 @media (max-width: 992px) {
+	.nav-elem {
+		padding: 19px 0px;
+		margin-left: 45px;
+	}
 
 	.logo__img {
 		max-height: 65px;
