@@ -288,17 +288,8 @@
 	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
 }
 
-.cards-bulk__list {
-	margin: 5% auto;
-	padding: 0 10px;
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	gap: 20px;
-	justify-items: center;
-	align-items: center;
-}
 
-.goods__item:hover .goods__preview-btn {
+.goods__small-card:hover .goods__preview-btn {
 
 	opacity: 1;
 }
