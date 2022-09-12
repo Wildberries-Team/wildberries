@@ -2,7 +2,7 @@ import '../index.html';
 import '../css/style.css';
 import {blockCard, lowblockCard, bigCard} from './cards.js';
 import {searchProduct} from './search.js';
-import {burgerSort} from './burger_menu.js';
+import {burgerSort, removeFilerBurger} from './burger_menu.js';
 import {dataFromArray, blockBasket, openBasketAndCard} from "./basket.js"
 
 "use strict";
@@ -36,6 +36,10 @@ const getCards = async () => {
 
 // функция сортировки в бургер меню
     document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray));
+    document.querySelector('.container__remove_filter').addEventListener('click', function (){
+        removeFilerBurger()
+        blockCard(cardsArray.slice(0, goods));
+    })
 
 //перенос в корзину и открытие карточки все блоки
     document.querySelectorAll(".goods__item").forEach(box =>
