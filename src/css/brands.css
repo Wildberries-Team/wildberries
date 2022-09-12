@@ -103,8 +103,4 @@
 	.category__item:last-child {
 		display: none;
 	}
-
-	.first-intro {
-		display: none;
-	}
 }

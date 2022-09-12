@@ -54,7 +54,7 @@
         }
 
         function dotClick(num) {
-            if (num == currImg)
+            if (num === currImg)
                 return false;
 
             clearTimeout(timeout);
