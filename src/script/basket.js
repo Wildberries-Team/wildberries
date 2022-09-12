@@ -20,13 +20,15 @@ function sumPriceInBasket() {
 //функция проверки для добавления в корзину и отрисовки большой карточки
 function openBasketAndCard(e, array) {
     let targetClick = e.target;
-    let parentId = targetClick.closest('.goods__item').id;
-    if (targetClick.id === "sendInBasket") {
-        dataFromArray(parentId, array);
-    }
-    if (targetClick.id === "open-card") {
-        bigCard(parentId, array);
-    }
+        let parentId = targetClick.closest('.goods__item').id;
+        if (targetClick.id === "sendInBasket") {
+            dataFromArray(parentId, array);
+        }
+        if (targetClick.id === "open-card") {
+            bigCard(parentId, array);
+        }
+
+
 };
 
 //функция переноса в корзину
