@@ -2,7 +2,7 @@ import '../index.html';
 import '../css/style.css';
 import {blockCard, lowblockCard, bigCard} from './cards.js';
 import {searchProduct} from './search.js';
-import {burgerSort} from './burger_menu.js';
+import {burgerSort, removeFilerBurger} from './burger_menu.js';
 import {dataFromArray, blockBasket, openBasketAndCard} from "./basket.js"
 
 "use strict";
@@ -16,24 +16,35 @@ const getCards = async () => {
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
     removeAnimationLoader();
-    blockCard(cardsArray.slice(0, 30));
+    let goods = Number(30)
+    blockCard(cardsArray.slice(0, goods));
     lowblockCard(cardsArray.slice(50, 65));
+
+ //функция по клику добавлять больше карточек
+    document.querySelector('.btn-show-more').addEventListener('click', () => {
+        if(goods <= cardsArray.length) {
+            goods += 30;
+            blockCard(cardsArray.slice(0, goods));
+        }  else {
+            goods = cardsArray.length;
+        }
+
+    })
 
 // функция поиска
     document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray));
 
 // функция сортировки в бургер меню
     document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray));
+    document.querySelector('.container__remove_filter').addEventListener('click', function (){
+        removeFilerBurger()
+        blockCard(cardsArray.slice(0, goods));
+    })
 
-//перенос в корзину и открытие карточки нижний блок
-    document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
-        openBasketAndCard(e, cardsArray);
-    });
-
-//перенос в корзину и открытие карточки верхни блок
-    document.querySelector('.goods__list').addEventListener('click', (e) => {
-        openBasketAndCard(e, cardsArray);
-    });
+//перенос в корзину и открытие карточки все блоки
+    document.querySelectorAll(".goods__item").forEach(box =>
+        box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
+    )
 
 //закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
     document.addEventListener('click', (e) => {
