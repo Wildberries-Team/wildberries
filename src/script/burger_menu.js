@@ -26,9 +26,9 @@ body.addEventListener('click', function (evt) {
     if (evt.target.className === 'overlay_burger') closeMenu();
 })
 
-document.querySelector('.burger__list').addEventListener('click', function (evt){
+document.querySelector('.burger__list').addEventListener('click', function (evt) {
 
-        if (evt.target.closest('li')) closeMenu();
+    if (evt.target.closest('li')) closeMenu();
 })
 
 function burgerSort(evt, cardsArray) {
@@ -37,7 +37,15 @@ function burgerSort(evt, cardsArray) {
     if (liClick) {
         let filterCards = cardsArray.filter((card) => card.category === liClick.textContent).slice(0, 28);
         blockCard(filterCards);
+        document.querySelector('.main__banner').classList.add('display_none');
+        document.querySelector('.container__remove_filter').classList.remove('display_none');
     }
+
 }
 
-export {burgerSort}
+function removeFilerBurger(){
+    document.querySelector('.main__banner').classList.remove('display_none');
+    document.querySelector('.container__remove_filter').classList.add('display_none');
+}
+
+export {burgerSort, removeFilerBurger}
