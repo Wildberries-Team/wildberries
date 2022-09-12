@@ -29,7 +29,7 @@
 
 .goods__img {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	padding: 10px;
 	margin: 0 0 20px;
 }
@@ -298,8 +298,8 @@
 	align-items: center;
 }
 
+.goods__item:hover .goods__preview-btn {
 
-.goods__small-card:hover .goods__preview-btn {
 	opacity: 1;
 }
 
