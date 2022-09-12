@@ -158,8 +158,13 @@
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 600;
+	transition: 0.5s;
 }
-
+.good-card__add:hover{
+	background: rgb(214, 50, 229);
+	color: white;
+	transition: 0.5s;
+}
 .goods__big-card {
 	display: block;
 	width: 60%;
@@ -288,8 +293,7 @@
 	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
 }
 
-
-.goods__small-card:hover .goods__preview-btn {
+.goods__item:hover .goods__preview-btn {
 
 	opacity: 1;
 }
