@@ -16,8 +16,20 @@ const getCards = async () => {
     const obj = await fetch(URL);
     const cardsArray = await obj.json();
     removeAnimationLoader();
-    blockCard(cardsArray.slice(0, 30));
+    let goods = Number(30)
+    blockCard(cardsArray.slice(0, goods));
     lowblockCard(cardsArray.slice(50, 65));
+
+ //функция по клику добавлять больше карточек
+    document.querySelector('.btn-show-more').addEventListener('click', () => {
+        if(goods <= cardsArray.length) {
+            goods += 30;
+            blockCard(cardsArray.slice(0, goods));
+        }  else {
+            goods = cardsArray.length;
+        }
+
+    })
 
 // функция поиска
     document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray));
