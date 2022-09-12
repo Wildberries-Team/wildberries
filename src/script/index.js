@@ -25,15 +25,10 @@ const getCards = async () => {
 // функция сортировки в бургер меню
     document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray));
 
-//перенос в корзину и открытие карточки нижний блок
-    document.querySelector('.cards-bulk__list').addEventListener('click', (e) => {
-        openBasketAndCard(e, cardsArray);
-    });
-
-//перенос в корзину и открытие карточки верхни блок
-    document.querySelector('.goods__list').addEventListener('click', (e) => {
-        openBasketAndCard(e, cardsArray);
-    });
+//перенос в корзину и открытие карточки все блоки
+    document.querySelectorAll(".goods__item").forEach(box =>
+        box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
+    )
 
 //закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
     document.addEventListener('click', (e) => {
