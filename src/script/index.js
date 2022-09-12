@@ -2,8 +2,8 @@ import '../index.html';
 import '../css/style.css';
 import {blockCard, lowblockCard, bigCard} from './cards.js';
 import {searchProduct} from './search.js';
-import {burgerSort, removeFilerBurger} from './burger_menu.js';
-import {dataFromArray, blockBasket, openBasketAndCard, localSet, localGet} from "./basket.js"
+import {burgerSort} from './burger_menu.js';
+import {dataFromArray, blockBasket, openBasketAndCard} from "./basket.js"
 
 "use strict";
 
@@ -19,41 +19,28 @@ const getCards = async () => {
     let goods = Number(30)
     blockCard(cardsArray.slice(0, goods));
     lowblockCard(cardsArray.slice(50, 65));
-    blockBasket()
 
+ //функция по клику добавлять больше карточек
+    document.querySelector('.btn-show-more').addEventListener('click', () => {
+        if(goods <= cardsArray.length) {
+            goods += 30;
+            blockCard(cardsArray.slice(0, goods));
+        }  else {
+            goods = cardsArray.length;
+        }
 
+    })
 
 // функция поиска
     document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray));
 
 // функция сортировки в бургер меню
     document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray));
-    document.querySelector('.container__remove_filter').addEventListener('click', function (){
-        removeFilerBurger()
-        blockCard(cardsArray.slice(0, goods));
-    })
 
 //перенос в корзину и открытие карточки все блоки
-    document.querySelectorAll(".goods__item").forEach(box => {
+    document.querySelectorAll(".goods__item").forEach(box =>
         box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
-    })
-
-//функция по клику добавлять больше карточек
-    document.querySelector('.btn-show-more').addEventListener('click', () => {
-        if(goods <= cardsArray.length) {
-            goods += 30;
-            blockCard(cardsArray.slice(0, goods));
-            document.querySelectorAll(".goods__item").forEach(box => {
-                box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
-            })
-        }  else {
-            goods = cardsArray.length;
-            document.querySelectorAll(".goods__item").forEach(box => {
-                box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
-            })
-        }
-
-    })
+    )
 
 //закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
     document.addEventListener('click', (e) => {
@@ -69,6 +56,9 @@ function removeAnimationLoader() {
     document.querySelector('.loader').style.display = "none";
     document.querySelector('.next-loader').style.display = "none";
 }
+
+//массив товаров в карзине - хранить в Локале
+let basketGoods = [];
 
 //открытие карзины
 document.getElementById('basket-btn').addEventListener("click", () => {
@@ -91,34 +81,29 @@ document.querySelector(".close-basket").addEventListener("click", () => {
 document.querySelector('.container-item-goods').onclick = function (e) {
     let targetClick = e.target;
     let parentId = targetClick.closest('.users-goods-basket').id;
-    let getLocal = localGet()
     if (targetClick.id === "plus-btn") {
-        getLocal.forEach(item => {
+        basketGoods.forEach(item => {
             if (item.id === parentId) {
                 item.col += 1;
-                localSet(getLocal)
             }
         });
     }
     if (targetClick.id === "minus-btn") {
-        getLocal.forEach((item, ind) => {
+        basketGoods.forEach((item, ind) => {
             if (item.id === parentId) {
                 item.col -= 1;
                 if (item.col <= 0) {
-                    getLocal.splice(ind, 1);
-                    localSet(getLocal)
+                    basketGoods.splice(ind, 1);
                 } else {
                     item.col -= 1;
-                    localSet(getLocal)
                 }
             }
         });
     }
     if (targetClick.className == "delete-item-basket") {
-        getLocal.forEach((item, ind) => {
+        basketGoods.forEach((item, ind) => {
             if (item.id === parentId) {
-                getLocal.splice(ind, 1);
-                localSet(getLocal)
+                basketGoods.splice(ind, 1);
             }
         });
     }
@@ -128,8 +113,7 @@ document.querySelector('.container-item-goods').onclick = function (e) {
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
 document.getElementById('order-btn').addEventListener("click", () => {
     if (document.querySelector('input[type=checkbox]').checked) {
-        let getLocal = localGet()
-        getLocal.length = 0;
+        basketGoods.length = 0;
     } else {
         alert("Ознакомьтесь с правилами")
     }
@@ -165,3 +149,5 @@ function clickOnField(e, array){
     }
 };
 
+
+ export {basketGoods}
