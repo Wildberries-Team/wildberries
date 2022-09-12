@@ -1,10 +1,11 @@
 .intro__slider {
 	width: 100%;
-	height: 260px;
-	margin: 0 auto 10px;
+	height: 200px;
+	margin: 40px auto 80px;
 }
 
 .intro__slider_inner {
+	margin: 0 auto;
 	display: flex;
 	justify-content: center;
 }
@@ -14,40 +15,39 @@
 	display: block;
 }
 
-.intro__img {
-	border-radius: 25px;
+.intro__data:last-child {
+	padding-right: 0;
 }
 
-@media (max-width: 1400px) {
-
-	.intro__img {
-		width: 100%;
-	}
+.intro__img {
+	border-radius: 25px;
+	object-fit: contain;
+	width: 100%;
 }
 
 @media (max-width: 1023px) {
-
 	.intro__slider, .intro__slider .intro__slider_inner {
-		margin: 0 auto 10px;
-		width: 100%;
-		height: 100%;
-		height: 260px;
+		margin: 0 auto;
+		width: 710px;
+		height: 240px;
+		border-radius: 25px;
 		position: relative;
 	}
 
 	.intro__slider {
-		max-height: 260px;
+		max-height: 240px;
 	}
 
 	.intro__slider_inner {
 		display: flex;
+		justify-content: center;
 		overflow: hidden;
 		margin: 0;
 		padding: 0;
 	}
 
 	.intro__data {
-		padding-right: 0;
+		padding-right:0;
 		max-width: 100%;
 		height: 100%;
 		display: flex;
@@ -58,12 +58,12 @@
 	}
 
 	.intro__img {
-		width: 100%;
+		width: auto;
 	}
 
 	.dots {
 		position: absolute;
-		bottom: -30px;
+		bottom: -18px;
 		left: 0;
 		display: flex;
 		justify-content: center;
@@ -106,4 +106,67 @@
 		from { left: 0; }
 		to { left: 100%; }
 	}
-} 
+}
+
+@media (max-width: 800px) {
+	.intro__slider, .intro__slider .intro__slider_inner {
+		width: 550px;
+	}
+
+	@keyframes leftNext {
+		from { left: 120%; }
+		to { left: 0; }
+	}
+
+	@keyframes leftCurr {
+		from { left: 0; }
+		to { left: -120%; }
+	}
+
+	@keyframes rightNext {
+		from { left: -120%; }
+		to { left: 0; }
+	}
+
+	@keyframes rightCurr {
+		from { left: 0; }
+		to { left: 120%; }
+	}
+}
+
+@media (max-width: 575px) {
+	.intro__slider, .intro__slider .intro__slider_inner {
+		width: 480px;
+	}
+}
+
+@media (max-width: 500px) {
+	.intro__slider, .intro__slider .intro__slider_inner {
+		width: 380px;
+	}
+	@keyframes leftNext {
+		from { left: 160%; }
+		to { left: 0; }
+	}
+
+	@keyframes leftCurr {
+		from { left: 0; }
+		to { left: -160%; }
+	}
+
+	@keyframes rightNext {
+		from { left: -160%; }
+		to { left: 0; }
+	}
+
+	@keyframes rightCurr {
+		from { left: 0; }
+		to { left: 160%; }
+	}
+}
+
+@media (max-width: 420px) {
+	.intro__slider, .intro__slider .intro__slider_inner {
+		width: 320px;
+	}
+}
