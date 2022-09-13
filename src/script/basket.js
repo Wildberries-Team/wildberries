@@ -94,4 +94,15 @@ function lengthBasket() {
     };
 };
 
-export {dataFromArray, blockBasket, openBasketAndCard}
+//получение из локал сторедж
+function localGet(){
+    let basketGoods = JSON.parse(localStorage.getItem("basket")) || [];
+    return basketGoods
+}
+
+//запись в локал сторейдж
+function localSet(saveData){
+    localStorage.setItem("basket", JSON.stringify(saveData));
+};
+
+export {dataFromArray, blockBasket, openBasketAndCard, localSet, localGet}

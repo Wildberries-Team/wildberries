@@ -28,23 +28,37 @@ const getCards = async () => {
         }  else {
             goods = cardsArray.length;
         }
-
     })
 
+
 // функция поиска
-    document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray));
+    document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray))
 
 // функция сортировки в бургер меню
+
     document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray));
     document.querySelector('.container__remove_filter').addEventListener('click', function (){
         removeFilerBurger()
         blockCard(cardsArray.slice(0, goods));
+            })
+            
+//функция по клику добавлять больше карточек
+    document.querySelector('.btn-show-more').addEventListener('click', () => {
+        if(goods <= cardsArray.length) {
+            goods += 30;
+            blockCard(cardsArray.slice(0, goods));
+        }  else {
+            goods = cardsArray.length;
+        }
+
     })
+
 
 //перенос в корзину и открытие карточки все блоки
     document.querySelectorAll(".goods__item").forEach(box =>
         box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
     )
+
 
 //закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
     document.addEventListener('click', (e) => {
@@ -117,7 +131,9 @@ document.querySelector('.container-item-goods').onclick = function (e) {
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
 document.getElementById('order-btn').addEventListener("click", () => {
     if (document.querySelector('input[type=checkbox]').checked) {
-        basketGoods.length = 0;
+        localStorage.clear()
+        blockBasket()
+
     } else {
         alert("Ознакомьтесь с правилами")
     }
@@ -136,7 +152,12 @@ window.addEventListener('scroll', function (e) {
 
 //при нажатии поднятие вверх
 document.querySelector('.btn-quick-nav').addEventListener('click', () => {
-    window.scrollTo(pageYOffset, 0);
+    window.scrollTo({
+        top: 0,
+        left: pageYOffset,
+        behavior: 'smooth',
+
+    });
 });
 
 //проверки при кликах на области

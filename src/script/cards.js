@@ -1,10 +1,16 @@
 //функция для отображения маленькой карточки на странице вверхней части блока
+import {openBasketAndCard} from "./basket";
+
 function blockCard(cardsArray) {
     document.querySelector(".goods__list").innerHTML = "";
         cardsArray.forEach((item, ind) => {
             let cardTemplate = miniCardHTML(item);
             document.querySelector(".goods__list").innerHTML += cardTemplate;
         });
+    //перенос в корзину и открытие карточки все блоки
+    document.querySelectorAll(".goods__item").forEach(box => {
+        box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
+    })
 };
 
 //функция для отображения маленькой карточки на странице нижней части блока
@@ -14,6 +20,10 @@ function lowblockCard(cardsArray) {
             let cardTemplate = miniCardHTML(item);
             document.querySelector(".cards-bulk__list").innerHTML += cardTemplate;
         });
+    //перенос в корзину и открытие карточки все блоки
+    document.querySelectorAll(".goods__item").forEach(box => {
+        box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
+    })
 };
 
 //верстка маленькой карточки
