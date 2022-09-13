@@ -1,12 +1,12 @@
+import {basketGoods} from "./index.js";
 import {bigCard} from "./cards";
 
 //сумирование итогов со скидкой
 function sumPriceInBasket() {
-    let getLocal = localGet()
     let sum = Number(0);
     let sumNoDiscont = Number(0);
     let colSum = Number(0);
-    getLocal.forEach(item => {
+    basketGoods.forEach(item => {
         sum += (item.col * (Number(item.price) * (1 - Number(item.percent) / 100)));
         sumNoDiscont += (item.col * Number(item.price));
         colSum += Number(item.col);
@@ -35,14 +35,10 @@ function openBasketAndCard(e, array) {
 function dataFromArray(idCard, array) {
         array.forEach(item => {
             if (item.id === idCard) {
-                let getLocal = localGet()
-                let addRow = new GoodsInBasket(item)
-                getLocal.push(addRow);
-                localSet(getLocal)
+                basketGoods.push(new GoodsInBasket(item));
                 lengthBasket();
                 blockBasket();
                 sumPriceInBasket();
-
             }
         });
     };
@@ -59,10 +55,9 @@ function GoodsInBasket(goods) {
 
 //формирование блока в корзине
 function blockBasket() {
-    let getLocal = localGet()
     document.querySelector(".container-item-goods").innerHTML = "";
-    if (getLocal.length > 0) {
-        getLocal.forEach((item) => {
+    if (basketGoods.length > 0) {
+        basketGoods.forEach((item) => {
             let blockGoods = `
                             <div class="users-goods-basket" id="${item.id}">
                                 <div class="users-goods-basket_foto">
@@ -94,9 +89,8 @@ function blockBasket() {
 
 //счетик длинны корзины
 function lengthBasket() {
-    let getLocal = localGet()
-    if (getLocal.length > 0) {
-        document.getElementById('basket-col').innerHTML = getLocal.length;
+    if (basketGoods.length > 0) {
+        document.getElementById('basket-col').innerHTML = basketGoods.length;
     };
 };
 

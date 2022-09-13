@@ -124,31 +124,28 @@
 					<ul class="nav__navbar navbar">
 						<li class="navbar__item">
 							<a href="#" class="navbar__link">
-								<span class="navbar__text navbar__text--address">Адреса</span>
+								<p class="navbar__text navbar__text--address"><span class="adaptive-text__hide">Адреса</span></p>
 							</a>
 						</li>
 						<li class="navbar__item">
 							<a href="#" class="navbar__link">
-								<span class="navbar__text navbar__text--user">Войти</span>
+								<p class="navbar__text navbar__text--user">Войти</p>
 							</a>
 						</li>
 						<li class="navbar__item" id="basket-btn">
 							<a href="#" class="navbar__link">
-								 <!--<i class="fa-solid fa-cart-shopping navbar__icon"></i>-->
 								<span class="navbar__icon_basket-count basket-count" id="basket-col">0</span>
-								<span class="navbar__text navbar__text--basket">Корзина</span>
+								<p class="navbar__text navbar__text--basket"><span class="adaptive-text__hide">Корзина</span></p>
 							</a>
 						</li>
 					</ul>
-				<button class="adaptive-address__btn">
-					<i class="fa-solid fa-location-dot adaptive-location"></i>
-				</button>
 			</div>
 		</div>
 	</header>
 																	<!--MAIN-->
 	<div class="main">
 		<div class="main__container container">
+				<button class="container__remove_filter display_none">Убрать фильтр</button>
 			<h1 class="main__title visually-hidden">Добро пожаловать на Wildberries</h1>
 				<section class="main__banner banner">   <!--1st intro (SLIDER TOP)-->
 
@@ -551,151 +548,147 @@
 				</section>
 		</div>
 	</div> <!--main/end-->
-																		<!--FOOTER-->
+																	<!--FOOTER-->
 	<footer class="footer">
 		<div class="footer__container container">
-			<div class="footer__wrapper"> <!--footer-1-col-->
-				<div class="footer__list_dropdown">
+			<div class="footer__wrapper first-wrap"> <!--1st-->
+				<div class="footer__inner accordion">
 					<h3 class="footer__title">Покупателям</h3>
-					<ul class="footer__list">
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Как сделать заказ
-								</a>
-							</li>
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Способы оплаты
-								</a>
-							</li>
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Доставка
-								</a>
-							</li>
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Возврат товара
-								</a>
-							</li>
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Возврат денежных средств
-								</a>
-							</li>
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Правила продажи
-								</a>
-							</li>
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Публичная оферта
-								</a>
-							</li>
-							<li class="footer__item">
-								<a href="#" class="footer__item_link">Вопросы и ответы
-								</a>
-							</li>
-					</ul>
+					<i class="fa-solid fa-angle-down accordion-icon"></i>
+				</div>
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Как сделать заказ</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Способы оплаты</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Доставка</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Возврат товара</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Возврат денежных средств</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Правила продажи</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Публичная оферта</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Вопросы и ответы</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-		<div class="footer__wrapper"> <!--footer-2-col-->
-			<div class="footer__list_dropdown">
-				<h3 class="footer__title">Партнёрам</h3>
+			<div class="footer__wrapper_bind">
+				<div class="footer__wrapper"> <!--2nd-->
+					<div class="accordion">
+						<h3 class="footer__title">Партнёрам</h3>
+						<i class="fa-solid fa-angle-down accordion-icon"></i>
+					</div>
 					<ul class="footer__list">
 						<li class="footer__item">
-							<a href="#" class="footer__item_link">Продавайте на Wildberries
-							</a>
+							<a href="#" class="footer__item_link">Продавайте на Wildberries</a>
 						</li>
 						<li class="footer__item">
-							<a href="#" class="footer__item_link">Партнёрский пункт выдачи
-							</a>
+							<a href="#" class="footer__item_link">Партнёрский пункт выдачи</a>
 						</li>
 						<li class="footer__item">
-							<a href="#" class="footer__item_link">Франшизный пункт выдачи
-							</a>
+							<a href="#" class="footer__item_link">Франшизный пункт выдачи</a>
 						</li>
 					</ul>
-			</div>
-			<div class="footer__list--dropdown">
-				<h3 class="footer__title">Наши проекты</h3>
-				<a href="#" class="footer__item_link project__link">WB Guru</a>
-			</div>
-		</div>
-		<div class="footer__wrapper"> <!--footer-3-col-->
-			<div class="footer__list_dropdown">
-				<h3 class="footer__title">Компания</h3>
+				</div>
+				<div class="footer__wrapper"> <!--3d-->
+					<div class="accordion">
+						<h3 class="footer__title">Наши проекты</h3>
+						<i class="fa-solid fa-angle-down accordion-icon"></i>
+					</div>
 					<ul class="footer__list">
 						<li class="footer__item">
-							<a href="#" class="footer__item_link">О нас
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">Реквизиты
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">Пресс-центр
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">Контакты
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">Bug Bounty
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">WB.Tech
-							</a>
+							<a href="#" class="footer__item_link">WB Guru</a>
 						</li>
 					</ul>
+				</div>
 			</div>
-		</div>
-		<div class="footer__wrapper"> <!--footer-4-col-->
-			<div class="footer__list_dropdown">
-				<h3 class="footer__title">Мы в соцсетях</h3>
-					<ul class="footer__list">
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">Вконтакте
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">Одноклассники
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link">Youtube
-							</a>
-						</li>
-					</ul>
+			<div class="footer__wrapper"> <!--4th-->
+				<div class="accordion">
+					<h3 class="footer__title">Компания</h3>
+					<i class="fa-solid fa-angle-down accordion-icon"></i>
+				</div>
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">О нас</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Реквизиты</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Пресс-центр</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Контакты</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Bug Bounty</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">WB.Tech</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-		<div class="footer__wrapper"> <!--footer-5-col-->
-			<div class="footer__list_dropdown">
-				<h3 class="footer__title">Мобильные устройства</h3>
-					<ul class="footer__list">
-						<li class="footer__item">
-							<a href="#" class="footer__item_link item-link">
-								<img class="item-link__logo" src="img/mobile app/11.svg" alt="GooglePlay logo">
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link item-link">
-								<img class="item-link__logo" src="img/mobile app/22.svg" alt="AppStore logo">
-							</a>
-						</li>
-						<li class="footer__item">
-							<a href="#" class="footer__item_link item-link">
+			<div class="footer__wrapper"> <!--5th-->
+				<div class="accordion">
+					<h3 class="footer__title">Мы в соцсетях</h3>
+					<i class="fa-solid fa-angle-down accordion-icon"></i>
+				</div>
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Вконтакте</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Одноклассники</a>
+					</li>
+					<li class="footer__item">
+						<a href="#" class="footer__item_link">Youtube</a>
+					</li>
+				</ul>
+			</div>
+			<div class="footer__wrapper"> <!--6th-->
+				<div class="accordion-item">
+					<h3 class="footer__title footer__title_mob-hide">Мобильные устройства</h3>
+				</div>
+				<ul class="footer__list-last logo-list">
+					<li class="footer__item mob-item">
+						<a href="#" class="footer__item_link item-link">
+							<img class="item-link__logo" src="img/mobile app/11.svg" alt="GooglePlay logo">
+						</a>
+					</li>
+					<li class="footer__item mob-item">
+						<a href="#" class="footer__item_link item-link">
+							<img class="item-link__logo" src="img/mobile app/22.svg" alt="AppStore logo">
+						</a>
+					</li>
+					<li class="footer__item mob-item">
+						<a href="#" class="footer__item_link item-link">
 								<img class="item-link__logo" src="img/mobile app/33.svg" alt="AppGallery logo">
-							</a>
-						</li>
-					</ul>
+						</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-		</div>
-														<!--footer license-->
+		</div> <!--footer-container container-->
+<!--footer license-->
 		<section class="footer__license">
-			<p class="footer__license_text">
-				2004-2022 © Wildberries — модный интернет-магазин одежды, обуви и аксессуаров.
+			<p class="footer__license_text license-text">
+				2004-2022 © Wildberries
+				<span class="license-text__pc-hide">— модный интернет-магазин одежды, обуви и аксессуаров.</span>
 			</p>
-			<span class="footer__license_text">Все права защищены.</span>
-			<a href="#" class="footer__license_check"><span class="footer__license_text check">Проверка совместимости</span></a>
+			<span class="footer__license_text license-text__pc-hide">Все права защищены.</span>
+			<a href="#" class="footer__license_check">
+				<span class="footer__license_text license-text__pc-hide check">Проверка совместимости</span>
+			</a>
 		</section>
 	</footer>
 </body>
