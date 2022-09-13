@@ -293,6 +293,12 @@ header {
 		font-size: 16px;
 	}
 
+	.basket-count {
+		top: -13px;
+		right: 5px;
+		padding: 3px;
+	}
+
 	.btn-chat {
 		padding: 9px 12px 9px 9px;
 		max-height: 30px;
@@ -360,12 +366,6 @@ header {
 		border-radius: 4px;
 	}
 
-	.basket-count {
-		top: -13px;
-		right: 5px;
-		padding: 3px;
-	}
-
 	.search__input:focus {
 		font-size: 18px;
 	}
@@ -383,6 +383,10 @@ header {
 
 	.nav {
 		padding: 3% 0 4%;
+	}
+
+	.navbar {
+		padding-left: 40%;
 	}
 
 	.logo {
@@ -420,7 +424,7 @@ header {
 @media (max-width: 992px) {
 	.nav-elem {
 		padding: 19px 0px;
-		margin-left: 45px;
+		margin-left: 35px;
 	}
 
 	.logo__img {
@@ -428,17 +432,6 @@ header {
 		max-width: 170px;
 		margin: 0 auto;
 		cursor: pointer;
-	}
-}
-
-@media (min-width: 802px) {
-
-	.adaptive-address__btn {
-		display: none;
-	}
-
-	.adaptive-location__btn {
-		display: none;
 	}
 }
 
@@ -450,28 +443,6 @@ header {
 
 	.logo {
 		margin: 0 0 0 20%;
-	}
-
-	.navbar {
-		display: none;
-	}
-
-	.adaptive-address__btn {
-		margin-left: 80%;
-		display: block;
-		max-width: 22px;
-		background: transparent;
-	}
-	.adaptive-location__btn {
-		margin-left: 20%;
-		display: block;
-		max-width: 22px;
-		background: transparent;
-	}
-
-	.adaptive-location {
-		font-size: 20px;
-		color: white;
 	}
 
 	.adaptive-magnifier {
@@ -500,15 +471,30 @@ header {
 
 @media (max-width: 700px) {
 
-	.navbar__text--user,
-	.navbar__text--basket,
-	.basket-count {
+	.navbar {
+		padding-left: 15%;
+	}
+
+	.navbar__text--user {
 		display:none;
 	}
 
-	.navbar {
-		padding-left: 35%;
+	.adaptive-text__hide {
+		font-size:9px;
+		opacity:0;
 	}
+
+	.basket-count {
+		top: 19px;
+		right: -22px;
+		padding: 3px;
+	}
+
+	.navbar__text{
+		margin-top: 35px;
+		font-size: 20px;
+	}
+
 	.logo {
 		margin: 0 0 0 10%;
 	}
@@ -532,20 +518,5 @@ header {
 		right: 12%;
 		font-size: 16px;
 		padding: 6px;
-	}
-
-	.adaptive-location__btn {
-		margin-left: 35%;
-		display: block;
-		padding: 6px;
-	}
-}
-
-
-@media (max-width: 360px) {
-
-	.adaptive-location__btn {
-		margin-left: 35%;
-		display: block;
 	}
 }
