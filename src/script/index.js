@@ -18,7 +18,7 @@ const getCards = async () => {
     removeAnimationLoader();
     let goods = Number(30)
     blockCard(cardsArray.slice(0, goods));
-    lowblockCard(cardsArray.slice(50, 65));
+    lowblockCard(cardsArray.slice(50, 62));
 
  //функция по клику добавлять больше карточек
     document.querySelector('.btn-show-more').addEventListener('click', () => {
