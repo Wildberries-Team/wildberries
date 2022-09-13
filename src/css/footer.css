@@ -52,8 +52,12 @@
 	color: white;
 }
 
+.logo-list .mob-item {
+	padding: 2px 12px;
+}
+
 .item-link__logo {
-	width: 100%;
+	width: 70%;
 	height: 80px;
 }
 
@@ -205,6 +209,15 @@
 		padding-left: 1%;
 	}
 
+	.item-link__logo {
+		width: 100%;
+		height: 90px;
+	}
+
+	.logo-list .mob-item {
+		padding: 0;
+	}
+
 	.footer__title_mob-hide {
 		display: none;
 	}
@@ -224,9 +237,10 @@
 }
 
 @media (max-width: 800px) {
+
 	.logo-list {
 		grid-gap: 1%;
-		grid-template-columns: repeat(auto-fit, minmax(100px, 150px));
+		grid-template-columns: repeat(auto-fit, minmax(50px, 180px));
 	}
 
 	.logo-list > li {
