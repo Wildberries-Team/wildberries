@@ -22,31 +22,20 @@ const getCards = async () => {
     blockBasket()
 
 
-
 // функция поиска
-    document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray));
+    document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray))
 
 // функция сортировки в бургер меню
-    document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray));
+    document.querySelector('.burger__list').addEventListener('click', (e) => burgerSort(e, cardsArray))
 
-//перенос в корзину и открытие карточки все блоки
-    document.querySelectorAll(".goods__item").forEach(box => {
-        box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
-    })
 
 //функция по клику добавлять больше карточек
     document.querySelector('.btn-show-more').addEventListener('click', () => {
         if(goods <= cardsArray.length) {
             goods += 30;
             blockCard(cardsArray.slice(0, goods));
-            document.querySelectorAll(".goods__item").forEach(box => {
-                box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
-            })
         }  else {
             goods = cardsArray.length;
-            document.querySelectorAll(".goods__item").forEach(box => {
-                box.addEventListener("click", (e) => openBasketAndCard(e, cardsArray))
-            })
         }
 
     })
@@ -124,8 +113,8 @@ document.querySelector('.container-item-goods').onclick = function (e) {
 //подтверждение заказов *пока что очищаем массив в корзине потом придумаем куда отпралять
 document.getElementById('order-btn').addEventListener("click", () => {
     if (document.querySelector('input[type=checkbox]').checked) {
-        let getLocal = localGet()
-        getLocal.length = 0;
+        localStorage.clear()
+        blockBasket()
     } else {
         alert("Ознакомьтесь с правилами")
     }
@@ -144,7 +133,12 @@ window.addEventListener('scroll', function (e) {
 
 //при нажатии поднятие вверх
 document.querySelector('.btn-quick-nav').addEventListener('click', () => {
-    window.scrollTo(pageYOffset, 0);
+    window.scrollTo({
+        top: 0,
+        left: pageYOffset,
+        behavior: 'smooth',
+
+    });
 });
 
 //проверки при кликах на области

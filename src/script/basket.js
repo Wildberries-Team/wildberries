@@ -102,8 +102,8 @@ function lengthBasket() {
 
 //получение из локал сторедж
 function localGet(){
-    let basketGoods = []
-    return basketGoods = JSON.parse(localStorage.getItem("basket"));
+    let basketGoods = JSON.parse(localStorage.getItem("basket")) || [];
+    return basketGoods
 }
 
 //запись в локал сторейдж
