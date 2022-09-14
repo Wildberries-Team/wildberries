@@ -5,7 +5,7 @@ for (let i = 0; i < acc.length; i++) {
 
     acc[i].addEventListener("click", function() {
 
-        this.classList.toggle("active");
+        this.classList.toggle("acc-activate");
 
         let footerList = this.nextElementSibling;
 
@@ -15,6 +15,5 @@ for (let i = 0; i < acc.length; i++) {
         } else {
             footerList.style.display = "block";
         }
-
     });
 }

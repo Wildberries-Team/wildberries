@@ -172,6 +172,6 @@
 
 @media (max-width: 420px) {
 	.intro__slider, .intro__slider .intro__slider_inner {
-		width: 320px;
+		width: 300px;
 	}
 }
