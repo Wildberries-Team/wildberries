@@ -29,12 +29,21 @@
 	cursor: pointer;
 }
 
+.accordion~.footer__list {
+	display: block !important;
+}
+
+.logo-list {
+	display: block !important;
+}
+
 .footer__title {
 	padding: 12px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 22px;
 	color: white;
 }
+/*подправила лист*/
 
 .footer__item {
 	padding: 15px 12px;
@@ -104,11 +113,11 @@
 @media (max-width: 1120px) {
 
 	.footer__title {
-		padding: 12px;
+		padding: 10px 0px 10px 12px;
 	}
 
 	.footer__item {
-		padding: 10px 12px;
+		padding: 10px 5px 10px 12px;
 	}
 
 	.footer__item_link {
@@ -170,6 +179,13 @@
 		position: relative;
 	}
 
+	.accordion~.footer__list {
+		display: none !important;
+	}
+
+	.acc-activate~.footer__list {
+		display: block !important;
+	}
 	/* позиционирую абсолютно accordion */
 	.accordion-icon {
 		position: absolute;
@@ -181,8 +197,12 @@
 		transition: transform 0.3s ease-in-out;
 	}
 
-	.accordion.active .accordion-icon {
+	.accordion.acc-activate .accordion-icon {
 		transform: rotate(-180deg);
+	}
+
+	.footer__title {
+		padding: 12px;
 	}
 
 	.footer__list {
@@ -202,7 +222,7 @@
 	}
 
 	.logo-list {
-		display: grid;
+		display: grid !important;
 		grid-auto-flow: row;
 		grid-template-columns: repeat(3, 155px);
 		grid-column-gap: 2%;
