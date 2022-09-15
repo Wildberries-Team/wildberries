@@ -175,3 +175,33 @@
 		width: 300px;
 	}
 }
+
+@media (max-width: 360px) {
+	.intro__slider, .intro__slider .intro__slider_inner {
+		width: 270px;
+	}
+
+	.intro__data {
+		max-width: 90%;
+	}
+
+	@keyframes leftNext {
+		from { left: 185%; }
+		to { left: 0; }
+	}
+
+	@keyframes leftCurr {
+		from { left: 0; }
+		to { left: -185%; }
+	}
+
+	@keyframes rightNext {
+		from { left: -185%; }
+		to { left: 0; }
+	}
+
+	@keyframes rightCurr {
+		from { left: 0; }
+		to { left: 185%; }
+	}
+}
