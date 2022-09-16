@@ -16,7 +16,7 @@
     display: flex;
     align-items: start;
     height: 100%;
-    width: 30%;
+    width: 40%;
     max-width: 500px;
     z-index: 101;
     transition: 1s;
@@ -47,6 +47,7 @@
     flex-direction: column;
     margin: 10%;
     width: 100%;
+    white-space: nowrap;
 }
 
 .burger__list li {
@@ -66,7 +67,7 @@
 
 @media screen and (max-width: 1150px){
     .burger{
-        width: 50%;
+        width: 60%;
     }
 }
 
