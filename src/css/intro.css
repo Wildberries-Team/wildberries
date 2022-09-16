@@ -145,7 +145,7 @@
 	}
 }
 
-@media (max-width: 500px) {
+@media (max-width: 510px) {
 	.intro__slider, .intro__slider .intro__slider_inner {
 		width: 380px;
 	}
@@ -176,7 +176,7 @@
 	}
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
 	.intro__slider, .intro__slider .intro__slider_inner {
 		width: 270px;
 	}
