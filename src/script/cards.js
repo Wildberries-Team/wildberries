@@ -30,7 +30,7 @@ function lowblockCard(cardsArray) {
 function miniCardHTML(item) {
     return `
         <li class="goods__item card" id="${item.id}">
-            <a href="#" class="card__inner goods">
+            <div class="card__inner goods">
                 <div class="goods__img-wrap">
                     <img class="goods__img" src="${item.img}" alt="">
                     <button class="goods__preview-btn view-btn" id="open-card">Быстрый просмотр</button>
@@ -47,7 +47,7 @@ function miniCardHTML(item) {
                         <span class="goods__desc_name">/ ${item.title}</span>
                     </p>
                 </div>
-            </a>
+            </div>
         </li>
             `
 };
