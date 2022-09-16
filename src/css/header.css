@@ -301,6 +301,7 @@ header {
 
 	.btn-chat {
 		padding: 9px 12px 9px 9px;
+		margin-right: 2%;
 		max-height: 30px;
 		min-width: 20px;
 		border-radius: 28px;
@@ -320,13 +321,16 @@ header {
 		grid-template-columns: 10% 10% 70% 10%;
 	}
 
-
 	.logo {
 		margin: 0 0 0 30%;
 	}
 
 	.navbar {
 		padding-left: 60%;
+	}
+
+	.btn-chat {
+		margin-right: 14%;
 	}
 
 	.search {
@@ -422,6 +426,7 @@ header {
 }
 
 @media (max-width: 992px) {
+
 	.nav-elem {
 		padding: 19px 0px;
 		margin-left: 35px;
@@ -441,6 +446,10 @@ header {
 		grid: none;
 	}
 
+	.nav-elem {
+		margin-left: 20px;
+	}
+
 	.logo {
 		margin: 0 0 0 20%;
 	}
@@ -451,10 +460,10 @@ header {
 	}
 
 	.search {
-		margin: 0;
+		margin: 20px 0 0 0;
 		min-width: 70%;
-
 	}
+
 	.search__input {
 		min-width: 90%;
 		padding-left: 20%;
@@ -475,24 +484,36 @@ header {
 		padding-left: 15%;
 	}
 
-	.navbar__text--user {
-		display:none;
+	.search {
+		margin: 0;
+	}
+
+	.navbar__item {
+		padding-left: 15%;
+	}
+
+	.navbar__item:first-child {
+		padding-left: 0;
 	}
 
 	.adaptive-text__hide {
-		font-size:9px;
+		font-size: 2px;
 		opacity:0;
 	}
 
 	.basket-count {
 		top: 19px;
-		right: -22px;
+		left: 43px;
 		padding: 3px;
 	}
 
 	.navbar__text{
 		margin-top: 35px;
 		font-size: 20px;
+	}
+
+	.navbar__text--address::before {
+		left: 13px;
 	}
 
 	.logo {
@@ -509,6 +530,20 @@ header {
 		margin: 0;
 	}
 
+	.logo__img {
+		max-width: 135px;
+		margin: 0;
+	}
+
+	.nav-elem {
+		margin-left: 0;
+	}
+
+	.navbar {
+		padding-left: 0;
+		margin-left: -25px;
+	}
+
 	.search__icon_magnifier {
 		left: 12%;
 		font-size: 16px;
@@ -521,33 +556,23 @@ header {
 	}
 }
 
-@media (max-width: 576px) {
-
-	.nav-elem {
-		margin-left: 0;
-	}
-
-	.navbar {
-		padding-left: 5%;
-	}
-}
-
 @media (max-width: 385px) {
 
 	.basket-count {
-		top: 24px;
-		right: 5px;
-		padding: 3px;
+		top: 30px;
+		left: 9px;
+		padding: 1px;
 	}
 
 	.navbar {
+		margin: 0;
 		max-width: 80px;
 		padding-left: 1%;
 		padding-bottom: 10px;
 	}
 
 	.navbar__text {
-		font-size: 18px;
+		font-size: 14px;
 	}
 
 	.navbar__text::before {
@@ -556,7 +581,7 @@ header {
 	}
 
 	.navbar__text--address::before {
-		left: 15px;
+		left: 2px;
 	}
 
 	.search {
@@ -564,4 +589,3 @@ header {
 		margin-right: 10px;
 	}
 }
-
