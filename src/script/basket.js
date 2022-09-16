@@ -1,12 +1,12 @@
-import {basketGoods} from "./index.js";
 import {bigCard} from "./cards";
 
 //сумирование итогов со скидкой
 function sumPriceInBasket() {
+    let getLocal = localGet()
     let sum = Number(0);
     let sumNoDiscont = Number(0);
     let colSum = Number(0);
-    basketGoods.forEach(item => {
+    getLocal.forEach(item => {
         sum += (item.col * (Number(item.price) * (1 - Number(item.percent) / 100)));
         sumNoDiscont += (item.col * Number(item.price));
         colSum += Number(item.col);
@@ -35,13 +35,31 @@ function openBasketAndCard(e, array) {
 function dataFromArray(idCard, array) {
         array.forEach(item => {
             if (item.id === idCard) {
-                basketGoods.push(new GoodsInBasket(item));
-                lengthBasket();
-                blockBasket();
-                sumPriceInBasket();
+                let getLocal = localGet()
+                let findItem = getLocal.find(goods => goods.id === item.id)
+                if(findItem){
+                    getLocal.forEach(goods => {
+                        if (goods.id === item.id) {
+                            goods.col += 1;
+                            localSet(getLocal)
+                            blockBasket();
+                        }})
+                }
+                else {
+                    let addRow = new GoodsInBasket(item)
+                    getLocal.push(addRow);
+                    localSet(getLocal)
+                    lengthBasket();
+                    blockBasket();
+                    sumPriceInBasket();
+                }
+
+
+
             }
-        });
-    };
+        })
+
+}
 
 //функция конструктор
 function GoodsInBasket(goods) {
@@ -55,9 +73,10 @@ function GoodsInBasket(goods) {
 
 //формирование блока в корзине
 function blockBasket() {
+    let getLocal = localGet()
     document.querySelector(".container-item-goods").innerHTML = "";
-    if (basketGoods.length > 0) {
-        basketGoods.forEach((item) => {
+    if (getLocal.length > 0) {
+        getLocal.forEach((item) => {
             let blockGoods = `
                             <div class="users-goods-basket" id="${item.id}">
                                 <div class="users-goods-basket_foto">
@@ -89,8 +108,9 @@ function blockBasket() {
 
 //счетик длинны корзины
 function lengthBasket() {
-    if (basketGoods.length > 0) {
-        document.getElementById('basket-col').innerHTML = basketGoods.length;
+    let getLocal = localGet()
+    if (getLocal.length > 0) {
+        document.getElementById('basket-col').innerHTML = getLocal.length;
     };
 };
 
