@@ -3,7 +3,7 @@
     position: fixed;
     background-color: #ffffff;
     right: 30px;
-    top: 390px;
+    bottom: 24px;
     z-index: 300;
     width: 350px;
     height: 550px;
@@ -150,4 +150,10 @@
     cursor: pointer;
     color: grey;
     background-color: #f2f2f2;
+}
+
+@media (max-width: 400px) {
+    .chat-block{
+        right: 10px;
+    }
 }
