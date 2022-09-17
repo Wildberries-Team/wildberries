@@ -75,6 +75,7 @@ header {
 .nav {
 		display: flex;
 		align-items: center;
+	justify-content: space-around;
 		padding-bottom: 4%;
 }
 
@@ -300,6 +301,7 @@ header {
 	}
 
 	.btn-chat {
+		display: none;
 		padding: 9px 12px 9px 9px;
 		margin-right: 2%;
 		max-height: 30px;
@@ -318,7 +320,7 @@ header {
 
 	.nav {
 		display: grid;
-		grid-template-columns: 10% 10% 70% 10%;
+		grid-template-columns: 10% 10% 55% 25%;
 	}
 
 	.logo {
@@ -326,7 +328,8 @@ header {
 	}
 
 	.navbar {
-		padding-left: 60%;
+		grid-row: 1;
+		grid-column: 4;
 	}
 
 	.btn-chat {
@@ -389,10 +392,6 @@ header {
 		padding: 3% 0 4%;
 	}
 
-	.navbar {
-		padding-left: 40%;
-	}
-
 	.logo {
 		margin: 0 0 0 50%;
 	}
@@ -442,9 +441,6 @@ header {
 
 @media (max-width: 800px) {
 
-	.nav {
-		grid: none;
-	}
 
 	.nav-elem {
 		margin-left: 20px;
@@ -480,16 +476,22 @@ header {
 
 @media (max-width: 700px) {
 
-	.navbar {
-		padding-left: 15%;
+	.nav {
+		grid-template-columns: 10% 30% 30% 30%;
 	}
 
 	.search {
 		margin: 0;
 	}
-
+	.logo {
+		grid-column: 2/3;
+	}
+	.navbar{
+		justify-content: left;
+	}
 	.navbar__item {
 		padding-left: 15%;
+
 	}
 
 	.navbar__item:first-child {
@@ -524,10 +526,12 @@ header {
 @media (max-width: 576px) {
 	.nav {
 		padding: 3% 0 7%;
+		grid-template-columns: 10% 10% 40% 40%;
 	}
 
 	.logo {
 		margin: 0;
+		grid-column: 3;
 	}
 
 	.logo__img {
@@ -537,11 +541,6 @@ header {
 
 	.nav-elem {
 		margin-left: 0;
-	}
-
-	.navbar {
-		padding-left: 0;
-		margin-left: -25px;
 	}
 
 	.search__icon_magnifier {
@@ -557,7 +556,9 @@ header {
 }
 
 @media (max-width: 385px) {
-
+	.nav {
+		grid-template-columns: 10% 10% 50% 30%;
+	}
 	.basket-count {
 		top: 30px;
 		left: 9px;
@@ -569,6 +570,7 @@ header {
 		max-width: 80px;
 		padding-left: 1%;
 		padding-bottom: 10px;
+
 	}
 
 	.navbar__text {
