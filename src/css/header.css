@@ -190,6 +190,12 @@ header {
 		font-size: 20px;
 		color: rgba(255, 255, 255, 0.589);
 }
+/*вендорная модификация убирает крестик внутри search input*/
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 				/* navbar to the right */
 .navbar {
 		display: flex;
@@ -333,7 +339,7 @@ header {
 		border: 1px solid rgba(255,255,255,.4);
 		border-radius: 8px;
 		padding: 21px 9px;
-		margin-right: 20px;
+		margin-right: 0px;
 	}
 
 	.burger-btn {
