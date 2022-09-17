@@ -139,13 +139,13 @@
 	}
 }
 
-@media (max-width: 575px) {
+@media (max-width: 600px) {
 	.intro__slider, .intro__slider .intro__slider_inner {
 		width: 480px;
 	}
 }
 
-@media (max-width: 510px) {
+@media (max-width: 520px) {
 	.intro__slider, .intro__slider .intro__slider_inner {
 		width: 380px;
 	}
