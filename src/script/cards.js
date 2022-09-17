@@ -39,7 +39,7 @@ function miniCardHTML(item) {
                 </div>
                 <div class="goods__info">
                     <p class="goods__price">
-                        <span class="goods__price-now price-now">${item.price} р.</span>
+                        <span class="goods__price-now price-now">${(item.price).toLocaleString()} р.</span>
                         <del class="goods__price-last price-last">${Number((item.price * 100) / (100-item.percent)).toFixed(0)} р.</del>
                     </p>
                     <p class="goods__desc">
