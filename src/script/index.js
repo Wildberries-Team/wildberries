@@ -1,9 +1,9 @@
 import '../index.html';
 import '../css/style.css';
-import {blockCard, lowblockCard, bigCard} from './cards.js';
+import {blockCard, lowblockCard, bigCard, blockCardBig} from './cards.js';
 import {searchProduct} from './search.js';
 import {burgerSort, removeFilerBurger} from './burger_menu.js';
-import {dataFromArray, blockBasket, localGet, localSet} from "./basket.js"
+import {dataFromArray, blockBasket, localGet, localSet, sumPriceInBasket} from "./basket.js"
 
 "use strict";
 // обновление страницы по клику на лого
@@ -62,6 +62,14 @@ const getCards = async () => {
     document.addEventListener('click', (e) => {
         clickOnField(e, cardsArray);
     });
+
+//слайдер в право большая карточка
+    window.addEventListener('DOMContentLoaded', () => {
+        function prevSlide(index){
+            console.log(index)
+        }
+    })
+
 };
 
 //порядок загрузки при загрузки страницы
@@ -100,19 +108,21 @@ document.querySelector('.container-item-goods').onclick = function (e) {
             if (item.id === parentId) {
                 item.col += 1;
                 localSet(getLocal)
+                sumPriceInBasket();
             }
         });
     }
     if (targetClick.id === "minus-btn") {
         getLocal.forEach((item, ind) => {
             if (item.id === parentId) {
-                item.col -= 1;
                 if (item.col <= 0) {
                     getLocal.splice(ind, 1);
-                    localSet(getLocal)
+                    localSet(getLocal);
+                    sumPriceInBasket();
                 } else {
                     item.col -= 1;
                     localSet(getLocal)
+                    sumPriceInBasket();
                 }
             }
         });
@@ -121,7 +131,8 @@ document.querySelector('.container-item-goods').onclick = function (e) {
         getLocal.forEach((item, ind) => {
             if (item.id === parentId) {
                 getLocal.splice(ind, 1);
-                localSet(getLocal)
+                localSet(getLocal);
+                sumPriceInBasket();
             }
         });
     }
@@ -168,8 +179,37 @@ function clickOnField(e, array){
         document.querySelector(".big-card-block").innerHTML = "";
     }
     if (e.target.classList == " good-card__add-big") {
-        let parentId = event.target.closest('.goods__big-card').id;
+        let parentId = e.target.closest('.goods__big-card').id;
         dataFromArray(parentId, array);
     }
+    if(e.target.classList == "prev-card"){
+        let parentId = e.target.closest('.goods__big-card').id;
+        prevCardDisplay(parentId, array)
+    }
+    if(e.target.classList == "next-card"){
+        let parentId = e.target.closest('.goods__big-card').id;
+        nextCardDisplay(parentId, array)
+    }
 };
+
+function prevCardDisplay(parentID, array){
+    let indexItem = array.findIndex(element => element.id === parentID);
+    if(indexItem === 0){
+        blockCardBig(array[array.length - 1])
+    }
+    if (indexItem >= 1) {
+        blockCardBig(array[indexItem - 1])
+    }
+}
+
+function nextCardDisplay(parentID, array){
+    let indexItem = array.findIndex(element => element.id === parentID);
+    if(indexItem === array.length){
+        blockCardBig(array[0])
+    }
+    if (indexItem <= array.length) {
+        blockCardBig(array[indexItem + 1])
+    }
+}
+
 
