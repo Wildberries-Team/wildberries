@@ -31,6 +31,7 @@
 
 .accordion~.footer__list {
 	display: block !important;
+
 }
 
 .logo-list {
@@ -96,6 +97,30 @@
 	color: white;
 }
 
+.footer__team{
+	cursor: default;
+}
+.footer__team .footer__item_link{
+	width: 40%;
+	margin-left: 10px;
+	font-size: 20px;
+}
+.footer__team .footer__item_link:hover{
+	text-decoration: underline;
+}
+.footer__team li{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: default;
+}
+
+.footer__team li img{
+	width: 100%;
+	max-width: 70px;
+	border-radius: 10px;
+}
+
 @media (max-width: 1200px) {
 
 	.footer::before {
@@ -125,8 +150,6 @@
 	}
 }
 
-
-
 @media (min-width: 1025px) {
 
 	.accordion-icon {
@@ -135,7 +158,17 @@
 }
 
 @media (max-width: 1025px) {
-
+	.footer__team{
+		margin-left: 20px;
+	}
+	.footer__team li{
+display: inline-block;
+		width: 300px;
+	}
+	.footer__team .footer__item .footer__item_link{
+		text-align: center;
+		line-height: 70px;
+	}
 	.footer__container {
 		display: block;
 		flex: none;
