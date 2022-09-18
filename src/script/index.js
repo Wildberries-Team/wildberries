@@ -193,9 +193,6 @@ function clickOnField(e, array){
 
 function prevCardDisplay(parentID, array){
     let indexItem = array.findIndex(element => element.id === parentID);
-    if(indexItem === 0){
-        blockCardBig(array[array.length - 1])
-    }
     if (indexItem >= 1) {
         blockCardBig(array[indexItem - 1])
     }
@@ -203,10 +200,7 @@ function prevCardDisplay(parentID, array){
 
 function nextCardDisplay(parentID, array){
     let indexItem = array.findIndex(element => element.id === parentID);
-    if(indexItem === array.length){
-        blockCardBig(array[0])
-    }
-    if (indexItem <= array.length) {
+    if (indexItem < array.length) {
         blockCardBig(array[indexItem + 1])
     }
 }
