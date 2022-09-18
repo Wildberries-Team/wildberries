@@ -213,9 +213,7 @@ function massageAddCard(evt){
     let massage = document.querySelector('.add_card_massage');
 
     if(clickButton || clickButtonBig){
-        massage.classList.remove('massage_transform')
+        massage.classList.remove('massage_transform');
+        setTimeout(() => massage.classList.add('massage_transform'), 1000);
     }
-
-    setTimeout(() => massage.classList.add('massage_transform'), 1000);
-
 }
