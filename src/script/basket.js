@@ -26,7 +26,15 @@ function openBasketAndCard(e, array) {
             dataFromArray(parentId, array);
         }
         if (targetClick.id === "open-card") {
-            bigCard(parentId, array);
+            if (parentId === array[0].id){
+                bigCard(parentId, array);
+                document.querySelector('.prev-card').style.display = 'none';
+
+            } else {
+                bigCard(parentId, array);
+            }
+
+
         }
 
 
