@@ -33,7 +33,6 @@ const getCards = async () => {
         }
     })
 
-
 // функция поиска
     document.getElementById('searchInput').addEventListener("keyup", (e) => searchProduct(e, cardsArray))
 
@@ -44,7 +43,9 @@ const getCards = async () => {
         removeFilerBurger()
         blockCard(cardsArray.slice(0, goods));
             })
-            
+// Всплывающее сообщение "Товар добавлен в корзину"
+    document.querySelector('body').addEventListener('click',(e) => massageAddCard(e));
+
 //функция по клику добавлять больше карточек
     document.querySelector('.btn-show-more').addEventListener('click', () => {
         if(goods <= cardsArray.length) {
@@ -55,8 +56,6 @@ const getCards = async () => {
         }
 
     })
-
-
 
 //закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
     document.addEventListener('click', (e) => {
@@ -206,4 +205,17 @@ function nextCardDisplay(parentID, array){
     }
 }
 
+// Функция всплывающего сообщения
+function massageAddCard(evt){
 
+    const clickButton = evt.target.closest('.good-card__add');
+    const clickButtonBig = evt.target.closest('.good-card__add-big');
+    let massage = document.querySelector('.add_card_massage');
+
+    if(clickButton || clickButtonBig){
+        massage.classList.remove('massage_transform')
+    }
+
+    setTimeout(() => massage.classList.add('massage_transform'), 1000);
+
+}
