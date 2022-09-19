@@ -222,6 +222,10 @@
     display: none;
 }
 
+.goods__info-big ul li {
+    display: none;
+}
+
 .goods__price-big, .goods__desc_brand-big, .goods__desc_name-big {
     font-size: 24px;
     line-height: 32px;
