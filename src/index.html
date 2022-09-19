@@ -37,6 +37,7 @@
 	<button class="burger__close">&#10006;</button>
 </aside>
 <div class="black_burger"></div>
+
 											<!--Basket block-->
 <div class="background-color-container">
 	<div class="basket_container">
@@ -95,6 +96,22 @@
 		<button class="btn-chat-send"><i class="fa-solid fa-greater-than"></i></button>
 	</div>
 </div>
+                                                                   <!--LOG IN-->
+<div class="log-in__container">
+	<div class="log-in">
+		<h2 class="log-in__title">Войти</h2>
+		<button class="log-in__close">X</button>
+		<form class="log-in__form">
+			<input class="log-in__email" type="email" placeholder="Электронная почта">
+			<input class="log-in__password" type="password" placeholder="Пароль">
+			<div class="log-in__checkbox-comp">
+				<input type="checkbox" id="log-in__computer">
+				<label for="log-in__computer">Чужой компьютер</label>
+			</div>
+			<button class="log-in__button">Войти</button>
+		</form>
+	</div>
+</div>
 
 																	<!--HEADER-->
 	<header class="header">
@@ -134,7 +151,7 @@
 								<p class="navbar__text navbar__text--address"><span class="adaptive-text__hide">Адреса</span></p>
 							</a>
 						</li>
-						<li class="navbar__item">
+						<li class="navbar__item" id="log-in__btn">
 							<a href="#" class="navbar__link">
 								<p class="navbar__text navbar__text--user"><span class="adaptive-text__hide">Войти</span></p>
 							</a>
