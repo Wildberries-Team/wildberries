@@ -24,10 +24,23 @@
     bottom: 100px;
     right: 0;
     margin: auto;
+    max-width: 1600px;
     width: 90%;
     max-height: 900px;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 15px 15px 15px 15px;
+    animation-name: zoomIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 
@@ -252,6 +265,8 @@
     transform: scale(.8);
     color: #b30f97;
 }
+
+
 .close-basket:hover{
     color: red;
 }
@@ -335,6 +350,7 @@
         width: 90%;
     }
 }
+
 
 
 

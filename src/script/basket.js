@@ -15,6 +15,7 @@ function sumPriceInBasket() {
     document.getElementById('sum-basket-nodicount').innerHTML = sumNoDiscont.toFixed(0);
     document.getElementById('sum-basket-discount').innerHTML = (sumNoDiscont - sum).toFixed(0);
     document.getElementById('sum-basket-col').innerHTML = colSum;
+    document.getElementById('basket-col').innerHTML = colSum;
 };
 
 //функция проверки для добавления в корзину и отрисовки большой карточки
@@ -25,7 +26,15 @@ function openBasketAndCard(e, array) {
             dataFromArray(parentId, array);
         }
         if (targetClick.id === "open-card") {
-            bigCard(parentId, array);
+            if (parentId === array[0].id){
+                bigCard(parentId, array);
+                document.querySelector('.prev-card').style.display = 'none';
+
+            } else {
+                bigCard(parentId, array);
+            }
+
+
         }
 
 
@@ -49,7 +58,7 @@ function dataFromArray(idCard, array) {
                     let addRow = new GoodsInBasket(item)
                     getLocal.push(addRow);
                     localSet(getLocal)
-                    lengthBasket();
+                    sumPriceInBasket();
                     blockBasket();
                     sumPriceInBasket();
                 }
@@ -103,16 +112,16 @@ function blockBasket() {
         });
     };
     sumPriceInBasket();
-    lengthBasket();
 };
 
 //счетик длинны корзины
-function lengthBasket() {
-    let getLocal = localGet()
-    if (getLocal.length > 0) {
-        document.getElementById('basket-col').innerHTML = getLocal.length;
-    };
-};
+// function lengthBasket() {
+//     let getLocal = localGet()
+//     if (getLocal.length > 0) {
+//         let number
+//         document.getElementById('basket-col').innerHTML = getLocal.length;
+//     };
+// };
 
 //получение из локал сторедж
 function localGet(){
@@ -125,4 +134,4 @@ function localSet(saveData){
     localStorage.setItem("basket", JSON.stringify(saveData));
 };
 
-export {dataFromArray, blockBasket, openBasketAndCard, localSet, localGet}
+export {dataFromArray, blockBasket, openBasketAndCard, localSet, localGet, sumPriceInBasket}

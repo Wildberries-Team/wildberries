@@ -81,11 +81,11 @@ header {
 
 .nav-elem {
 	padding: 7px 3px;
-	margin-left: 2%;
+	margin-left: 1%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-width: 60px;
+	width: 60px;
 	min-height: 60px;
 	border: 0.3px solid rgba(255, 255, 255, 0.621);
 	border-radius: 10px;
@@ -190,6 +190,12 @@ header {
 		font-size: 20px;
 		color: rgba(255, 255, 255, 0.589);
 }
+/*вендорная модификация убирает крестик внутри search input*/
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
 				/* navbar to the right */
 .navbar {
 		display: flex;
@@ -300,20 +306,6 @@ header {
 		padding: 3px;
 	}
 
-	.btn-chat {
-		display: none;
-		padding: 9px 12px 9px 9px;
-		margin-right: 2%;
-		max-height: 30px;
-		min-width: 20px;
-		border-radius: 28px;
-		width: 28px;
-		height: 28px;
-	}
-
-	.btn-chat__text {
-		display: none;
-	}
 }
 
 @media (max-width: 1200px) {
@@ -332,10 +324,6 @@ header {
 		grid-column: 4;
 	}
 
-	.btn-chat {
-		margin-right: 14%;
-	}
-
 	.search {
 		margin: 2% 2% 0 2%;
 		min-width: 50%;
@@ -351,11 +339,11 @@ header {
 		border: 1px solid rgba(255,255,255,.4);
 		border-radius: 8px;
 		padding: 21px 9px;
-		margin-right: 20px;
+		margin-right: 0px;
 	}
 
 	.burger-btn {
-		width: 29px;
+		width: 28px;
 		height: 4px;
 		margin: 2px 5px;
 		border-radius: 4px;
@@ -401,7 +389,7 @@ header {
 	}
 
 	.burger-btn::before {
-		width: 22px;
+		width: 28px;
 		height: 3.5px;
 		top: 10px;
 	}
@@ -428,7 +416,6 @@ header {
 
 	.nav-elem {
 		padding: 19px 0px;
-		margin-left: 35px;
 	}
 
 	.logo__img {
@@ -440,11 +427,6 @@ header {
 }
 
 @media (max-width: 800px) {
-
-
-	.nav-elem {
-		margin-left: 20px;
-	}
 
 	.logo {
 		margin: 0 0 0 20%;

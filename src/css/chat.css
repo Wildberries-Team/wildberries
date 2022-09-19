@@ -13,7 +13,6 @@
 .chat-header{
     padding: 14px 16px;
     border-bottom: 1px solid #e8e8e8;
-    cursor: move;
     display: flex;
     justify-content: space-between;
 }

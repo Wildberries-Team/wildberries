@@ -75,6 +75,8 @@ function blockCardBig(item) {
                             <p class="description-big"><span class="description-big-title">Описание:</span><br><br>${item.description}</p>
                     </div>
                 </div>
+                <a class="prev-card"><i class="fa-solid fa-arrow-left-long"></i></a>
+                <a class="next-card"><i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
     `;
@@ -90,4 +92,4 @@ function bigCard(idCard, array) {
         });
 };
 
-export {blockCard, lowblockCard, bigCard}
+export {blockCard, lowblockCard, bigCard, blockCardBig}
