@@ -33,6 +33,7 @@
     height: 100%;
     padding: 10px;
     margin: 0 0 20px;
+    object-fit: contain;
 }
 
 .goods__info {
