@@ -1,28 +1,4 @@
-
-#basket-btn{
-    /* display: block; */
-    /* margin-top: 50px;
-    background-color: plum;
-    margin-left: 50px;
-    position: relative; */
-}
-
-#basket-col {
-    /* position: absolute; */
-    /* top: -6px;
-    left: 0; */
-    /* top: -6px;
-    right: -9px;
-    background-color: red;
-    border-radius: 50%;
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-align: center;
-    font-size: 10px;
-    color: white; */
-}
-
+/*затемнение фона*/
 .background-color-container{
     z-index: 300;
     position: fixed;
@@ -32,9 +8,11 @@
     height: 50vh;
     height: 100%;
     /* opacity: 0.3; */
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
+
+/*основной контенер*/
 .basket_container{
     position: relative;
     display: flex;
@@ -46,30 +24,27 @@
     bottom: 100px;
     right: 0;
     margin: auto;
-    width: 1400px;
-    height: 900px;
-    overflow-y: scroll;
+    max-width: 1600px;
+    width: 90%;
+    max-height: 900px;
+    overflow-y: auto;
     border-radius: 15px 15px 15px 15px;
+    animation-name: zoomIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
-.close-basket{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-}
-.close-basket:active{
-    transform: scale(.8);
-    color: #b30f97;
-}
-
-.close-basket:hover{
-    color: red;
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 
+/*левый контенер*/
 .basket_conteiner-left{
     background-color: white;
     width: 100%;
@@ -80,9 +55,9 @@
     box-shadow: 0 0 20px rgba(0,0,0,.1);
     border-radius: 12px;
     padding: 24px;
-    width: 85%;
+    width: 95%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 40px;
     background-color: white;
 }
 
@@ -90,6 +65,10 @@
     margin-top: 0;
     padding-bottom: 20px;
     border-bottom: 1px solid;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+
 }
 
 .container-item-goods{
@@ -105,8 +84,8 @@
 }
 
 .users-goods-basket_img{
-    width: 80px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     margin-right: 16px;
     position: relative;
     font-size: 0;
@@ -115,13 +94,16 @@
     white-space: nowrap;
     border-radius: 8px;
     overflow: hidden;
-
+    object-fit: scale-down;
 }
 
 .users-goods-basket_title{
     width: 50%;
-    padding-top: 10px;
+    padding-top: 20px;
+    font-size: 16px;
+    line-height: 22px;
 }
+
 .users-goods-basket_col{
     width: 25%;
     display: flex;
@@ -130,6 +112,7 @@
     align-items: center;
 }
 
+/*кнопки добавления товара*/
 #minus-btn, #plus-btn {
     width: 40px;
     height: 40px;
@@ -139,16 +122,13 @@
     cursor: pointer;
 
 }
-
 #minus-btn:active, #plus-btn:active{
     background-color: #d5d5d5;
-
 }
 #col-goods{
     margin-left: 10px;
     margin-right: 10px;
 }
-
 .delete-item-basket{
     opacity: 0;
     font-size: 14px;
@@ -158,11 +138,9 @@
     border-color: #242424;
     cursor: pointer;
 }
-
 .delete-item-basket:hover{
     transform: scale(1.1);
 }
-
 .delete-item-basket:active{
     transform: scale(0.8);
 }
@@ -170,10 +148,9 @@
     opacity: 1;
 }
 
-
 .users-goods-basket_sum{
     width: 30%;
-    padding-right: 40px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -198,39 +175,31 @@
 }
 
 
-
-
-
+/*правый контейнер*/
 .basket_conteiner-right{
     width: 50%;
 }
-
-
 .container-right-sum{
     box-shadow: 0 0 20px rgba(0,0,0,.1);
     border-radius: 12px;
     padding: 24px;
-
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 40px;
     background-color: white;
     position: sticky;
     top: 0px;
 }
-
 .first-sum, .second-sum, .discount{
     display: flex;
     justify-content: space-between;
 }
-
 .first-sum {
     font-size: 24px;
     line-height: 32px;
     font-weight: 700;
     color: #242424;
 }
-
 .second-sum, .discount{
     font-size: 16px;
     margin-top: 8px;
@@ -238,6 +207,7 @@
     color: #8b8b8b;
 }
 
+/*кнопка заказа*/
 #order-btn{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -263,6 +233,7 @@
     border-color: #b30f97;
 }
 
+/*ссылки на условия*/
 .checkbox-rules label {
     font-size: 14px;
     line-height: 20px;
@@ -270,15 +241,116 @@
     position: relative;
     padding-left: 22px;
 }
-
 .checkbox-rules label a {
     text-decoration: none;
     font-size: 14px;
     line-height: 20px;
     color: black;
 }
-
 .checkbox-rules label a:hover{
     color: #cb11ab;
 }
+
+/*закрытие корзины*/
+.close-basket{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.close-basket:active{
+    transform: scale(.8);
+    color: #b30f97;
+}
+
+
+.close-basket:hover{
+    color: red;
+}
+
+
+/*Адаптив при 1200px*/
+@media (max-width: 1200px) {
+    .basket_container{
+        flex-direction: column;
+
+    }
+    .basket_conteiner-right{
+        margin-left: 1.8%;
+        max-width: 360px;
+        width: 100%;
+
+        height: 270px;
+        margin-bottom: 70px;
+    }
+
+}
+
+@media (max-width: 830px) {
+    .users-goods-basket{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .users-goods-basket_col{
+        width: 110px;
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    /*кнопки добавления товара*/
+    #minus-btn, #plus-btn {
+        width: 20px;
+        height: 20px;
+    }
+    .delete-item-basket{
+        opacity: 1;
+    }
+
+    .users-goods-basket_sum{
+        width: 140px;
+        padding-right: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+
+    }
+
+    .sum-withdiscount{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .sum-nodiscount{
+        margin-top: 4px;
+        text-decoration: line-through;
+        font-size: 16px;
+        line-height: 22px;
+        border-bottom: 1px dashed;
+        color: #242424;
+        border-color: #242424;
+    }
+}
+
+@media (max-width: 725px) {
+    .users-goods-basket_col{
+        order: 0;
+    }
+    .users-goods-basket_title{
+        max-width: 300px;
+        width: 90%;
+    }
+}
+
+
+
 

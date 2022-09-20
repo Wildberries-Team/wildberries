@@ -1,14 +1,101 @@
-.slider {
-		padding: 53px 0 33px 0;
-		margin-top: 50px;
-		display: flex;
-		justify-content: center;
-		cursor: pointer;
+
+/* Собственно сам слайдер */
+.slider{
+	padding: 53px 0 33px 0;
+	position: relative;
+	width: 100%;
+	max-width: 1440px;
+	max-height: 450px;
+	height: 100%;
+	cursor: pointer;
+	margin: 0 auto;
 }
 
-.slider__img {
-		margin: 0 auto;
-		border-radius: 20px;
-		width: 1440px;
-		height: 370px;
+
+/* Картинка мастабируется по отношению к родительскому элементу */
+.slider .item img {
+	border-radius: 20px;
+	object-fit: contain;
+	width: 100%;
+	max-height: 370px;
+	height: 100%;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.slider .item img:hover{
+	filter: brightness(80%);
+}
+/* Кнопки вперед и назад */
+.slider .prev, .slider .next {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	opacity: .5;
+	background: #fff;
+	border-radius: 100%;
+	border: none;
+
+}
+.slider .next {
+	right: 40px;
+}
+.slider .prev{
+	left: 40px;
+}
+
+
+/* При наведении на кнопки добавляем фон кнопок */
+.slider .prev:hover,
+.slider .next:hover {
+	opacity: 1;
+	color: #cb11ab;
+}
+
+/* Кружочки */
+.slider-dots {
+	text-align: center;
+	margin-left: 0px;
+}
+.slider-dots_item{
+	cursor: pointer;
+	height: 12px;
+	width: 12px;
+	margin: 0 2px;
+	background-color: rgba(203,17,171,.3);
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+.active,
+.slider-dots_item:hover {
+	background-color: #cb11ab;
+}
+/* Анимация слайдов */
+.slider .item {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@keyframes fade {
+	from {
+		opacity: .4
+	}
+	to {
+		opacity: 1
+	}
+}
+
+@media (max-width: 800px){
+	/*.slider{*/
+	/*	max-width: 600px;*/
+	/*	width: 100%;*/
+	/*	max-height: 400px;*/
+	/*	height: 100%;*/
+	/*	object-fit: contain;*/
+	/*}*/
 }

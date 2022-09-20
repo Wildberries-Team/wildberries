@@ -13,7 +13,7 @@
 
 .brandslist {
 		display: block;
-		margin: 35px 0 10px 20px;
+		margin: 45px 0 10px 20px;
 		color: rgb(214, 50, 229);
 		font-family: 'Roboto', sans-serif;
 		font-size: 20px;
@@ -62,8 +62,75 @@
 		border: 1px solid rgb(214, 50, 229);
 }
 
+.brand-logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .brand-logo__img {
-		margin: 12px;
+		margin: 12px auto;
 		max-width: 120px;
 		max-height: 60px;
+}
+
+.category__item:nth-child(1) {
+	display: none;
+}
+
+.category__item:nth-child(2n) {
+	display: none;
+}
+
+
+@media (max-width: 1200px) {
+
+	.brand-logo__img {
+		max-width: 100px;
+		max-height: 60px;
+	}
+}
+
+@media (min-width: 1025px) {
+	.hide-desktop {
+		display: none;
+	}
+}
+
+@media (max-width: 1025px) {
+	.hide-mobile {
+		display: none;
+	}
+}
+
+@media (max-width: 800px) {
+
+	.category__item:last-child {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.category__item_title .category__item_page {
+		padding: 10px;
+		min-width: 50px;
+		min-height: 40px;
+	}
+
+	.brand-logo__img {
+		display: block;
+		margin: 5px auto;
+		max-width: 70%;
+	}
+}
+
+@media (max-width: 400px) {
+
+	.brandslist {
+		margin: 35px 0 10px 20px;
+		font-size: 18px;
+		font-weight: 700;
+	}
 }

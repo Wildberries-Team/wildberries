@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Kaushan+Script&family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&family=Poppins&family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&display=swap');
 @import url('normalize.css');
 @import url('header.css');
+@import url('search.css');
 @import url('main.css');
 @import url('banner.css');
 @import url('intro.css');
@@ -9,6 +10,8 @@
 @import url('footer.css');
 @import url('burger.css');
 @import url('basket.css');
+@import url('chat.css');
+@import url('log_in.css');
 
 
 .container {
@@ -16,6 +19,7 @@
 		padding: 0 15px;
 		max-width: 1500px;
 		height: auto;
+		width: 100%;
 }
 
 /* у каждого сайта должен быть заголовок,если его нет напишем и скроем */
@@ -54,4 +58,10 @@
 		z-index: 99;
 		bottom: 24px;
 		right: 30px;
+}
+
+.burger-icon {
+	margin-right: 20px;
+	font-size: 24px;
+	color: rgba(139, 139, 139, 0.71);
 }

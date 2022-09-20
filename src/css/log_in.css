@@ -1,0 +1,185 @@
+.log-in__container {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.log-in {
+    display: block;
+    width: 500px;
+    height: 400px;
+    border-radius: 15px;
+    margin: auto;
+    z-index: 21;
+    background-color: white;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    bottom: 70px;
+    right: 0;
+    padding: 10px;
+}
+
+.log-in__title {
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: 700;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.log-in__email {
+    width: 100%;
+    border: 3px solid rgba(205,205,205,255);
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.log-in__password {
+    width: 100%;
+    border: 3px solid rgba(205,205,205,255);
+    border-radius: 5px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.log-in__button {
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    line-height: 22px;
+    background-color: #cb11ab;
+    border: 2px solid #cb11ab;
+    width: 100%;
+    height: 40px;
+    margin: 30px 0px;
+}
+
+.log-in__button:hover {
+    background-color: #e313bf;
+    border-color: #e313bf;
+}
+
+.log-in__button:active {
+    background-color: #b30f97;
+    border-color: #b30f97;
+}
+
+.log-in__check-text {
+    font-size: 18px;
+    line-height: 20px;
+    color: black;
+}
+
+.log-in__checkbox-comp {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 30px;
+}
+
+#log-in__computer {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+#log-in__computer+label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+#log-in__computer+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+#log-in__computer:checked+label::before {
+    border-color: #0b76ef;
+    background-color: #0b76ef;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.log-in__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 420px;
+    margin: 0 auto;
+}
+
+.log-in__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.log-in__close:active {
+    transform: scale(.8);
+    color: #b30f97;
+}
+
+.log-in__close:hover {
+    color: red;
+}
+
+@media (max-width: 800px) {
+    .log-in {
+        width: 60%;
+        height: 60%;
+    }
+
+    .log-in__form {
+        width: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .log-in__title {
+        font-size: 20px;
+        line-height: 22px;
+    }
+
+    .log-in__checkbox-comp {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .log-in__form {
+        width: 220px;
+    }
+}
+
+@media (max-width: 400px) {
+    .log-in__form {
+        width: 160px;
+    }
+
+    .log-in {
+        height: 55%;
+    }
+}

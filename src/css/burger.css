@@ -1,24 +1,26 @@
 .body-overflow {
     overflow: hidden;
 }
-.overlay_burger{
+
+.overlay_burger {
     background: black;
     opacity: 0.5;
     width: 100%;
-    height: 100%;
+    height: 120%;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 4;
+    z-index: 100;
 }
-.burger{
+
+.burger {
     position: absolute;
     display: flex;
     align-items: start;
     height: 100%;
-    width: 25%;
-    max-width: 500px;
-    z-index: 5;
+    width: 50%;
+    max-width: 600px;
+    z-index: 101;
     transition: 1s;
     opacity: 1;
 }
@@ -28,6 +30,8 @@
     width: 80%;
     height: 100%;
     display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .burger__close {
@@ -42,10 +46,11 @@
     transition: 1s;
 }
 
-.burger__list{
+.burger__list {
     display: flex;
     flex-direction: column;
-    margin: 10%;
+    margin: 0 8% 8% 8%;
+    height: max-content;
 }
 
 .burger__list li {
@@ -53,4 +58,66 @@
     color: black;
     margin-top: 25px;
     cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.burger__list li:hover {
+    background: #cb11ab;
+    border-radius: 10px;
+    color: white;
+    transition: 0.5s;
+}
+
+.add_card_massage {
+    position: fixed;
+    top: 20%;
+    left:50%;
+    transform:translateX(-50%);
+    background: rgba(0, 0, 0, 0.64);
+    color: white;
+    border-radius: 10px;
+    z-index: 202;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    transition: 0.5s;
+    white-space: nowrap;
+}
+.massage_transform{
+    transform: translate(-50%, -1000%);
+    transition: 0.5s;
+}
+@media screen and (max-width: 1150px) {
+    .burger {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .burger {
+        width: 100%;
+        background: white;
+    }
+
+    .burger__close {
+        color: black;
+        position: absolute;
+        right: 10px;
+    }
+
+    .burger__menu {
+        width: 100%;
+    }
+
+    .burger__list {
+        margin-right: 15%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .burger__list {
+        margin: 10px 45px 10px 5px;
+    }
 }
