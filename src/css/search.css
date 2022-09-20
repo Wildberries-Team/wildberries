@@ -1,0 +1,165 @@
+/* main search input */
+.search {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 55%;
+    /*width: 100%;*/
+}
+
+.search__input {
+    display: block;
+    margin: 0 auto;
+    padding-left: 8%;
+    height: 70px;
+    width: 100%;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    background: rgba(230, 135, 234, 0.55);
+    cursor: pointer;
+    color: black;
+}
+
+.search__input:hover {
+    background-color: rgba(239, 174, 243, 0.71);
+    transition: background-color 0.4s ease;
+}
+
+.search__input:focus {
+    cursor: text;
+    background-color: white;
+    transition: background-color 0.7s ease;
+    font-size: 22px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.search__input::placeholder {
+    color: rgba(255, 255, 255, 0.589);
+    font-size: 22px;
+    line-height: 20px;
+    font-weight: 400;
+}
+/*icon-buttons*/
+.search__icon_magnifier {
+    display: block;
+    position: absolute;
+    left: 4%;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.589);
+}
+
+.search__icon_camera {
+    display: block;
+    position: absolute;
+    right: 4%;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.589);
+}
+
+/*вендорная модификация убирает крестик внутри search input*/
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+@media (max-width: 1450px) {
+
+    .search {
+        min-width: 50%;
+    }
+}
+
+@media (max-width: 1400px) {
+
+    .search {
+        margin: 0 3%;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .search {
+        margin: 2% 2% 0 2%;
+        min-width: 50%;
+        grid-row: 2 / span 4;
+        grid-column: 1 / span 4;
+    }
+
+    .search__input {
+        min-width: 100%;
+    }
+
+    .search__input:focus {
+        font-size: 18px;
+    }
+
+    .search__input::placeholder {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1025px) {
+
+    .search__input {
+        height: 60px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .adaptive-magnifier {
+        font-size: 20px;
+        color: white;
+    }
+
+    .search {
+        margin: 20px 0 0 0;
+        min-width: 70%;
+    }
+
+    .search__input {
+        min-width: 90%;
+        padding-left: 20%;
+    }
+
+    .search__icon_magnifier {
+        left: 10%;
+    }
+
+    .search__icon_camera {
+        right: 10%;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .search {
+        margin: 0;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .search__icon_magnifier {
+        left: 12%;
+        font-size: 16px;
+    }
+
+    .search__icon_camera {
+        right: 12%;
+        font-size: 16px;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 385px) {
+
+    .search {
+        min-width: 60%;
+        margin-right: 10px;
+    }
+}
+
