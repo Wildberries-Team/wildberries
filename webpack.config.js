@@ -13,6 +13,7 @@ module.exports = {
         input: './src/script/search.js',
         intro: './src/script/adaptive_intro.js',
         footer: './src/script/footer.js',
+        login: './src/script/log_in.js',
 // Можно добавлять js файлы
     },
     devServer: {
