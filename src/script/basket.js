@@ -28,16 +28,10 @@ function openBasketAndCard(e, array) {
         if (targetClick.id === "open-card") {
             if (parentId === array[0].id){
                 bigCard(parentId, array);
-                document.querySelector('.prev-card').style.display = 'none';
-
             } else {
                 bigCard(parentId, array);
             }
-
-
         }
-
-
 };
 
 //функция переноса в корзину
@@ -52,7 +46,8 @@ function dataFromArray(idCard, array) {
                             goods.col += 1;
                             localSet(getLocal)
                             blockBasket();
-                        }})
+                        }
+                    })
                 }
                 else {
                     let addRow = new GoodsInBasket(item)
@@ -62,12 +57,8 @@ function dataFromArray(idCard, array) {
                     blockBasket();
                     sumPriceInBasket();
                 }
-
-
-
             }
         })
-
 }
 
 //функция конструктор
@@ -113,15 +104,6 @@ function blockBasket() {
     };
     sumPriceInBasket();
 };
-
-//счетик длинны корзины
-// function lengthBasket() {
-//     let getLocal = localGet()
-//     if (getLocal.length > 0) {
-//         let number
-//         document.getElementById('basket-col').innerHTML = getLocal.length;
-//     };
-// };
 
 //получение из локал сторедж
 function localGet(){

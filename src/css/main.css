@@ -190,34 +190,6 @@
     right: 0;
 }
 
-.prev-card, .next-card{
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    opacity: .5;
-    background: #fff;
-    border-radius: 100%;
-    border: none;
-}
-.prev-card{
-    left: -7%
-}
-
-.next-card{
-    right: -7%
-}
-.prev-card:hover, .next-card:hover{
-    opacity: 1;
-    color: #cb11ab;
-}
-
-.prev-card:active, .next-card:active{
-    transform: scale(0.8);
-}
 
 
 .goods__big {
@@ -451,16 +423,6 @@
         height: 40%;
     }
 
-    .prev-card, .next-card{
-        top: -7%;
-    }
-    .prev-card{
-        left: 0;
-    }
-
-    .next-card{
-        right: 0;
-    }
 }
 
 @media (max-width: 800px) {
