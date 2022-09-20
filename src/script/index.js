@@ -54,7 +54,6 @@ const getCards = async () => {
         }  else {
             goods = cardsArray.length;
         }
-
     })
 
 //закрытие большой карточки при клике на пустую область (не на нее), по нажатию на крестик
@@ -68,7 +67,6 @@ const getCards = async () => {
             console.log(index)
         }
     })
-
 };
 
 //порядок загрузки при загрузки страницы
@@ -181,28 +179,6 @@ function clickOnField(e, array){
         let parentId = e.target.closest('.goods__big-card').id;
         dataFromArray(parentId, array);
     }
-    if(e.target.classList == "prev-card"){
-        let parentId = e.target.closest('.goods__big-card').id;
-        prevCardDisplay(parentId, array)
-    }
-    if(e.target.classList == "next-card"){
-        let parentId = e.target.closest('.goods__big-card').id;
-        nextCardDisplay(parentId, array)
-    }
-};
-
-function prevCardDisplay(parentID, array){
-    let indexItem = array.findIndex(element => element.id === parentID);
-    if (indexItem >= 1) {
-        blockCardBig(array[indexItem - 1])
-    }
-}
-
-function nextCardDisplay(parentID, array){
-    let indexItem = array.findIndex(element => element.id === parentID);
-    if (indexItem < array.length) {
-        blockCardBig(array[indexItem + 1])
-    }
 }
 
 // Функция всплывающего сообщения
@@ -216,4 +192,4 @@ function massageAddCard(evt){
         massage.classList.remove('massage_transform');
         setTimeout(() => massage.classList.add('massage_transform'), 1000);
     }
-}
+};
